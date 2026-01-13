@@ -7,13 +7,15 @@
           "nombre": "Pantallas",
           "precio": "$3.5 | Mayor (5+): $1.2",
           "stock": 100,
-          "garantia": true
+          "garantia": true,
+          "etiqueta": "oferta"
         },
         {
           "nombre": "Cuenta Completa 1 Mes",
           "precio": "$5 | Mayor (5+): $1",
           "stock": 100,
-          "garantia": true
+          "garantia": true,
+          "etiqueta": "oferta"
         }
       ]
     },
@@ -109,7 +111,47 @@
           "nombre": "Activación instantánea para WhatsApp, Telegram, Gmail y +100 apps. Selecciona el país y recibe tu código al momento",
           "precio": "$3",
           "stock": 100,
-          "garantia": true
+          "garantia": true,
+          "etiqueta": "oferta",
+          "descripcion": "Se vendes Accesos recargados full tambien"
+        }
+      ]
+    },
+    {
+      "nombre": "Nueva categoría",
+      "descripcion": "Inteligencia Artificiales IA",
+      "productos": [
+        {
+          "nombre": "Geminis Mensual",
+          "descripcion": "A tu correo o acceso",
+          "precio": "3",
+          "stock": 100,
+          "garantia": false,
+          "etiqueta": "recomendado"
+        },
+        {
+          "nombre": "Chat Gpt Anual ",
+          "descripcion": "A tu correo o acceso",
+          "precio": "20",
+          "stock": 20,
+          "garantia": true,
+          "etiqueta": "oferta"
+        },
+        {
+          "nombre": "Perplexty Ia Mensual",
+          "descripcion": "A tu correo o acceso",
+          "precio": "$3",
+          "stock": 20,
+          "garantia": false,
+          "etiqueta": ""
+        },
+        {
+          "nombre": "Geminis Anual",
+          "descripcion": "A tu correo o acceso",
+          "precio": "20",
+          "stock": 20,
+          "garantia": true,
+          "etiqueta": "oferta"
         }
       ]
     }
