@@ -1,44 +1,36 @@
-const WHATSAPP = "12494792518";
-
 fetch("data.json")
-  .then(r => r.json())
-  .then(data => {
-    const cont = document.getElementById("catalogo");
+  .then(res => res.json())
+  .then(data => renderCatalogo(data));
 
-    data.categorias.forEach(cat => {
-      const card = document.createElement("div");
-      card.className = "card";
-      card.innerHTML = `<h2>${cat.nombre}</h2>`;
+function renderCatalogo(data) {
+  const cont = document.getElementById("catalogo");
+  cont.innerHTML = "";
 
-      cat.items.forEach(it => {
-        const msg = encodeURIComponent(
-          `Hola, quiero comprar:\n` +
-          `Producto: ${it.nombre}\n` +
-          `Cantidad: 1\n` +
-          `Precio unitario: $${it.precio_unitario}\n` +
-          `Precio mayor (5+): $${it.precio_mayor}`
-        );
+  data.categorias.forEach(cat => {
+    const card = document.createElement("div");
+    card.className = "card";
 
-        card.innerHTML += `
-          <div class="item ${it.oferta ? "oferta" : ""}">
-            <strong>${it.nombre}</strong><br>
-            💵 $${it.precio_unitario} | Mayor (5+): $${it.precio_mayor}<br>
-            📦 Stock: ${it.stock}<br>
-            ${it.garantia ? "🛡️ Con garantía" : "❌ Sin garantía"}
-            ${it.oferta ? "<span class='badge'>🔥 OFERTA</span>" : ""}
-            <br>
-            <a class="btn" target="_blank"
-               href="https://wa.me/${WHATSAPP}?text=${msg}">
-               📲 Pedir por WhatsApp
-            </a>
-          </div>
-        `;
-      });
+    card.innerHTML = `<h3>${cat.nombre}</h3>`;
 
-      cont.appendChild(card);
+    cat.productos.forEach(p => {
+      const div = document.createElement("div");
+      div.className = "product";
+
+      const msg = encodeURIComponent(
+        `Hola, quiero pedir:\nProducto: ${p.nombre}\nPrecio: ${p.precio}\nCantidad: 1`
+      );
+
+      div.innerHTML = `
+        <div><strong>${p.nombre}</strong></div>
+        <div class="price">${p.precio}</div>
+        <div class="stock">📦 Stock: ${p.stock}</div>
+        <span class="tag">${p.garantia ? "Con garantía" : "Sin garantía"}</span>
+        <a class="whatsapp" href="https://wa.me/12494792518?text=${msg}" target="_blank">💬</a>
+      `;
+
+      card.appendChild(div);
     });
-  })
-  .catch(() => {
-    document.getElementById("catalogo").innerHTML =
-      "<p style='padding:20px'>❌ Error cargando catálogo</p>";
+
+    cont.appendChild(card);
   });
+}
