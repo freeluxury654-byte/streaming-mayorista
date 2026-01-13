@@ -1,7 +1,8 @@
 let DATA = null;
 let isAdmin = false;
-const PASS = "1234"; // 🔐 CAMBIA ESTA CLAVE
+const PASS = "1234"; // 🔐 CAMBIA ESTA CLAVE SOLO TÚ
 
+/* ================== CARGA DE DATOS ================== */
 fetch("data.json")
   .then(r => r.json())
   .then(d => {
@@ -9,6 +10,7 @@ fetch("data.json")
     render();
   });
 
+/* ================== RENDER ================== */
 function render() {
   const cont = document.getElementById("catalogo");
   cont.innerHTML = "";
@@ -16,6 +18,22 @@ function render() {
   document.getElementById("adminBar")
     .classList.toggle("hidden", !isAdmin);
 
+  /* ===== PANEL MÉTRICAS (SOLO ADMIN) ===== */
+  if (isAdmin) {
+    const stats = JSON.parse(localStorage.getItem("STATS")) || {};
+    const panel = document.createElement("div");
+    panel.className = "card";
+    panel.innerHTML = `
+      <h3>📊 Métricas básicas</h3>
+      <p>📲 Clics en WhatsApp: <strong>${stats.whatsapp || 0}</strong></p>
+      <p style="font-size:13px;color:#9ca3af;">
+        Métrica local (útil para tendencias)
+      </p>
+    `;
+    cont.appendChild(panel);
+  }
+
+  /* ===== CATEGORÍAS ===== */
   DATA.categorias.forEach((cat, ci) => {
     const card = document.createElement("div");
     card.className = "card";
@@ -29,7 +47,8 @@ function render() {
       </h3>
 
       ${isAdmin
-        ? `<input class="admin-input" placeholder="Descripción de la categoría"
+        ? `<input class="admin-input"
+             placeholder="Descripción de la categoría"
              value="${cat.descripcion || ""}"
              onchange="editCategory(${ci}, 'descripcion', this.value)">`
         : cat.descripcion
@@ -45,6 +64,7 @@ function render() {
       ` : ""}
     `;
 
+    /* ===== PRODUCTOS ===== */
     cat.productos.forEach((p, pi) => {
       let badge = "";
       if (p.etiqueta === "oferta") badge = `<span class="tag badge-offer">🔥 Oferta</span>`;
@@ -55,7 +75,8 @@ function render() {
           ${isAdmin ? `
             <input class="admin-input" value="${p.nombre}"
               onchange="editProduct(${ci},${pi},'nombre',this.value)">
-            <input class="admin-input" placeholder="Descripción del producto"
+            <input class="admin-input"
+              placeholder="Descripción del producto"
               value="${p.descripcion || ""}"
               onchange="editProduct(${ci},${pi},'descripcion',this.value)">
             <input class="admin-input" value="${p.precio}"
@@ -97,7 +118,7 @@ function render() {
   localStorage.setItem("DATA_LOCAL", JSON.stringify(DATA));
 }
 
-/* ===== EDITOR ===== */
+/* ================== EDITOR ================== */
 
 function enterAdmin() {
   const p = prompt("Clave de edición:");
@@ -169,4 +190,12 @@ function exportJSON() {
   a.href = URL.createObjectURL(blob);
   a.download = "data.json";
   a.click();
+}
+
+/* ================== MÉTRICAS ================== */
+
+function trackClick(type) {
+  const stats = JSON.parse(localStorage.getItem("STATS")) || {};
+  stats[type] = (stats[type] || 0) + 1;
+  localStorage.setItem("STATS", JSON.stringify(stats));
 }
