@@ -1,0 +1,45 @@
+{
+  "negocio": {
+    "nombre": "Streaming Mayorista",
+    "whatsapp": "+12494792518",
+    "mensaje": "Entrega inmediata | Soporte activo"
+  },
+  "categorias": [
+    {
+      "nombre": "Cuentas Completas",
+      "items": [
+        {
+          "nombre": "Netflix 1 Mes",
+          "precio_unitario": 5,
+          "precio_mayor": 4,
+          "stock": 10,
+          "garantia": true
+        }
+      ]
+    },
+    {
+      "nombre": "Pantallas",
+      "items": [
+        {
+          "nombre": "Pantalla Netflix",
+          "precio_unitario": 2,
+          "precio_mayor": 1.5,
+          "stock": 20,
+          "garantia": false
+        }
+      ]
+    },
+    {
+      "nombre": "VPN",
+      "items": [
+        {
+          "nombre": "VPN Premium 1 Mes",
+          "precio_unitario": 3,
+          "precio_mayor": 2.5,
+          "stock": 15,
+          "garantia": true
+        }
+      ]
+    }
+  ]
+}
