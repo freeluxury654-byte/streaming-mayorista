@@ -10,9 +10,8 @@
 
 <div class="container">
 
-  <!-- HEADER -->
   <header class="hero">
-    <h1>💎 Streaming Pro Center</h1>
+    <h1 id="adminTrigger">💎 Streaming Pro Center</h1>
 
     <p class="subtitle">
       Distribución Mayorista · ⚡ <span>Entrega inmediata</span> · Soporte activo
@@ -31,31 +30,28 @@
       📲 Pedir ahora por WhatsApp
     </a>
 
-    <p class="social-proof">
-      ⭐ Operando diariamente · +200 cuentas activadas este mes
-    </p>
+    <!-- BARRA ADMIN -->
+    <div id="adminBar" class="admin-bar hidden">
+      <button onclick="exportJSON()">⬇ Exportar catálogo</button>
+      <button onclick="exitAdmin()">🔒 Salir editor</button>
+    </div>
   </header>
 
-  <!-- CONDICIONES -->
   <section class="conditions">
     <h2>📌 Condiciones</h2>
     <ul>
-      <li>💼 Precios mayoristas aplican desde <strong>5 cuentas</strong>.</li>
-      <li>🛡️ Las cuentas con garantía incluyen reposición durante el período activo.</li>
-      <li>📦 Productos sin garantía son <strong>entrega única</strong>.</li>
-      <li>⚡ Activación inmediata tras confirmación de pago.</li>
+      <li>💼 Precios mayoristas desde <strong>5 cuentas</strong>.</li>
+      <li>🛡️ Garantía con reposición según producto.</li>
+      <li>📦 Sin garantía = entrega única.</li>
+      <li>⚡ Activación inmediata tras pago.</li>
     </ul>
   </section>
 
-  <!-- CATÁLOGO -->
   <section id="catalogo" class="catalogo"></section>
 
-  <!-- FOOTER -->
   <footer>
-    <p>
-      Streaming Pro Center · Distribución digital · Atención directa<br>
-      © 2026 Todos los derechos reservados
-    </p>
+    <p>Streaming Pro Center · Distribución digital · Atención directa<br>
+      © 2026 Todos los derechos reservados</p>
   </footer>
 
 </div>
