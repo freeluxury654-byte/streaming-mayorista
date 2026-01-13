@@ -1,24 +1,17 @@
 {
-  "negocio": {
-    "nombre": "Streaming Mayorista",
-    "whatsapp": "+12494792518",
-    "mensaje": "Entrega inmediata | Soporte activo"
-  },
   "categorias": [
     {
       "nombre": "Prime Video",
-      "items": [
+      "productos": [
         {
-          "nombre": "Pantallas ",
-          "precio_unitario": 3,
-          "precio_mayor": 2,
+          "nombre": "Pantallas",
+          "precio": "$3 | Mayor (5+): $2",
           "stock": 100,
           "garantia": true
         },
         {
-          "nombre": "Cuenta Completa 1Mes",
-          "precio_unitario": 5,
-          "precio_mayor": 1,
+          "nombre": "Cuenta Completa 1 Mes",
+          "precio": "$5 | Mayor (5+): $1",
           "stock": 100,
           "garantia": true
         }
@@ -26,75 +19,16 @@
     },
     {
       "nombre": "Vpn's",
-      "items": [
+      "productos": [
         {
-          "nombre": "Express Vpn 6 Meses",
-          "precio_unitario": 5,
-          "precio_mayor": 5,
+          "nombre": "Express VPN 6 Meses",
+          "precio": "$5 | Mayor (5+): $5",
           "stock": 3,
           "garantia": true
         },
         {
-          "nombre": "Hotspot Shield 3 meses",
-          "precio_unitario": 3,
-          "precio_mayor": 3,
-          "stock": 3,
-          "garantia": true
-        },
-        {
-          "nombre": "Surfshack",
-          "precio_unitario": 5,
-          "precio_mayor": 5,
-          "stock": 10,
-          "garantia": true
-        }
-      ]
-    },
-    {
-      "nombre": "Hbo Max",
-      "items": [
-        {
-          "nombre": "Pantalla",
-          "precio_unitario": 3,
-          "precio_mayor": 1.2,
-          "stock": 100,
-          "garantia": true
-        },
-        {
-          "nombre": "Cuenta Completa ",
-          "precio_unitario": 5,
-          "precio_mayor": 1.8,
-          "stock": 10,
-          "garantia": true
-        }
-      ]
-    },
-    {
-      "nombre": "Disney",
-      "items": [
-        {
-          "nombre": "Pantalla ",
-          "precio_unitario": 3.5,
-          "precio_mayor": 3.5,
-          "stock": 5,
-          "garantia": true
-        }
-      ]
-    },
-    {
-      "nombre": "Netflix",
-      "items": [
-        {
-          "nombre": "Pantallas",
-          "precio_unitario": 3.5,
-          "precio_mayor": 3.5,
-          "stock": 10,
-          "garantia": true
-        },
-        {
-          "nombre": "Email Access Completa",
-          "precio_unitario": 10,
-          "precio_mayor": 6,
+          "nombre": "Surfshark",
+          "precio": "$5 | Mayor (5+): $5",
           "stock": 10,
           "garantia": true
         }
@@ -102,4 +36,3 @@
     }
   ]
 }
-
