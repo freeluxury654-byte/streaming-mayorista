@@ -1,6 +1,6 @@
 let DATA = null;
 let isAdmin = false;
-const PASS = "7777"; // 🔐 CAMBIA ESTA CLAVE
+const PASS = "1234"; // 🔐 CAMBIA ESTA CLAVE
 
 fetch("data.json")
   .then(r => r.json())
@@ -24,9 +24,18 @@ function render() {
       <h3>
         ${isAdmin
           ? `<input class="admin-input" value="${cat.nombre}"
-              onchange="editCategory(${ci}, this.value)">`
+              onchange="editCategory(${ci}, 'nombre', this.value)">`
           : cat.nombre}
       </h3>
+
+      ${isAdmin
+        ? `<input class="admin-input" placeholder="Descripción de la categoría"
+             value="${cat.descripcion || ""}"
+             onchange="editCategory(${ci}, 'descripcion', this.value)">`
+        : cat.descripcion
+          ? `<p class="cat-desc">${cat.descripcion}</p>`
+          : ""
+      }
 
       ${isAdmin ? `
         <div class="admin-actions">
@@ -37,19 +46,34 @@ function render() {
     `;
 
     cat.productos.forEach((p, pi) => {
+      let badge = "";
+      if (p.etiqueta === "oferta") badge = `<span class="tag badge-offer">🔥 Oferta</span>`;
+      if (p.etiqueta === "recomendado") badge = `<span class="tag badge-star">⭐ Recomendado</span>`;
+
       card.innerHTML += `
         <div class="product">
           ${isAdmin ? `
             <input class="admin-input" value="${p.nombre}"
               onchange="editProduct(${ci},${pi},'nombre',this.value)">
+            <input class="admin-input" placeholder="Descripción del producto"
+              value="${p.descripcion || ""}"
+              onchange="editProduct(${ci},${pi},'descripcion',this.value)">
             <input class="admin-input" value="${p.precio}"
               onchange="editProduct(${ci},${pi},'precio',this.value)">
             <input class="admin-input" type="number" value="${p.stock}"
               onchange="editProduct(${ci},${pi},'stock',this.value)">
-            <select class="toggle"
+
+            <select class="admin-input"
               onchange="editProduct(${ci},${pi},'garantia',this.value)">
               <option value="true" ${p.garantia ? "selected" : ""}>Con garantía</option>
               <option value="false" ${!p.garantia ? "selected" : ""}>Sin garantía</option>
+            </select>
+
+            <select class="admin-input"
+              onchange="editProduct(${ci},${pi},'etiqueta',this.value)">
+              <option value="">Sin etiqueta</option>
+              <option value="oferta" ${p.etiqueta==="oferta"?"selected":""}>🔥 Oferta</option>
+              <option value="recomendado" ${p.etiqueta==="recomendado"?"selected":""}>⭐ Recomendado</option>
             </select>
 
             <div class="admin-actions">
@@ -57,9 +81,11 @@ function render() {
             </div>
           ` : `
             <strong>${p.nombre}</strong>
+            ${p.descripcion ? `<div class="cat-desc">${p.descripcion}</div>` : ""}
             <div class="price">${p.precio}</div>
             <div class="stock">📦 Stock: ${p.stock}</div>
             <span class="tag">${p.garantia ? "Con garantía" : "Sin garantía"}</span>
+            ${badge}
           `}
         </div>
       `;
@@ -71,7 +97,7 @@ function render() {
   localStorage.setItem("DATA_LOCAL", JSON.stringify(DATA));
 }
 
-/* ===== ACCIONES EDITOR ===== */
+/* ===== EDITOR ===== */
 
 function enterAdmin() {
   const p = prompt("Clave de edición:");
@@ -92,6 +118,7 @@ function exitAdmin() {
 function addCategory() {
   DATA.categorias.push({
     nombre: "Nueva categoría",
+    descripcion: "",
     productos: []
   });
   render();
@@ -104,16 +131,18 @@ function removeCategory(ci) {
   }
 }
 
-function editCategory(ci, value) {
-  DATA.categorias[ci].nombre = value;
+function editCategory(ci, field, value) {
+  DATA.categorias[ci][field] = value;
 }
 
 function addProduct(ci) {
   DATA.categorias[ci].productos.push({
     nombre: "Nuevo producto",
+    descripcion: "",
     precio: "$0",
     stock: 0,
-    garantia: true
+    garantia: true,
+    etiqueta: ""
   });
   render();
 }
@@ -141,4 +170,3 @@ function exportJSON() {
   a.download = "data.json";
   a.click();
 }
-
