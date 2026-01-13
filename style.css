@@ -196,3 +196,39 @@ footer {
   color: #9ca3af;
   font-size: 13px;
 }
+/* ===== EDITOR ===== */
+
+.admin-input {
+  width: 100%;
+  padding: 6px;
+  margin: 4px 0;
+  border-radius: 6px;
+  border: none;
+  background: #020617;
+  color: #e5e7eb;
+}
+
+.admin-actions {
+  display: flex;
+  gap: 6px;
+  margin-top: 6px;
+  flex-wrap: wrap;
+}
+
+.admin-actions button {
+  background: #334155;
+  border: none;
+  color: #e5e7eb;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+}
+
+.toggle {
+  background: #020617;
+  border: 1px solid #334155;
+  color: #e5e7eb;
+  padding: 6px;
+  border-radius: 6px;
+}
+
