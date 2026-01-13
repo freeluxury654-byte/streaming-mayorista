@@ -67,3 +67,48 @@ button.del {
   bottom: 16px;
   right: 16px;
 }
+/* ===== HERO HEADER ===== */
+.hero {
+  text-align: center;
+  padding: 28px 20px;
+  border-radius: 14px;
+  margin-bottom: 30px;
+  background: linear-gradient(135deg, #020617, #020617);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.hero-title {
+  font-size: 26px;
+  font-weight: 800;
+  color: #e5e7eb;
+  letter-spacing: 0.5px;
+}
+
+.hero-sub {
+  margin: 12px 0 18px;
+  font-size: 15px;
+  color: #9ca3af;
+}
+
+.hero-sub .fast {
+  color: #22c55e;
+  font-weight: 600;
+}
+
+.hero-btn {
+  display: inline-block;
+  background: #25d366;
+  color: #022c22;
+  padding: 12px 26px;
+  border-radius: 999px;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 8px 20px rgba(37,211,102,0.35);
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+
+.hero-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(37,211,102,0.45);
+}
+
