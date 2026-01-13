@@ -1,6 +1,6 @@
 let DATA = null;
 let isAdmin = false;
-const PASS = "1234"; // 🔐 CAMBIA ESTA CLAVE
+const PASS = "7777"; // 🔐 CAMBIA ESTA CLAVE
 
 fetch("data.json")
   .then(r => r.json())
@@ -141,3 +141,4 @@ function exportJSON() {
   a.download = "data.json";
   a.click();
 }
+
