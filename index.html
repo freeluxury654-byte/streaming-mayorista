@@ -11,7 +11,7 @@
 <div class="container">
 
   <header class="hero">
-    <h1 id="adminTrigger">💎 Streaming Pro Center</h1>
+    <h1>💎 Streaming Pro Center</h1>
 
     <p class="subtitle">
       Distribución Mayorista · ⚡ <span>Entrega inmediata</span> · Soporte activo
@@ -30,10 +30,16 @@
       📲 Pedir ahora por WhatsApp
     </a>
 
-    <!-- BARRA ADMIN -->
+    <!-- ACCESO EDITOR -->
+    <div class="admin-access">
+      <button onclick="enterAdmin()">🔐 Editar catálogo</button>
+    </div>
+
+    <!-- BARRA EDITOR -->
     <div id="adminBar" class="admin-bar hidden">
-      <button onclick="exportJSON()">⬇ Exportar catálogo</button>
-      <button onclick="exitAdmin()">🔒 Salir editor</button>
+      <button onclick="addCategory()">➕ Categoría</button>
+      <button onclick="exportJSON()">⬇ Exportar data.json</button>
+      <button onclick="exitAdmin()">🔒 Salir</button>
     </div>
   </header>
 
@@ -41,7 +47,7 @@
     <h2>📌 Condiciones</h2>
     <ul>
       <li>💼 Precios mayoristas desde <strong>5 cuentas</strong>.</li>
-      <li>🛡️ Garantía con reposición según producto.</li>
+      <li>🛡️ Productos con garantía incluyen reposición.</li>
       <li>📦 Sin garantía = entrega única.</li>
       <li>⚡ Activación inmediata tras pago.</li>
     </ul>
@@ -50,8 +56,8 @@
   <section id="catalogo" class="catalogo"></section>
 
   <footer>
-    <p>Streaming Pro Center · Distribución digital · Atención directa<br>
-      © 2026 Todos los derechos reservados</p>
+    <p>Streaming Pro Center · Distribución digital · Atención directa
+© 2026 Todos los derechos reservados</p>
   </footer>
 
 </div>
