@@ -1,6 +1,6 @@
 let DATA = null;
 let isAdmin = false;
-const PASS = "1234"; // 🔐 CAMBIA ESTA CLAVE SOLO TÚ
+const PASS = "1234"; // 🔐 CAMBIA ESTA CLAVE
 
 fetch("data.json")
   .then(r => r.json())
@@ -46,11 +46,12 @@ function render() {
               onchange="editProduct(${ci},${pi},'precio',this.value)">
             <input class="admin-input" type="number" value="${p.stock}"
               onchange="editProduct(${ci},${pi},'stock',this.value)">
-            <select class="admin-input"
+            <select class="toggle"
               onchange="editProduct(${ci},${pi},'garantia',this.value)">
               <option value="true" ${p.garantia ? "selected" : ""}>Con garantía</option>
               <option value="false" ${!p.garantia ? "selected" : ""}>Sin garantía</option>
             </select>
+
             <div class="admin-actions">
               <button onclick="removeProduct(${ci},${pi})">🗑 Producto</button>
             </div>
