@@ -5,7 +5,7 @@
       "productos": [
         {
           "nombre": "Pantallas",
-          "precio": "$3 | Mayor (5+): $2",
+          "precio": "$3.5 | Mayor (5+): $1.2",
           "stock": 100,
           "garantia": true
         },
@@ -24,12 +24,80 @@
           "nombre": "Express VPN 6 Meses",
           "precio": "$5 | Mayor (5+): $5",
           "stock": 3,
-          "garantia": true
+          "garantia": false
         },
         {
           "nombre": "Surfshark",
           "precio": "$5 | Mayor (5+): $5",
           "stock": 10,
+          "garantia": false
+        }
+      ]
+    },
+    {
+      "nombre": "Netflix Email Access ",
+      "productos": [
+        {
+          "nombre": "Cuenta Completa  Autopay ",
+          "precio": "$10",
+          "stock": 7,
+          "garantia": true
+        },
+        {
+          "nombre": "Pantallas ",
+          "precio": "$3.5",
+          "stock": 10,
+          "garantia": true
+        }
+      ]
+    },
+    {
+      "nombre": "HBO Max",
+      "productos": [
+        {
+          "nombre": "Hbo Standar pantallas",
+          "precio": "$2.5",
+          "stock": 10,
+          "garantia": true
+        },
+        {
+          "nombre": "Alquiler de Cuenta Completa 1 Mes",
+          "precio": "$6",
+          "stock": 2,
+          "garantia": true
+        }
+      ]
+    },
+    {
+      "nombre": "Mubi Go",
+      "productos": [
+        {
+          "nombre": "Pantallas",
+          "precio": "$1",
+          "stock": 50,
+          "garantia": true
+        },
+        {
+          "nombre": "Cuenta Completa 2 Meses ",
+          "precio": "$4",
+          "stock": 50,
+          "garantia": true
+        }
+      ]
+    },
+    {
+      "nombre": "Shadowz ",
+      "productos": [
+        {
+          "nombre": "Pantallas",
+          "precio": "$1.2",
+          "stock": 50,
+          "garantia": true
+        },
+        {
+          "nombre": "Cuenta completa Autopay",
+          "precio": "$1.2",
+          "stock": 50,
           "garantia": true
         }
       ]
