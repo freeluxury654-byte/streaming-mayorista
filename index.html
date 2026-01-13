@@ -2,14 +2,24 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
+
   <title>Streaming Pro Center | Mayorista</title>
+
+  <!-- SEO BÁSICO -->
+  <meta name="description"
+        content="Catálogo mayorista de cuentas streaming. Stock actualizado, entrega inmediata y soporte directo.">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- FAVICON (opcional, si lo subes) -->
+  <!-- <link rel="icon" href="favicon.png"> -->
+
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <div class="container">
 
+  <!-- ================= HEADER ================= -->
   <header class="hero">
     <h1>💎 Streaming Pro Center</h1>
 
@@ -30,9 +40,14 @@
       📲 Pedir ahora por WhatsApp
     </a>
 
+    <p class="micro">
+      ⏱️ Activación en minutos · 📦 Stock real · 🤝 Atención directa
+    </p>
+
     <!-- ACCESO EDITOR -->
     <div class="admin-access">
       <button onclick="enterAdmin()">🔐 Editar catálogo</button>
+      <p class="editor-note">Área de administración (solo operador)</p>
     </div>
 
     <!-- BARRA EDITOR -->
@@ -43,20 +58,33 @@
     </div>
   </header>
 
+  <!-- ================= CÓMO FUNCIONA ================= -->
+  <section class="how">
+    <h2>📋 ¿Cómo funciona?</h2>
+    <ol>
+      <li>📦 Elige el producto en el catálogo</li>
+      <li>📲 Escríbenos por WhatsApp</li>
+      <li>⚡ Activamos de inmediato</li>
+    </ol>
+  </section>
+
+  <!-- ================= CONDICIONES ================= -->
   <section class="conditions">
     <h2>📌 Condiciones</h2>
     <ul>
-      <li>💼 Precios mayoristas desde <strong>5 cuentas</strong>.</li>
+      <li>💼 Precios mayoristas aplican desde <strong>5 cuentas</strong>.</li>
       <li>🛡️ Productos con garantía incluyen reposición.</li>
       <li>📦 Sin garantía = entrega única.</li>
-      <li>⚡ Activación inmediata tras pago.</li>
+      <li>⚡ Activación inmediata tras confirmación de pago.</li>
     </ul>
   </section>
 
-  <!-- CATÁLOGO -->
-  <section id="catalogo" class="catalogo"></section>
+  <!-- ================= CATALOGO ================= -->
+  <main>
+    <section id="catalogo" class="catalogo"></section>
+  </main>
 
-  <!-- FOOTER FIJO -->
+  <!-- ================= FOOTER ================= -->
   <footer>
     <p>
       Streaming Pro Center · Distribución digital · Atención directa<br>
