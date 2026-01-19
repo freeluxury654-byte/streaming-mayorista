@@ -1,72 +1,61 @@
-let DATA = null;
+let DATA;
 let isAdmin = false;
-const PASS = "1234"; // 🔐 cambia esta clave si quieres
+const PASS = "1234";
 
-/* ================== CARGA ================== */
+/* ================= CARGA ================= */
 fetch("data.json")
   .then(r => r.json())
   .then(d => {
-    DATA = d;
+    DATA = JSON.parse(localStorage.getItem("DATA_EDIT")) || d;
     render();
   });
 
-/* ================== RENDER ================== */
+/* ================= RENDER ================= */
 function render() {
   const cont = document.getElementById("catalogo");
   cont.innerHTML = "";
 
-  const today = new Date().toISOString().split("T")[0];
-
   DATA.categorias
     .filter(c => c.activo)
-    .sort((a, b) => a.orden - b.orden)
-    .forEach(cat => {
+    .sort((a,b) => a.orden - b.orden)
+    .forEach((cat, ci) => {
+
       const card = document.createElement("div");
       card.className = "card";
-
-      card.innerHTML = `
-        <h3>${cat.nombre}</h3>
-        <p class="cat-desc">${cat.descripcion}</p>
-      `;
+      card.innerHTML = `<h3>${cat.nombre}</h3><p class="cat-desc">${cat.descripcion}</p>`;
 
       cat.productos
         .filter(p => p.activo)
-        .forEach(p => {
-          let tags = "";
+        .forEach((p, pi) => {
 
-          // 🔥 oferta automática por fecha
-          if (
-            p.oferta &&
-            p.oferta.activa &&
-            today >= p.oferta.desde &&
-            today <= p.oferta.hasta
-          ) {
-            tags += `<span class="tag badge-offer">${p.oferta.texto}</span>`;
-          }
-
-          // etiquetas manuales
-          if (p.etiquetas) {
-            p.etiquetas.forEach(t => {
-              tags += `<span class="tag">${t}</span>`;
-            });
-          }
-
-          // ⚠️ alerta de bajo stock
           let stockText = `📦 Stock: ${p.stock}`;
           if (p.stock <= p.alerta_stock) {
             stockText = `⚠️ Últimas unidades (${p.stock})`;
           }
 
+          let tags = (p.etiquetas || []).map(t => `<span class="tag">${t}</span>`).join("");
+
           const prod = document.createElement("div");
           prod.className = "product";
           prod.onclick = () => trackClick(p.id);
 
-          prod.innerHTML = `
+          prod.innerHTML = isAdmin ? `
+            <input value="${p.nombre}" onchange="edit(${ci},${pi},'nombre',this.value)">
+            <input value="${p.descripcion}" onchange="edit(${ci},${pi},'descripcion',this.value)">
+            <input type="number" value="${p.precio_unitario}" onchange="edit(${ci},${pi},'precio_unitario',this.value)">
+            <input type="number" value="${p.precio_mayor}" onchange="edit(${ci},${pi},'precio_mayor',this.value)">
+            <input type="number" value="${p.stock}" onchange="edit(${ci},${pi},'stock',this.value)">
+            <label>
+              <input type="checkbox" ${p.garantia ? "checked":""}
+                onchange="edit(${ci},${pi},'garantia',this.checked)">
+              Garantía
+            </label>
+            ${tags}
+          ` : `
             <strong>${p.nombre}</strong>
             <div class="cat-desc">${p.descripcion}</div>
             <div class="price">$${p.precio_unitario} USD</div>
-            <div class="stock">${stockText}</div>
-            <div>${p.garantia ? "🛡️ Con garantía" : "⚠️ Sin garantía"}</div>
+            <div>${stockText}</div>
             ${tags}
           `;
 
@@ -76,39 +65,35 @@ function render() {
       cont.appendChild(card);
     });
 
-  if (isAdmin) renderStats();
+  localStorage.setItem("DATA_EDIT", JSON.stringify(DATA));
 }
 
-/* ================== MÉTRICAS ================== */
-function trackClick(id) {
-  const stats = JSON.parse(localStorage.getItem("STATS")) || {};
-  stats[id] = (stats[id] || 0) + 1;
-  localStorage.setItem("STATS", JSON.stringify(stats));
+/* ================= EDIT ================= */
+function edit(ci, pi, field, value) {
+  if (field.includes("precio") || field === "stock") value = Number(value);
+  DATA.categorias[ci].productos[pi][field] = value;
 }
 
-function renderStats() {
-  const stats = JSON.parse(localStorage.getItem("STATS")) || {};
-  const cont = document.getElementById("catalogo");
-
-  const panel = document.createElement("div");
-  panel.className = "card";
-
-  let html = "<h3>📊 Métricas de clic</h3>";
-  Object.keys(stats).forEach(k => {
-    html += `<p>${k}: <strong>${stats[k]}</strong></p>`;
-  });
-
-  panel.innerHTML = html;
-  cont.prepend(panel);
+/* ================= EXPORT ================= */
+function exportJSON() {
+  const blob = new Blob([JSON.stringify(DATA, null, 2)], {type:"application/json"});
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = "data.json";
+  a.click();
 }
 
-/* ================== ADMIN ================== */
+/* ================= ADMIN ================= */
 function enterAdmin() {
-  const p = prompt("Clave de edición:");
-  if (p === PASS) {
+  if (prompt("Clave de edición") === PASS) {
     isAdmin = true;
     render();
-  } else {
-    alert("Clave incorrecta");
   }
+}
+
+/* ================= MÉTRICAS ================= */
+function trackClick(id) {
+  const s = JSON.parse(localStorage.getItem("STATS")) || {};
+  s[id] = (s[id] || 0) + 1;
+  localStorage.setItem("STATS", JSON.stringify(s));
 }
