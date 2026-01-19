@@ -4,6 +4,12 @@
   <meta charset="UTF-8" />
   <title>Streaming Pro Center · Mayorista</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ESTILOS -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- SEO BÁSICO -->
+  <meta name="description" content="Streaming Pro Center · Distribución mayorista de cuentas streaming con activación inmediata y soporte 24/7." />
 </head>
 
 <body>
@@ -12,6 +18,7 @@
   <!-- HEADER -->
   <header class="header">
     <h1>💎 Streaming Pro Center</h1>
+
     <p class="subtitle">
       Distribución mayorista · ⚡ Activación inmediata · Soporte 24/7
     </p>
@@ -23,36 +30,46 @@
       <span>🤝 Atención directa</span>
     </div>
 
-    <a class="cta" href="https://wa.me/12494792518" target="_blank">
-      💬 Hazte distribuidor hoy
-    </a>
+    <div class="header-actions">
+      <a class="cta" href="https://wa.me/12494792518" target="_blank" rel="noopener">
+        💬 Hazte distribuidor hoy
+      </a>
 
-    <button id="btnEditor" class="editor-btn">🔐 Editar catálogo</button>
+      <button id="btnEditor" class="editor-btn">
+        🔐 Editar catálogo
+      </button>
+    </div>
   </header>
 
   <!-- INFO -->
   <section class="info">
-    <h2>📋 ¿Cómo comprar?</h2>
-    <ol>
-      <li>📦 Revisa el catálogo y disponibilidad</li>
-      <li>💬 Escríbenos por WhatsApp indicando el producto</li>
-      <li>⚡ Activamos de inmediato tras confirmar</li>
-    </ol>
+    <div class="info-card">
+      <h2>📋 ¿Cómo comprar?</h2>
+      <ol>
+        <li>📦 Revisa el catálogo y la disponibilidad</li>
+        <li>💬 Escríbenos por WhatsApp indicando el producto</li>
+        <li>⚡ Activamos de inmediato tras confirmar el pago</li>
+      </ol>
+    </div>
 
-    <h2>📌 Condiciones importantes</h2>
-    <ul>
-      <li>📦 Precios mayoristas desde <b>5 cuentas</b></li>
-      <li>🛡️ Productos con garantía incluyen reposición</li>
-      <li>🚫 Productos sin garantía son entrega única</li>
-      <li>💳 Activación tras confirmación de pago</li>
-    </ul>
+    <div class="info-card">
+      <h2>📌 Condiciones importantes</h2>
+      <ul>
+        <li>📦 Precios mayoristas aplican desde <strong>5 cuentas</strong></li>
+        <li>🛡️ Productos con garantía incluyen reposición</li>
+        <li>🚫 Productos sin garantía son entrega única</li>
+        <li>💳 Activación tras confirmación de pago</li>
+      </ul>
+    </div>
   </section>
 
   <!-- CATÁLOGO -->
-  <section id="catalogo" class="catalogo"></section>
+  <section id="catalogo" class="catalogo">
+    <!-- El contenido se genera dinámicamente desde public.js -->
+  </section>
 
   <!-- FOOTER -->
-  <footer>
+  <footer class="footer">
     <p>
       Streaming Pro Center · Distribución digital · Atención directa<br />
       © 2026 Todos los derechos reservados
@@ -61,6 +78,7 @@
 
 </div>
 
+<!-- SCRIPT PRINCIPAL -->
 <script src="public.js"></script>
 </body>
 </html>
