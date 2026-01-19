@@ -1,157 +1,24 @@
 {
   "categorias": [
     {
-      "nombre": "Prime Video",
+      "nombre": "CUENTAS NETFLIX AL MAYOR",
+      "descripcion": "Entrega Inmediata",
       "productos": [
         {
-          "nombre": "Pantallas",
-          "precio": "$3.5 | Mayor (5+): $1.2",
-          "stock": 100,
+          "nombre": "Hits de cuentas Netflix 4K usa full estables",
+          "descripcion": "✅Tipo de cuenta: Correo:Contraseña  (sin acceso a correo) ✅ Garantía de 2 Semanas ✅ Funciona en teléfonos móviles, PC, tabletas, portátiles, Smart TV ✅ La cuenta puede funcionar durante meses si sigue las Reglas ✅ Reemplazo gratuito si la cuenta deja de funcionar  ⚠️ Leer la regla de la cuenta: 📌 No cambie nada en (Nombre de perfil, Contraseña, Sección de pago, Idioma en el perfil, Plan de su cuenta). 📌 Se puede cambiar el idioma mientras se ve el video, está prohibido cambiar el idioma en el perfil 📌 La violación de las reglas puede perder la garantía",
+          "precio": "2.5",
+          "stock": 300,
           "garantia": true,
           "etiqueta": "oferta"
         },
         {
-          "nombre": "Cuenta Completa 1 Mes",
-          "precio": "$5 | Mayor (5+): $1",
-          "stock": 100,
+          "nombre": "NEtflix Email Access",
+          "descripcion": "Axcceso al correo de la cuenta netflix, cuentas sin geo, buen historial de pago, evite caidas masivas",
+          "precio": "10",
+          "stock": 10,
           "garantia": true,
-          "etiqueta": "oferta"
-        }
-      ]
-    },
-    {
-      "nombre": "Vpn's",
-      "productos": [
-        {
-          "nombre": "Express VPN 6 Meses",
-          "precio": "$5 | Mayor (5+): $5",
-          "stock": 3,
-          "garantia": false
-        },
-        {
-          "nombre": "Surfshark",
-          "precio": "$5 | Mayor (5+): $5",
-          "stock": 10,
-          "garantia": false
-        }
-      ]
-    },
-    {
-      "nombre": "Netflix Email Access ",
-      "productos": [
-        {
-          "nombre": "Cuenta Completa  Autopay ",
-          "precio": "$10",
-          "stock": 7,
-          "garantia": true
-        },
-        {
-          "nombre": "Pantallas ",
-          "precio": "$3.5",
-          "stock": 10,
-          "garantia": true
-        }
-      ]
-    },
-    {
-      "nombre": "HBO Max",
-      "productos": [
-        {
-          "nombre": "Hbo Standar pantallas",
-          "precio": "$2.5",
-          "stock": 10,
-          "garantia": true
-        },
-        {
-          "nombre": "Alquiler de Cuenta Completa 1 Mes",
-          "precio": "$6",
-          "stock": 2,
-          "garantia": true
-        }
-      ]
-    },
-    {
-      "nombre": "Mubi Go",
-      "productos": [
-        {
-          "nombre": "Pantallas",
-          "precio": "$1",
-          "stock": 50,
-          "garantia": true
-        },
-        {
-          "nombre": "Cuenta Completa 2 Meses ",
-          "precio": "$4",
-          "stock": 50,
-          "garantia": true
-        }
-      ]
-    },
-    {
-      "nombre": "Shadowz ",
-      "productos": [
-        {
-          "nombre": "Pantallas",
-          "precio": "$1.2",
-          "stock": 50,
-          "garantia": true
-        },
-        {
-          "nombre": "Cuenta completa Autopay",
-          "precio": "$1.2",
-          "stock": 50,
-          "garantia": true
-        }
-      ]
-    },
-    {
-      "nombre": "Numeros Virtuales",
-      "productos": [
-        {
-          "nombre": "Activación instantánea para WhatsApp, Telegram, Gmail y +100 apps. Selecciona el país y recibe tu código al momento",
-          "precio": "$3",
-          "stock": 100,
-          "garantia": true,
-          "etiqueta": "oferta",
-          "descripcion": "Se vendes Accesos recargados full tambien"
-        }
-      ]
-    },
-    {
-      "nombre": "Nueva categoría",
-      "descripcion": "Inteligencia Artificiales IA",
-      "productos": [
-        {
-          "nombre": "Geminis Mensual",
-          "descripcion": "A tu correo o acceso",
-          "precio": "3",
-          "stock": 100,
-          "garantia": false,
           "etiqueta": "recomendado"
-        },
-        {
-          "nombre": "Chat Gpt Anual ",
-          "descripcion": "A tu correo o acceso",
-          "precio": "20",
-          "stock": 20,
-          "garantia": true,
-          "etiqueta": "oferta"
-        },
-        {
-          "nombre": "Perplexty Ia Mensual",
-          "descripcion": "A tu correo o acceso",
-          "precio": "$3",
-          "stock": 20,
-          "garantia": false,
-          "etiqueta": ""
-        },
-        {
-          "nombre": "Geminis Anual",
-          "descripcion": "A tu correo o acceso",
-          "precio": "20",
-          "stock": 20,
-          "garantia": true,
-          "etiqueta": "oferta"
         }
       ]
     }
