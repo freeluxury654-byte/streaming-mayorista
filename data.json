@@ -1,24 +1,116 @@
 {
+  "config": {
+    "marca": "Streaming Pro Center",
+    "whatsapp": "12494792518",
+    "moneda": "USD",
+    "mayor_desde": 5,
+    "footer": "Streaming Pro Center · Distribución digital · Atención directa · © 2026 Todos los derechos reservados"
+  },
+
+  "condiciones": [
+    "📦 Precios mayoristas desde 5 cuentas en adelante.",
+    "⚡ Entrega inmediata tras confirmación.",
+    "🛡️ Productos con garantía incluyen reposición durante el período activo.",
+    "⚠️ Productos sin garantía son entrega única.",
+    "❗ No modificar datos de la cuenta para mantener la garantía."
+  ],
+
   "categorias": [
     {
-      "nombre": "CUENTAS NETFLIX AL MAYOR",
-      "descripcion": "Entrega Inmediata",
+      "id": "netflix",
+      "nombre": "Netflix al por Mayor",
+      "descripcion": "Cuentas y accesos Netflix estables, ideales para reventa o uso continuo.",
+      "orden": 1,
+      "activo": true,
+
       "productos": [
         {
-          "nombre": "Hits de cuentas Netflix 4K usa full estables",
-          "descripcion": "✅Tipo de cuenta: Correo:Contraseña  (sin acceso a correo) ✅ Garantía de 2 Semanas ✅ Funciona en teléfonos móviles, PC, tabletas, portátiles, Smart TV ✅ La cuenta puede funcionar durante meses si sigue las Reglas ✅ Reemplazo gratuito si la cuenta deja de funcionar  ⚠️ Leer la regla de la cuenta: 📌 No cambie nada en (Nombre de perfil, Contraseña, Sección de pago, Idioma en el perfil, Plan de su cuenta). 📌 Se puede cambiar el idioma mientras se ve el video, está prohibido cambiar el idioma en el perfil 📌 La violación de las reglas puede perder la garantía",
-          "precio": "2.5",
+          "id": "netflix_hits_4k",
+          "nombre": "Hits Netflix 4K USA",
+          "descripcion": "Acceso inmediato · Correo + contraseña · Sin acceso al correo · Uso estable",
+          "precio_unitario": 2.5,
+          "precio_mayor": 2.0,
           "stock": 300,
           "garantia": true,
-          "etiqueta": "oferta"
+          "etiquetas": ["🔥 Oferta", "⚡ Entrega inmediata"],
+          "activo": true
         },
         {
-          "nombre": "NEtflix Email Access",
-          "descripcion": "Axcceso al correo de la cuenta netflix, cuentas sin geo, buen historial de pago, evite caidas masivas",
-          "precio": "10",
+          "id": "netflix_email_access",
+          "nombre": "Netflix Email Access",
+          "descripcion": "Acceso completo al correo · Sin geo · Historial de pago confiable",
+          "precio_unitario": 10,
+          "precio_mayor": 8,
           "stock": 10,
           "garantia": true,
-          "etiqueta": "recomendado"
+          "etiquetas": ["⭐ Recomendado", "🛡️ Premium"],
+          "activo": true
+        }
+      ]
+    },
+
+    {
+      "id": "pantallas",
+      "nombre": "Pantallas de Streaming",
+      "descripcion": "Perfiles individuales listos para usar en cualquier dispositivo.",
+      "orden": 2,
+      "activo": true,
+
+      "productos": [
+        {
+          "id": "pantalla_netflix",
+          "nombre": "Pantalla Netflix",
+          "descripcion": "Perfil individual · Ideal para uso personal · Activación inmediata",
+          "precio_unitario": 3,
+          "precio_mayor": 2.5,
+          "stock": 100,
+          "garantia": true,
+          "etiquetas": ["⚡ Rápido"],
+          "activo": true
+        },
+        {
+          "id": "pantalla_disney",
+          "nombre": "Pantalla Disney+",
+          "descripcion": "Compatible con Smart TV · Uso estable · Perfil dedicado",
+          "precio_unitario": 3.5,
+          "precio_mayor": 3.0,
+          "stock": 50,
+          "garantia": true,
+          "etiquetas": [],
+          "activo": true
+        }
+      ]
+    },
+
+    {
+      "id": "vpn",
+      "nombre": "VPN y Seguridad Digital",
+      "descripcion": "Protege tu conexión y accede a contenido sin restricciones.",
+      "orden": 3,
+      "activo": true,
+
+      "productos": [
+        {
+          "id": "express_vpn_6m",
+          "nombre": "Express VPN · 6 Meses",
+          "descripcion": "Alta velocidad · Ideal para streaming · Multidispositivo",
+          "precio_unitario": 5,
+          "precio_mayor": 5,
+          "stock": 3,
+          "garantia": true,
+          "etiquetas": ["🛡️ Seguro"],
+          "activo": true
+        },
+        {
+          "id": "surfshark_1m",
+          "nombre": "Surfshark VPN · 1 Mes",
+          "descripcion": "Conexión segura · Compatible con múltiples equipos",
+          "precio_unitario": 5,
+          "precio_mayor": 5,
+          "stock": 10,
+          "garantia": true,
+          "etiquetas": [],
+          "activo": true
         }
       ]
     }
