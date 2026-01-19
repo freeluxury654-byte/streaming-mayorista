@@ -50,7 +50,8 @@
             "🛡️ Premium"
           ],
           "activo": true,
-          "etiqueta": "recomendado"
+          "etiqueta": "recomendado",
+          "precio": "Precio Unitario / Autopay"
         }
       ]
     },
@@ -73,7 +74,8 @@
             "⚡ Rápido"
           ],
           "activo": true,
-          "etiqueta": "recomendado"
+          "etiqueta": "recomendado",
+          "precio": "30 Dias full"
         },
         {
           "id": "pantalla_disney",
@@ -109,7 +111,8 @@
             "🛡️ Seguro"
           ],
           "activo": true,
-          "etiqueta": "recomendado"
+          "etiqueta": "recomendado",
+          "precio": "Veloz y Confiable"
         },
         {
           "id": "surfshark_1m",
@@ -121,7 +124,8 @@
           "garantia": true,
           "etiquetas": [],
           "activo": true,
-          "etiqueta": "oferta"
+          "etiqueta": "oferta",
+          "precio": "Activacion x Codigo"
         }
       ]
     },
@@ -132,15 +136,15 @@
         {
           "nombre": "Prime Video Cuenta Completa",
           "descripcion": "Cuenta Completa x 30 dias ",
-          "precio": "$1.8",
+          "precio": "Acceso Full / Estables ",
           "stock": 50,
           "garantia": true,
           "etiqueta": "recomendado"
         },
         {
           "nombre": "Prime Video Sin Anuncios",
-          "descripcion": "Cuenta Completa Autopagable a dominio",
-          "precio": "$2.2",
+          "descripcion": "Cuenta Completa Autopagable Se entraga dominio o dominio promio",
+          "precio": "Acceso Full / Estables ",
           "stock": 50,
           "garantia": true,
           "etiqueta": "recomendado"
