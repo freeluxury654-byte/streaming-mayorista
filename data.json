@@ -6,6 +6,7 @@
     "mayor_desde": 5,
     "footer": "Streaming Pro Center · Distribución digital · Atención directa · © 2026 Todos los derechos reservados"
   },
+
   "condiciones": [
     "📦 Precios mayoristas desde 5 cuentas en adelante.",
     "⚡ Entrega inmediata tras confirmación.",
@@ -13,6 +14,7 @@
     "⚠️ Productos sin garantía son entrega única.",
     "❗ No modificar datos de la cuenta para mantener la garantía."
   ],
+
   "categorias": [
     {
       "id": "netflix",
@@ -20,22 +22,25 @@
       "descripcion": "Cuentas y accesos Netflix estables, ideales para reventa o uso continuo.",
       "orden": 1,
       "activo": true,
+
       "productos": [
         {
           "id": "netflix_hits_4k",
           "nombre": "Hits Netflix 4K USA",
           "descripcion": "Acceso inmediato · Correo + contraseña · Sin acceso al correo · Uso estable",
           "precio_unitario": 2.5,
-          "precio_mayor": 2,
+          "precio_mayor": 2.0,
           "stock": 300,
+          "alerta_stock": 5,
           "garantia": true,
-          "etiquetas": [
-            "🔥 Oferta",
-            "⚡ Entrega inmediata"
-          ],
-          "activo": true,
-          "precio": "Precio Mayorista ",
-          "etiqueta": "oferta"
+          "etiquetas": ["🔥 Oferta", "⚡ Entrega inmediata"],
+          "oferta": {
+            "activa": true,
+            "desde": "2026-01-10",
+            "hasta": "2026-01-20",
+            "texto": "🔥 OFERTA LIMITADA"
+          },
+          "activo": true
         },
         {
           "id": "netflix_email_access",
@@ -44,112 +49,17 @@
           "precio_unitario": 10,
           "precio_mayor": 8,
           "stock": 10,
+          "alerta_stock": 3,
           "garantia": true,
-          "etiquetas": [
-            "⭐ Recomendado",
-            "🛡️ Premium"
-          ],
-          "activo": true,
-          "etiqueta": "recomendado",
-          "precio": "Precio Unitario / Autopay"
-        }
-      ]
-    },
-    {
-      "id": "pantallas",
-      "nombre": "Pantallas de Streaming",
-      "descripcion": "Perfiles individuales listos para usar en cualquier dispositivo.",
-      "orden": 2,
-      "activo": true,
-      "productos": [
-        {
-          "id": "pantalla_netflix",
-          "nombre": "Pantalla Netflix",
-          "descripcion": "Perfil individual · Ideal para uso personal · Activación inmediata",
-          "precio_unitario": 3,
-          "precio_mayor": 2.5,
-          "stock": 100,
-          "garantia": true,
-          "etiquetas": [
-            "⚡ Rápido"
-          ],
-          "activo": true,
-          "etiqueta": "recomendado",
-          "precio": "30 Dias full"
-        },
-        {
-          "id": "pantalla_disney",
-          "nombre": "Pantalla Prime Video ",
-          "descripcion": "Compatible con Smart TV · Uso estable · Perfil dedicado",
-          "precio_unitario": 3.5,
-          "precio_mayor": 3,
-          "stock": 50,
-          "garantia": true,
-          "etiquetas": [],
-          "activo": true,
-          "precio": "(SinAnuncios) ",
-          "etiqueta": "oferta"
-        }
-      ]
-    },
-    {
-      "id": "vpn",
-      "nombre": "VPN y Seguridad Digital",
-      "descripcion": "Protege tu conexión y accede a contenido sin restricciones.",
-      "orden": 3,
-      "activo": true,
-      "productos": [
-        {
-          "id": "express_vpn_6m",
-          "nombre": "Express VPN · 6 Meses",
-          "descripcion": "Alta velocidad · Ideal para streaming · Multidispositivo",
-          "precio_unitario": 5,
-          "precio_mayor": 5,
-          "stock": 3,
-          "garantia": true,
-          "etiquetas": [
-            "🛡️ Seguro"
-          ],
-          "activo": true,
-          "etiqueta": "recomendado",
-          "precio": "Veloz y Confiable"
-        },
-        {
-          "id": "surfshark_1m",
-          "nombre": "Surfshark VPN · 1 Mes",
-          "descripcion": "Conexión segura · Compatible con múltiples equipos",
-          "precio_unitario": 5,
-          "precio_mayor": 5,
-          "stock": 10,
-          "garantia": true,
-          "etiquetas": [],
-          "activo": true,
-          "etiqueta": "oferta",
-          "precio": "Activacion x Codigo"
-        }
-      ]
-    },
-    {
-      "nombre": "Prime Video Mayorista ",
-      "descripcion": "Precio de Locos ",
-      "productos": [
-        {
-          "nombre": "Prime Video Cuenta Completa",
-          "descripcion": "Cuenta Completa x 30 dias ",
-          "precio": "Acceso Full / Estables ",
-          "stock": 50,
-          "garantia": true,
-          "etiqueta": "recomendado"
-        },
-        {
-          "nombre": "Prime Video Sin Anuncios",
-          "descripcion": "Cuenta Completa Autopagable Se entraga dominio o dominio promio",
-          "precio": "Acceso Full / Estables ",
-          "stock": 50,
-          "garantia": true,
-          "etiqueta": "recomendado"
+          "etiquetas": ["⭐ Recomendado", "🛡️ Premium"],
+          "oferta": {
+            "activa": false
+          },
+          "activo": true
         }
       ]
     }
   ]
 }
+
+
