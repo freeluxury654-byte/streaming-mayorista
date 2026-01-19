@@ -1,99 +1,101 @@
-let DATA;
-let isAdmin = false;
-const PASS = "1234";
+let data = null;
+let editorActivo = false;
 
-/* ================= CARGA ================= */
+// ===== CARGA DATA =====
 fetch("data.json")
-  .then(r => r.json())
-  .then(d => {
-    DATA = JSON.parse(localStorage.getItem("DATA_EDIT")) || d;
-    render();
+  .then(res => res.json())
+  .then(json => {
+    data = json;
+    renderCatalogo();
+    verificarStockBajo();
   });
 
-/* ================= RENDER ================= */
-function render() {
+// ===== RENDER =====
+function renderCatalogo() {
   const cont = document.getElementById("catalogo");
   cont.innerHTML = "";
 
-  DATA.categorias
-    .filter(c => c.activo)
-    .sort((a,b) => a.orden - b.orden)
-    .forEach((cat, ci) => {
+  data.categorias.forEach(cat => {
+    const box = document.createElement("div");
+    box.className = "categoria";
 
-      const card = document.createElement("div");
-      card.className = "card";
-      card.innerHTML = `<h3>${cat.nombre}</h3><p class="cat-desc">${cat.descripcion}</p>`;
+    box.innerHTML = `
+      <h3>${cat.nombre}</h3>
+      <p class="desc-cat">${cat.descripcion}</p>
+      <div class="productos"></div>
+    `;
 
-      cat.productos
-        .filter(p => p.activo)
-        .forEach((p, pi) => {
+    const prodBox = box.querySelector(".productos");
 
-          let stockText = `📦 Stock: ${p.stock}`;
-          if (p.stock <= p.alerta_stock) {
-            stockText = `⚠️ Últimas unidades (${p.stock})`;
-          }
+    cat.productos.forEach(p => {
+      prodBox.innerHTML += `
+        <div class="producto">
+          <h4>${p.nombre}</h4>
+          <p class="desc">${p.descripcion}</p>
 
-          let tags = (p.etiquetas || []).map(t => `<span class="tag">${t}</span>`).join("");
+          <p class="precio">$${p.precio} USD</p>
+          <p class="stock">📦 Stock: ${p.stock}</p>
 
-          const prod = document.createElement("div");
-          prod.className = "product";
-          prod.onclick = () => trackClick(p.id);
+          <div class="tags">
+            ${p.garantia ? `<span class="tag ok">🛡️ Con garantía</span>` : `<span class="tag no">🚫 Sin garantía</span>`}
+            ${p.tags.map(t => `<span class="tag">${t}</span>`).join("")}
+          </div>
 
-          prod.innerHTML = isAdmin ? `
-            <input value="${p.nombre}" onchange="edit(${ci},${pi},'nombre',this.value)">
-            <input value="${p.descripcion}" onchange="edit(${ci},${pi},'descripcion',this.value)">
-            <input type="number" value="${p.precio_unitario}" onchange="edit(${ci},${pi},'precio_unitario',this.value)">
-            <input type="number" value="${p.precio_mayor}" onchange="edit(${ci},${pi},'precio_mayor',this.value)">
-            <input type="number" value="${p.stock}" onchange="edit(${ci},${pi},'stock',this.value)">
-            <label>
-              <input type="checkbox" ${p.garantia ? "checked":""}
-                onchange="edit(${ci},${pi},'garantia',this.checked)">
-              Garantía
-            </label>
-            ${tags}
-          ` : `
-            <strong>${p.nombre}</strong>
-            <div class="cat-desc">${p.descripcion}</div>
-            <div class="price">$${p.precio_unitario} USD</div>
-            <div>${stockText}</div>
-            ${tags}
-          `;
-
-          card.appendChild(prod);
-        });
-
-      cont.appendChild(card);
+          <button class="wa" onclick="pedidoWhatsApp('${cat.nombre}','${p.nombre}','${p.precio}')">
+            💬
+          </button>
+        </div>
+      `;
     });
 
-  localStorage.setItem("DATA_EDIT", JSON.stringify(DATA));
+    cont.appendChild(box);
+  });
 }
 
-/* ================= EDIT ================= */
-function edit(ci, pi, field, value) {
-  if (field.includes("precio") || field === "stock") value = Number(value);
-  DATA.categorias[ci].productos[pi][field] = value;
+// ===== WHATSAPP =====
+function pedidoWhatsApp(cat, prod, precio) {
+  registrarClick(prod);
+  const msg = `
+📦 Pedido mayorista
+Categoría: ${cat}
+Producto: ${prod}
+Precio: $${precio} USD
+Cantidad:
+`;
+  window.open(`https://wa.me/12494792518?text=${encodeURIComponent(msg)}`);
 }
 
-/* ================= EXPORT ================= */
-function exportJSON() {
-  const blob = new Blob([JSON.stringify(DATA, null, 2)], {type:"application/json"});
+// ===== MÉTRICAS =====
+function registrarClick(producto) {
+  const clicks = JSON.parse(localStorage.getItem("clicks") || "{}");
+  clicks[producto] = (clicks[producto] || 0) + 1;
+  localStorage.setItem("clicks", JSON.stringify(clicks));
+}
+
+// ===== ALERTA STOCK =====
+function verificarStockBajo() {
+  data.categorias.forEach(c =>
+    c.productos.forEach(p => {
+      if (p.stock <= 3) {
+        console.warn("⚠️ Bajo stock:", p.nombre);
+      }
+    })
+  );
+}
+
+// ===== MODO EDITOR =====
+document.getElementById("btnEditor").onclick = () => {
+  const pass = prompt("Clave de administrador:");
+  if (pass === "admin123") {
+    alert("Editor activado. Puedes exportar el catálogo.");
+    exportarJSON();
+  }
+};
+
+function exportarJSON() {
+  const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
   const a = document.createElement("a");
   a.href = URL.createObjectURL(blob);
   a.download = "data.json";
   a.click();
-}
-
-/* ================= ADMIN ================= */
-function enterAdmin() {
-  if (prompt("Clave de edición") === PASS) {
-    isAdmin = true;
-    render();
-  }
-}
-
-/* ================= MÉTRICAS ================= */
-function trackClick(id) {
-  const s = JSON.parse(localStorage.getItem("STATS")) || {};
-  s[id] = (s[id] || 0) + 1;
-  localStorage.setItem("STATS", JSON.stringify(s));
 }
