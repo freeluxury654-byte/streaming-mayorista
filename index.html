@@ -1,94 +1,60 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-
-  <title>Streaming Pro Center | Mayorista</title>
-
-  <!-- SEO BÁSICO -->
-  <meta name="description"
-        content="Catálogo mayorista de cuentas streaming. Stock real, entrega inmediata y atención directa por WhatsApp.">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <title>Streaming Pro Center · Mayorista</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
+
 <body>
+<div id="app">
 
-<div class="container">
-
-  <!-- ================= HEADER ================= -->
-  <header class="hero">
+  <!-- HEADER -->
+  <header class="header">
     <h1>💎 Streaming Pro Center</h1>
-
     <p class="subtitle">
-      Distribución Mayorista de Streaming<br>
-      ⚡ <span>Entrega inmediata</span> · 📦 Stock real · 🤝 Atención directa
+      Distribución mayorista · ⚡ Activación inmediata · Soporte 24/7
     </p>
 
-    <span class="badge">✔ Proveedor verificado</span>
-
-    <div class="benefits">
-      <div>⚡ Activación inmediata</div>
-      <div>🛡️ Garantía clara</div>
-      <div>📦 Stock actualizado</div>
-      <div>🤝 Soporte humano</div>
+    <div class="badges">
+      <span>✅ Proveedor verificado</span>
+      <span>🔒 Garantía real</span>
+      <span>📦 Stock actualizado</span>
+      <span>🤝 Atención directa</span>
     </div>
 
-    <a class="cta"
-       href="https://wa.me/12494792518"
-       target="_blank"
-       onclick="trackClick('whatsapp')">
-      📲 Pedir ahora por WhatsApp
+    <a class="cta" href="https://wa.me/12494792518" target="_blank">
+      💬 Hazte distribuidor hoy
     </a>
 
-    <p class="micro">
-      ⏱️ Activación en minutos · 📦 Stock verificado · ⭐ Servicio confiable
-    </p>
-
-    <!-- ACCESO EDITOR -->
-    <div class="admin-access">
-      <button onclick="enterAdmin()">🔐 Editar catálogo</button>
-      <p class="editor-note">Área administrativa · Solo operador</p>
-    </div>
-
-    <!-- BARRA EDITOR -->
-    <div id="adminBar" class="admin-bar hidden">
-      <button onclick="addCategory()">➕ Categoría</button>
-      <button onclick="exportJSON()">⬇ Exportar data.json</button>
-      <button onclick="exitAdmin()">🔒 Salir</button>
-    </div>
+    <button id="btnEditor" class="editor-btn">🔐 Editar catálogo</button>
   </header>
 
-  <!-- ================= CÓMO FUNCIONA ================= -->
-  <section class="how">
+  <!-- INFO -->
+  <section class="info">
     <h2>📋 ¿Cómo comprar?</h2>
     <ol>
-      <li>📦 Revisa el catálogo y la disponibilidad</li>
-      <li>📲 Escríbenos por WhatsApp indicando el producto</li>
+      <li>📦 Revisa el catálogo y disponibilidad</li>
+      <li>💬 Escríbenos por WhatsApp indicando el producto</li>
       <li>⚡ Activamos de inmediato tras confirmar</li>
     </ol>
-  </section>
 
-  <!-- ================= CONDICIONES ================= -->
-  <section class="conditions">
     <h2>📌 Condiciones importantes</h2>
     <ul>
-      <li>💼 Precios mayoristas aplican desde <strong>5 cuentas</strong>.</li>
-      <li>🛡️ Productos con garantía incluyen reposición durante el período activo.</li>
-      <li>📦 Productos sin garantía son entrega única.</li>
-      <li>⚡ La activación se realiza tras confirmación de pago.</li>
+      <li>📦 Precios mayoristas desde <b>5 cuentas</b></li>
+      <li>🛡️ Productos con garantía incluyen reposición</li>
+      <li>🚫 Productos sin garantía son entrega única</li>
+      <li>💳 Activación tras confirmación de pago</li>
     </ul>
   </section>
 
-  <!-- ================= CATÁLOGO ================= -->
-  <main>
-    <section id="catalogo" class="catalogo"></section>
-  </main>
+  <!-- CATÁLOGO -->
+  <section id="catalogo" class="catalogo"></section>
 
-  <!-- ================= FOOTER ================= -->
+  <!-- FOOTER -->
   <footer>
     <p>
-      Streaming Pro Center · Distribución digital · Atención directa<br>
+      Streaming Pro Center · Distribución digital · Atención directa<br />
       © 2026 Todos los derechos reservados
     </p>
   </footer>
