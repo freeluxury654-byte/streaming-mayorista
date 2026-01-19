@@ -124,6 +124,28 @@
           "etiqueta": "oferta"
         }
       ]
+    },
+    {
+      "nombre": "Prime Video Mayorista ",
+      "descripcion": "Precio de Locos ",
+      "productos": [
+        {
+          "nombre": "Prime Video Cuenta Completa",
+          "descripcion": "Cuenta Completa x 30 dias ",
+          "precio": "$1.8",
+          "stock": 50,
+          "garantia": true,
+          "etiqueta": "recomendado"
+        },
+        {
+          "nombre": "Prime Video Sin Anuncios",
+          "descripcion": "Cuenta Completa Autopagable a dominio",
+          "precio": "$2.2",
+          "stock": 50,
+          "garantia": true,
+          "etiqueta": "recomendado"
+        }
+      ]
     }
   ]
 }
