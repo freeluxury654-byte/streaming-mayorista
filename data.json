@@ -1,50 +1,153 @@
 {
+  "config": {
+    "marca": "Streaming Pro Center",
+    "whatsapp": "12494792518",
+    "moneda": "USD",
+    "mayor_desde": 5,
+    "footer": "Streaming Pro Center · Distribución digital · Atención directa · © 2026 Todos los derechos reservados"
+  },
+  "condiciones": [
+    "📦 Precios mayoristas desde 5 cuentas en adelante.",
+    "⚡ Entrega inmediata tras confirmación.",
+    "🛡️ Productos con garantía incluyen reposición durante el período activo.",
+    "⚠️ Productos sin garantía son entrega única.",
+    "❗ No modificar datos de la cuenta para mantener la garantía."
+  ],
   "categorias": [
     {
-      "nombre": "Prime Video",
+      "id": "netflix",
+      "nombre": "Netflix al por Mayor",
+      "descripcion": "Cuentas y accesos Netflix estables, ideales para reventa o uso continuo.",
+      "orden": 1,
+      "activo": true,
       "productos": [
         {
-          "nombre": "Pantallas",
-          "precio": "$3 | Mayor (5+): $2",
-          "stock": 100,
-          "garantia": true
-        },
-        {
-          "nombre": "Cuenta Completa 1 Mes",
-          "precio": "$5 | Mayor (5+): $1",
-          "stock": 100,
-          "garantia": true
-        }
-      ]
-    },
-    {
-      "nombre": "Vpn's",
-      "productos": [
-        {
-          "nombre": "Express VPN 6 Meses",
-          "precio": "$5 | Mayor (5+): $5",
-          "stock": 3,
-          "garantia": true
-        },
-        {
-          "nombre": "Surfshark",
-          "precio": "$5 | Mayor (5+): $5",
-          "stock": 10,
-          "garantia": true
-        }
-      ]
-    },
-    {
-      "nombre": "NETFLIX CUENTAS HITS 4K USA",
-      "descripcion": "historial de pago más de 5 meses, full estables dándole el uso adecuado",
-      "productos": [
-        {
-          "nombre": "Cuenta Hits Al Mayor ",
-          "descripcion": "✅Tipo de cuenta: Correo:Contraseña  (sin acceso a correo) ✅ Garantía de 2 Semanas ✅ Funciona en teléfonos móviles, PC, tabletas, portátiles, Smart TV ✅ La cuenta puede funcionar durante meses si sigue las Reglas ✅ Reemplazo gratuito si la cuenta deja de funcionar  ⚠️ Leer la regla de la cuenta: 📌 No cambie nada en (Nombre de perfil, Contraseña, Sección de pago, Idioma en el perfil, Plan de su cuenta). 📌 Se puede cambiar el idioma mientras se ve el video, está prohibido cambiar el idioma en el perfil 📌 La violación de las reglas puede perder la garantía",
-          "precio": "$2.5",
+          "id": "netflix_hits_4k",
+          "nombre": "Hits Netflix 4K USA",
+          "descripcion": "Acceso inmediato · Correo + contraseña · Sin acceso al correo · Uso estable",
+          "precio_unitario": 2.5,
+          "precio_mayor": 2,
           "stock": 300,
           "garantia": true,
+          "etiquetas": [
+            "🔥 Oferta",
+            "⚡ Entrega inmediata"
+          ],
+          "activo": true,
+          "precio": "Precio Mayorista ",
           "etiqueta": "oferta"
+        },
+        {
+          "id": "netflix_email_access",
+          "nombre": "Netflix Email Access",
+          "descripcion": "Acceso completo al correo · Sin geo · Historial de pago confiable",
+          "precio_unitario": 10,
+          "precio_mayor": 8,
+          "stock": 10,
+          "garantia": true,
+          "etiquetas": [
+            "⭐ Recomendado",
+            "🛡️ Premium"
+          ],
+          "activo": true,
+          "etiqueta": "recomendado",
+          "precio": "Precio Unitario / Autopay"
+        }
+      ]
+    },
+    {
+      "id": "pantallas",
+      "nombre": "Pantallas de Streaming",
+      "descripcion": "Perfiles individuales listos para usar en cualquier dispositivo.",
+      "orden": 2,
+      "activo": true,
+      "productos": [
+        {
+          "id": "pantalla_netflix",
+          "nombre": "Pantalla Netflix",
+          "descripcion": "Perfil individual · Ideal para uso personal · Activación inmediata",
+          "precio_unitario": 3,
+          "precio_mayor": 2.5,
+          "stock": 100,
+          "garantia": true,
+          "etiquetas": [
+            "⚡ Rápido"
+          ],
+          "activo": true,
+          "etiqueta": "recomendado",
+          "precio": "30 Dias full"
+        },
+        {
+          "id": "pantalla_disney",
+          "nombre": "Pantalla Prime Video ",
+          "descripcion": "Compatible con Smart TV · Uso estable · Perfil dedicado",
+          "precio_unitario": 3.5,
+          "precio_mayor": 3,
+          "stock": 50,
+          "garantia": true,
+          "etiquetas": [],
+          "activo": true,
+          "precio": "(SinAnuncios) ",
+          "etiqueta": "oferta"
+        }
+      ]
+    },
+    {
+      "id": "vpn",
+      "nombre": "VPN y Seguridad Digital",
+      "descripcion": "Protege tu conexión y accede a contenido sin restricciones.",
+      "orden": 3,
+      "activo": true,
+      "productos": [
+        {
+          "id": "express_vpn_6m",
+          "nombre": "Express VPN · 6 Meses",
+          "descripcion": "Alta velocidad · Ideal para streaming · Multidispositivo",
+          "precio_unitario": 5,
+          "precio_mayor": 5,
+          "stock": 3,
+          "garantia": true,
+          "etiquetas": [
+            "🛡️ Seguro"
+          ],
+          "activo": true,
+          "etiqueta": "recomendado",
+          "precio": "Veloz y Confiable"
+        },
+        {
+          "id": "surfshark_1m",
+          "nombre": "Surfshark VPN · 1 Mes",
+          "descripcion": "Conexión segura · Compatible con múltiples equipos",
+          "precio_unitario": 5,
+          "precio_mayor": 5,
+          "stock": 10,
+          "garantia": true,
+          "etiquetas": [],
+          "activo": true,
+          "etiqueta": "oferta",
+          "precio": "Activacion x Codigo"
+        }
+      ]
+    },
+    {
+      "nombre": "Prime Video Mayorista ",
+      "descripcion": "Precio de Locos ",
+      "productos": [
+        {
+          "nombre": "Prime Video Cuenta Completa",
+          "descripcion": "Cuenta Completa x 30 dias ",
+          "precio": "Acceso Full / Estables ",
+          "stock": 50,
+          "garantia": true,
+          "etiqueta": "recomendado"
+        },
+        {
+          "nombre": "Prime Video Sin Anuncios",
+          "descripcion": "Cuenta Completa Autopagable Se entraga dominio o dominio promio",
+          "precio": "Acceso Full / Estables ",
+          "stock": 50,
+          "garantia": true,
+          "etiqueta": "recomendado"
         }
       ]
     }
