@@ -99,3 +99,17 @@ function crearProducto(producto) {
 
   return card;
 }
+const btnEditor = document.getElementById("btnEditor");
+
+if (btnEditor) {
+  btnEditor.addEventListener("click", () => {
+    const clave = prompt("🔐 Ingresa la clave de administrador:");
+    if (clave === "7777") {
+      alert("✅ Acceso concedido (modo administrador)");
+      document.body.classList.add("modo-admin");
+    } else {
+      alert("❌ Clave incorrecta");
+    }
+  });
+}
+
