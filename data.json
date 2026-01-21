@@ -1,160 +1,155 @@
-import streamlit as st
-import pandas as pd
-from datetime import date, timedelta
-
-# Configuración de la página
-st.set_page_config(
-    page_title="Gestión de Ventas Streaming",
-    page_icon="📺",
-    layout="wide"
-)
-
-# --- FUNCIONES DE GESTIÓN DE DATOS ---
-
-def cargar_datos():
-    """Carga los datos del archivo CSV o crea uno nuevo si no existe."""
-    try:
-        df = pd.read_csv("ventas_streaming.csv")
-        # Convertir fechas a formato datetime
-        df['fecha_venta'] = pd.to_datetime(df['fecha_venta'])
-        df['vencimiento'] = pd.to_datetime(df['vencimiento'])
-        return df
-    except FileNotFoundError:
-        # Estructura inicial si no hay archivo
-        columnas = [
-            "id", "fecha_venta", "cliente", "servicio", 
-            "precio", "metodo_pago", "vencimiento", "estado"
-        ]
-        return pd.DataFrame(columns=columnas)
-
-def guardar_datos(df):
-    """Guarda el DataFrame en un archivo CSV."""
-    df.to_csv("ventas_streaming.csv", index=False)
-
-def generar_id(df):
-    """Genera un ID único basado en el índice."""
-    if df.empty:
-        return 1
-    else:
-        return df['id'].max() + 1
-
-# --- INTERFAZ DE USUARIO ---
-
-st.title("📺 Dashboard de Ventas de Pantallas y Streaming")
-
-# Cargar datos
-df = cargar_datos()
-
-# --- BARRA LATERAL (AGREGAR / EDITAR) ---
-with st.sidebar:
-    st.header("📝 Registrar Venta")
-    st.markdown("Completa los datos para agregar o actualizar una venta.")
-    
-    # Detectar si estamos editando
-    editar_fila = st.session_state.get('editar_fila', None)
-
-    with st.form("form_venta", clear_on_submit=True):
-        # Campos del formulario
-        input_fecha = st.date_input("Fecha de Venta", value=date.today())
-        input_cliente = st.text_input("Cliente (Nombre/Correo)", value=editar_fila['cliente'] if editar_fila else "")
-        input_servicio = st.selectbox("Servicio", ["Netflix", "Disney+", "HBO Max", "Amazon Prime", "Spotify", "Otro"], index=0 if not editar_fila else ["Netflix", "Disney+", "HBO Max", "Amazon Prime", "Spotify", "Otro"].index(editar_fila.get('servicio', 'Netflix')))
-        input_precio = st.number_input("Precio ($)", min_value=0.0, step=0.5, value=editar_fila['precio'] if editar_fila else 0.0)
-        input_metodo = st.selectbox("Método de Pago", ["Transferencia", "Efectivo", "PayPal", "Cripto", "Otro"], index=0 if not editar_fila else ["Transferencia", "Efectivo", "PayPal", "Cripto", "Otro"].index(editar_fila.get('metodo_pago', 'Transferencia')))
-        input_vencimiento = st.date_input("Fecha de Vencimiento", value=date.today() + timedelta(days=30))
-        input_estado = st.selectbox("Estado", ["Pagado", "Pendiente", "Vencido"], index=0 if not editar_fila else ["Pagado", "Pendiente", "Vencido"].index(editar_fila.get('estado', 'Pagado')))
-        
-        enviar = st.form_submit_button("Guardar Venta")
-        
-        if enviar:
-            if editar_fila:
-                # Modo Edición
-                idx = df[df['id'] == editar_fila['id']].index[0]
-                df.at[idx, 'fecha_venta'] = input_fecha
-                df.at[idx, 'cliente'] = input_cliente
-                df.at[idx, 'servicio'] = input_servicio
-                df.at[idx, 'precio'] = input_precio
-                df.at[idx, 'metodo_pago'] = input_metodo
-                df.at[idx, 'vencimiento'] = input_vencimiento
-                df.at[idx, 'estado'] = input_estado
-                st.success("✅ Venta actualizada correctamente!")
-                st.session_state['editar_fila'] = None # Limpiar estado de edición
-            else:
-                # Modo Agregar
-                nuevo_id = generar_id(df)
-                nuevo_registro = {
-                    "id": nuevo_id,
-                    "fecha_venta": input_fecha,
-                    "cliente": input_cliente,
-                    "servicio": input_servicio,
-                    "precio": input_precio,
-                    "metodo_pago": input_metodo,
-                    "vencimiento": input_vencimiento,
-                    "estado": input_estado
-                }
-                df_nuevo = pd.DataFrame([nuevo_registro])
-                df = pd.concat([df, df_nuevo], ignore_index=True)
-                st.success("✅ Venta registrada correctamente!")
-            
-            guardar_datos(df)
-            st.rerun()
-
-# --- ÁREA PRINCIPAL (TABLA Y MÉTRICAS) ---
-
-# Métricas rápidas
-col1, col2, col3 = st.columns(3)
-with col1:
-    total_ventas = df['precio'].sum()
-    st.metric("💰 Ingresos Totales", f"${total_ventas:.2f}")
-with col2:
-    ventas_mes = df[df['fecha_venta'].dt.month == date.today().month]['precio'].sum()
-    st.metric("📅 Ventas este Mes", f"${ventas_mes:.2f}")
-with col3:
-    cuentas_vencidas = df[df['estado'] == 'Vencido'].shape[0]
-    st.metric("⚠️ Cuentas Vencidas", cuentas_vencidas)
-
-st.divider()
-
-# Buscador y Filtros
-st.subheader("📋 Listado de Ventas")
-filtro_texto = st.text_input("🔍 Buscar por cliente o servicio...", "")
-df_filtrado = df.copy()
-
-if filtro_texto:
-    mask = df_filtrado['cliente'].str.contains(filtro_texto, case=False) | df_filtrado['servicio'].str.contains(filtro_texto, case=False)
-    df_filtrado = df_filtrado[mask]
-
-# Formato de la tabla para mostrar
-columnas_a_mostrar = ["id", "fecha_venta", "cliente", "servicio", "precio", "metodo_pago", "vencimiento", "estado"]
-
-# Mostrar la tabla
-if not df_filtrado.empty:
-    for index, row in df_filtrado.iterrows():
-        with st.container():
-            cols = st.columns([0.5, 1, 2, 1.5, 1, 1.5, 1.5, 1, 0.5, 0.5])
-            cols[0].write(f"**{row['id']}**")
-            cols[1].write(row['fecha_venta'].strftime("%d/%m/%Y"))
-            cols[2].write(row['cliente'])
-            
-            # Etiqueta de color para el servicio
-            cols[3].markdown(f"<span style='background-color:#E0E0E0; padding:4px; border-radius:4px; font-size:12px;'>{row['servicio']}</span>", unsafe_allow_html=True)
-            
-            cols[4].write(f"${row['precio']:.2f}")
-            cols[5].write(row['metodo_pago'])
-            cols[6].write(row['vencimiento'].strftime("%d/%m/%Y"))
-            
-            # Etiqueta de color para el estado
-            color_estado = "#FFCCCC" if row['estado'] == 'Vencido' else "#CCFFCC" if row['estado'] == 'Pagado' else "#FFFFCC"
-            cols[7].markdown(f"<span style='background-color:{color_estado}; padding:4px; border-radius:4px; font-size:12px;'>{row['estado']}</span>", unsafe_allow_html=True)
-            
-            # Botón Editar
-            if cols[8].button("✏️", key=f"edit_{row['id']}"):
-                st.session_state['editar_fila'] = row.to_dict()
-                st.rerun()
-            
-            # Botón Eliminar
-            if cols[9].button("🗑️", key=f"del_{row['id']}"):
-                df.drop(index, inplace=True)
-                guardar_datos(df)
-                st.rerun()
-else:
-    st.info("No hay ventas registradas que coincidan con la búsqueda.")
+{
+  "config": {
+    "marca": "Streaming Pro Center",
+    "whatsapp": "12494792518",
+    "moneda": "USD",
+    "mayor_desde": 5,
+    "footer": "Streaming Pro Center · Distribución digital · Atención directa · © 2026 Todos los derechos reservados"
+  },
+  "condiciones": [
+    "📦 Precios mayoristas desde 5 cuentas en adelante.",
+    "⚡ Entrega inmediata tras confirmación.",
+    "🛡️ Productos con garantía incluyen reposición durante el período activo.",
+    "⚠️ Productos sin garantía son entrega única.",
+    "❗ No modificar datos de la cuenta para mantener la garantía."
+  ],
+  "categorias": [
+    {
+      "id": "netflix",
+      "nombre": "Netflix al por Mayor",
+      "descripcion": "Cuentas y accesos Netflix estables, ideales para reventa o uso continuo.",
+      "orden": 1,
+      "activo": true,
+      "productos": [
+        {
+          "id": "netflix_hits_4k",
+          "nombre": "Hits Netflix 4K USA",
+          "descripcion": "Acceso inmediato · Correo + contraseña · Sin acceso al correo · Uso estable",
+          "precio_unitario": 2.5,
+          "precio_mayor": 2,
+          "stock": 300,
+          "garantia": true,
+          "etiquetas": [
+            "🔥 Oferta",
+            "⚡ Entrega inmediata"
+          ],
+          "activo": true,
+          "precio": "Precio Mayorista ",
+          "etiqueta": "oferta"
+        },
+        {
+          "id": "netflix_email_access",
+          "nombre": "Netflix Email Access",
+          "descripcion": "Acceso completo al correo · Sin geo · Historial de pago confiable",
+          "precio_unitario": 10,
+          "precio_mayor": 8,
+          "stock": 10,
+          "garantia": true,
+          "etiquetas": [
+            "⭐ Recomendado",
+            "🛡️ Premium"
+          ],
+          "activo": true,
+          "etiqueta": "recomendado",
+          "precio": "Precio Unitario / Autopay"
+        }
+      ]
+    },
+    {
+      "id": "pantallas",
+      "nombre": "Pantallas de Streaming",
+      "descripcion": "Perfiles individuales listos para usar en cualquier dispositivo.",
+      "orden": 2,
+      "activo": true,
+      "productos": [
+        {
+          "id": "pantalla_netflix",
+          "nombre": "Pantalla Netflix",
+          "descripcion": "Perfil individual · Ideal para uso personal · Activación inmediata",
+          "precio_unitario": 3,
+          "precio_mayor": 2.5,
+          "stock": 100,
+          "garantia": true,
+          "etiquetas": [
+            "⚡ Rápido"
+          ],
+          "activo": true,
+          "etiqueta": "recomendado",
+          "precio": "30 Dias full"
+        },
+        {
+          "id": "pantalla_disney",
+          "nombre": "Pantalla Prime Video ",
+          "descripcion": "Compatible con Smart TV · Uso estable · Perfil dedicado",
+          "precio_unitario": 3.5,
+          "precio_mayor": 3,
+          "stock": 50,
+          "garantia": true,
+          "etiquetas": [],
+          "activo": true,
+          "precio": "(SinAnuncios) ",
+          "etiqueta": "oferta"
+        }
+      ]
+    },
+    {
+      "id": "vpn",
+      "nombre": "VPN y Seguridad Digital",
+      "descripcion": "Protege tu conexión y accede a contenido sin restricciones.",
+      "orden": 3,
+      "activo": true,
+      "productos": [
+        {
+          "id": "express_vpn_6m",
+          "nombre": "Express VPN · 6 Meses",
+          "descripcion": "Alta velocidad · Ideal para streaming · Multidispositivo",
+          "precio_unitario": 5,
+          "precio_mayor": 5,
+          "stock": 3,
+          "garantia": true,
+          "etiquetas": [
+            "🛡️ Seguro"
+          ],
+          "activo": true,
+          "etiqueta": "recomendado",
+          "precio": "Veloz y Confiable"
+        },
+        {
+          "id": "surfshark_1m",
+          "nombre": "Surfshark VPN · 1 Mes",
+          "descripcion": "Conexión segura · Compatible con múltiples equipos",
+          "precio_unitario": 5,
+          "precio_mayor": 5,
+          "stock": 10,
+          "garantia": true,
+          "etiquetas": [],
+          "activo": true,
+          "etiqueta": "oferta",
+          "precio": "Activacion x Codigo"
+        }
+      ]
+    },
+    {
+      "nombre": "Prime Video Mayorista ",
+      "descripcion": "Precio de Locos ",
+      "productos": [
+        {
+          "nombre": "Prime Video Cuenta Completa",
+          "descripcion": "Cuenta Completa x 30 dias ",
+          "precio": "Acceso Full / Estables ",
+          "stock": 50,
+          "garantia": true,
+          "etiqueta": "recomendado"
+        },
+        {
+          "nombre": "Prime Video Sin Anuncios",
+          "descripcion": "Cuenta Completa Autopagable Se entraga dominio o dominio promio",
+          "precio": "Acceso Full / Estables ",
+          "stock": 50,
+          "garantia": true,
+          "etiqueta": "recomendado"
+        }
+      ]
+    }
+  ]
+}
