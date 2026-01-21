@@ -1,62 +1,84 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Streaming Pro Center | Mayorista</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <title>Streaming Pro Center · Mayorista</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+<div id="app">
 
-<div class="container">
+  <!-- HEADER -->
+  <header class="header">
 
-  <header class="hero">
+    <!-- Ilustraciones SVG -->
+    <div class="hero-visual">
+      <!-- Streaming genérico -->
+      <svg class="svg-streaming" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+        <rect x="20" y="40" width="120" height="80" rx="12"/>
+        <rect x="160" y="30" width="120" height="90" rx="12"/>
+        <rect x="300" y="50" width="80" height="60" rx="12"/>
+      </svg>
+
+      <!-- Netflix style -->
+      <svg class="svg-netflix" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <rect x="10" y="10" width="25" height="80"/>
+        <rect x="35" y="10" width="30" height="80" transform="skewX(-10)"/>
+        <rect x="65" y="10" width="25" height="80"/>
+      </svg>
+    </div>
+
     <h1>💎 Streaming Pro Center</h1>
 
     <p class="subtitle">
-      Distribución Mayorista · ⚡ <span>Entrega inmediata</span> · Soporte activo
+      Distribución mayorista de streaming · ⚡ Activación inmediata · Soporte activo
     </p>
 
-    <span class="badge">✔ Proveedor verificado</span>
+    <p class="headline">
+      Proveedor confiable para revendedores, tiendas y distribuidores digitales
+    </p>
 
-    <div class="benefits">
-      <div>⚡ Activación inmediata</div>
-      <div>🛡️ Garantía real</div>
-      <div>📦 Stock actualizado</div>
-      <div>🤝 Atención directa</div>
+    <div class="badges">
+      <span>✅ Proveedor verificado</span>
+      <span>🔒 Garantía real</span>
+      <span>📦 Stock actualizado</span>
+      <span>⚡ Entrega inmediata</span>
+      <span>🤝 Atención directa</span>
     </div>
 
     <a class="cta" href="https://wa.me/12494792518" target="_blank">
       📲 Pedir ahora por WhatsApp
     </a>
 
-    <!-- ACCESO EDITOR -->
-    <div class="admin-access">
-      <button onclick="enterAdmin()">🔐 Editar catálogo</button>
-    </div>
-
-    <!-- BARRA EDITOR -->
-    <div id="adminBar" class="admin-bar hidden">
-      <button onclick="addCategory()">➕ Categoría</button>
-      <button onclick="exportJSON()">⬇ Exportar data.json</button>
-      <button onclick="exitAdmin()">🔒 Salir</button>
-    </div>
+    <button id="btnEditor" class="editor-btn">🔐 Editar catálogo</button>
   </header>
 
-  <section class="conditions">
-    <h2>📌 Condiciones</h2>
+  <!-- INFO -->
+  <section class="info">
+    <h2>📋 ¿Cómo comprar?</h2>
+    <ol>
+      <li>📦 Revisa el catálogo y disponibilidad</li>
+      <li>💬 Escríbenos por WhatsApp indicando el producto</li>
+      <li>⚡ Activamos de inmediato tras confirmar el pago</li>
+    </ol>
+
+    <h2>📌 Condiciones importantes</h2>
     <ul>
-      <li>💼 Precios mayoristas desde <strong>5 cuentas</strong>.</li>
-      <li>🛡️ Productos con garantía incluyen reposición.</li>
-      <li>📦 Sin garantía = entrega única.</li>
-      <li>⚡ Activación inmediata tras pago.</li>
+      <li>📦 Precios mayoristas desde <strong>5 cuentas</strong></li>
+      <li>🛡️ Productos con garantía incluyen reposición</li>
+      <li>🚫 Productos sin garantía son entrega única</li>
+      <li>💳 Activación tras confirmación de pago</li>
     </ul>
   </section>
 
   <!-- CATÁLOGO -->
   <section id="catalogo" class="catalogo"></section>
 
-  <!-- FOOTER FIJO -->
+  <!-- FOOTER -->
   <footer>
     <p>
       Streaming Pro Center · Distribución digital · Atención directa<br>
