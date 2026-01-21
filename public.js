@@ -1,6 +1,6 @@
 /* =====================================================
-   Streaming Pro Center – public.js PRO
-   Modo admin + edición inline + export JSON
+   Streaming Pro Center – public.js FINAL PRO
+   Editor completo + export JSON
    Clave admin: 7777
 ===================================================== */
 
@@ -25,13 +25,8 @@ async function cargarCatalogo() {
 
     catalogoData = await res.json();
     renderCatalogo();
-
   } catch (err) {
-    contenedor.innerHTML = `
-      <div class="error">
-        ❌ Error cargando catálogo.<br>
-        Verifica <b>data.json</b>
-      </div>`;
+    contenedor.innerHTML = `<p>❌ Error cargando catálogo</p>`;
     console.error(err);
   }
 }
@@ -48,6 +43,7 @@ function renderCatalogo() {
   });
 
   if (modoAdmin) {
+    contenedor.appendChild(crearBotonAgregarCategoria());
     contenedor.appendChild(crearBotonExportar());
   }
 }
@@ -62,7 +58,7 @@ function crearCategoria(categoria, iCat) {
   section.innerHTML = `
     <h2 class="categoria-titulo">
       ${modoAdmin
-        ? `<input value="${categoria.nombre}" 
+        ? `<input value="${categoria.nombre}"
             oninput="catalogoData.categorias[${iCat}].nombre=this.value">`
         : categoria.nombre}
     </h2>
@@ -74,6 +70,13 @@ function crearCategoria(categoria, iCat) {
     </p>
 
     <div class="productos-grid"></div>
+
+    ${modoAdmin ? `
+      <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
+        <button onclick="agregarProducto(${iCat})">➕ Agregar producto</button>
+        <button onclick="eliminarCategoria(${iCat})">❌ Eliminar categoría</button>
+      </div>
+    ` : ""}
   `;
 
   const grid = section.querySelector(".productos-grid");
@@ -95,114 +98,142 @@ function crearProducto(producto, iCat, iProd) {
   const etiquetas = (producto.etiquetas || []).join(", ");
 
   card.innerHTML = `
-    <h3 class="producto-nombre">
+    <h3>
       ${modoAdmin
         ? `<input value="${producto.nombre}"
             oninput="catalogoData.categorias[${iCat}].productos[${iProd}].nombre=this.value">`
         : producto.nombre}
     </h3>
 
-    <p class="producto-desc">
+    <p>
       ${modoAdmin
         ? `<textarea oninput="catalogoData.categorias[${iCat}].productos[${iProd}].descripcion=this.value">${producto.descripcion || ""}</textarea>`
         : (producto.descripcion || "")}
     </p>
 
     <div class="producto-info">
-      <span class="precio">
+      <span>
         ${modoAdmin
           ? `<input value="${producto.precio}"
               oninput="catalogoData.categorias[${iCat}].productos[${iProd}].precio=this.value">`
           : producto.precio}
       </span>
 
-      <span class="stock">
-        📦 Stock:
+      <span>
+        📦
         ${modoAdmin
-          ? `<input type="number" min="0" value="${producto.stock}"
+          ? `<input type="number" value="${producto.stock}"
               oninput="catalogoData.categorias[${iCat}].productos[${iProd}].stock=Number(this.value)">`
           : producto.stock}
       </span>
     </div>
 
-    <div class="producto-extra">
+    <div>
       ${modoAdmin
         ? `<select onchange="catalogoData.categorias[${iCat}].productos[${iProd}].garantia=this.value==='true'">
-            <option value="true" ${producto.garantia ? "selected" : ""}>🛡️ Con garantía</option>
-            <option value="false" ${!producto.garantia ? "selected" : ""}>🚫 Sin garantía</option>
+            <option value="true" ${producto.garantia ? "selected" : ""}>Con garantía</option>
+            <option value="false" ${!producto.garantia ? "selected" : ""}>Sin garantía</option>
           </select>`
         : producto.garantia
-          ? `<span class="garantia">🛡️ Con garantía</span>`
-          : `<span class="sin-garantia">🚫 Sin garantía</span>`}
+          ? "🛡️ Con garantía"
+          : "🚫 Sin garantía"}
     </div>
 
-    <div class="producto-tags">
+    <div>
       ${modoAdmin
         ? `<input value="${etiquetas}"
-            placeholder="Etiquetas separadas por coma"
+            placeholder="etiquetas separadas por coma"
             oninput="catalogoData.categorias[${iCat}].productos[${iProd}].etiquetas=this.value.split(',').map(t=>t.trim())">`
-        : (producto.etiquetas || []).map(t => `<span class="tag">${t}</span>`).join("")}
+        : (producto.etiquetas || []).map(t=>`<span class="tag">${t}</span>`).join("")}
     </div>
 
-    <a class="btn-whatsapp"
-       href="https://wa.me/12494792518?text=${encodeURIComponent(
-         `Hola 👋 Me interesa: ${producto.nombre}`
-       )}"
-       target="_blank">
-       💬 Pedir por WhatsApp
-    </a>
+    ${modoAdmin
+      ? `<button onclick="eliminarProducto(${iCat},${iProd})">❌ Eliminar producto</button>`
+      : `<a class="btn-whatsapp" href="https://wa.me/12494792518?text=${encodeURIComponent(`Hola, me interesa ${producto.nombre}`)}">💬 WhatsApp</a>`}
   `;
 
   return card;
 }
 
 /* ===============================
-   BOTÓN EXPORTAR JSON
+   ACCIONES ADMIN
 ================================ */
+function agregarCategoria() {
+  catalogoData.categorias.push({
+    nombre: "Nueva categoría",
+    descripcion: "",
+    productos: []
+  });
+  renderCatalogo();
+}
+
+function eliminarCategoria(iCat) {
+  if (confirm("¿Eliminar esta categoría?")) {
+    catalogoData.categorias.splice(iCat, 1);
+    renderCatalogo();
+  }
+}
+
+function agregarProducto(iCat) {
+  catalogoData.categorias[iCat].productos.push({
+    nombre: "Nuevo producto",
+    descripcion: "",
+    precio: "",
+    stock: 0,
+    garantia: false,
+    etiquetas: []
+  });
+  renderCatalogo();
+}
+
+function eliminarProducto(iCat, iProd) {
+  if (confirm("¿Eliminar este producto?")) {
+    catalogoData.categorias[iCat].productos.splice(iProd, 1);
+    renderCatalogo();
+  }
+}
+
+/* ===============================
+   BOTONES
+================================ */
+function crearBotonAgregarCategoria() {
+  const btn = document.createElement("button");
+  btn.textContent = "➕ Agregar categoría";
+  btn.onclick = agregarCategoria;
+  return btn;
+}
+
 function crearBotonExportar() {
   const btn = document.createElement("button");
   btn.textContent = "📤 Exportar data.json";
-  btn.style.marginTop = "40px";
-  btn.style.padding = "14px 24px";
-  btn.style.borderRadius = "999px";
-  btn.style.border = "none";
-  btn.style.background = "#0ea5e9";
-  btn.style.color = "#fff";
-  btn.style.fontWeight = "700";
-  btn.style.cursor = "pointer";
-
   btn.onclick = () => {
     const blob = new Blob(
       [JSON.stringify(catalogoData, null, 2)],
       { type: "application/json" }
     );
-    const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
-    a.href = url;
+    a.href = URL.createObjectURL(blob);
     a.download = "data.json";
     a.click();
-    URL.revokeObjectURL(url);
   };
-
   return btn;
 }
 
 /* ===============================
-   ADMIN
+   ADMIN LOGIN
 ================================ */
 function prepararBotonAdmin() {
   const btn = document.getElementById("btnEditor");
   if (!btn) return;
 
-  btn.addEventListener("click", () => {
-    const clave = prompt("🔐 Ingresa la clave de administrador:");
+  btn.onclick = () => {
+    const clave = prompt("Clave admin:");
     if (clave === "7777") {
       modoAdmin = true;
-      document.body.classList.add("modo-admin");
       renderCatalogo();
-      alert("✅ Modo administrador activado");
+      alert("Modo administrador activo");
     } else {
-      alert("❌ Clave incorrecta");
+      alert("Clave incorrecta");
     }
-  });
-         }
+  };
+                           }
