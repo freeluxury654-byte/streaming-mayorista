@@ -1,93 +1,193 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <title>Streaming Pro Center · Mayorista</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+/* RESET */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+}
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="style.css">
-</head>
+/* FONDO STREAMING */
+body {
+  background:
+    radial-gradient(circle at top right, rgba(255,0,0,.08), transparent 40%),
+    radial-gradient(circle at bottom left, rgba(0,180,255,.12), transparent 45%),
+    linear-gradient(180deg, #f8fafc, #eef2f7);
+  color: #0f172a;
+}
 
-<body>
-<div id="app">
+/* CONTENEDOR */
+#app {
+  max-width: 1280px;
+  margin: auto;
+  padding: 24px 16px 80px;
+}
 
-  <!-- HEADER -->
-  <header class="header">
+/* HEADER */
+.header {
+  position: relative;
+  background: rgba(255,255,255,.9);
+  backdrop-filter: blur(12px);
+  border-radius: 26px;
+  padding: 34px;
+  margin-bottom: 42px;
+  box-shadow: 0 30px 60px rgba(15,23,42,.12);
+  overflow: hidden;
+}
 
-    <!-- Ilustraciones SVG -->
-    <div class="hero-visual">
-      <!-- Streaming genérico -->
-      <svg class="svg-streaming" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
-        <rect x="20" y="40" width="120" height="80" rx="12"/>
-        <rect x="160" y="30" width="120" height="90" rx="12"/>
-        <rect x="300" y="50" width="80" height="60" rx="12"/>
-      </svg>
+.hero-visual {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
 
-      <!-- Netflix style -->
-      <svg class="svg-netflix" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-        <rect x="10" y="10" width="25" height="80"/>
-        <rect x="35" y="10" width="30" height="80" transform="skewX(-10)"/>
-        <rect x="65" y="10" width="25" height="80"/>
-      </svg>
-    </div>
+.svg-streaming {
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  width: 260px;
+  fill: rgba(14,165,233,.18);
+  animation: float 6s ease-in-out infinite;
+}
 
-    <h1>💎 Streaming Pro Center</h1>
+.svg-netflix {
+  position: absolute;
+  bottom: -20px;
+  right: 80px;
+  width: 120px;
+  fill: rgba(220,38,38,.25);
+  animation: pulse 3s infinite;
+}
 
-    <p class="subtitle">
-      Distribución mayorista de streaming · ⚡ Activación inmediata · Soporte activo
-    </p>
+/* TEXTOS */
+.header h1 {
+  font-size: 2.2rem;
+  margin-bottom: 6px;
+}
 
-    <p class="headline">
-      Proveedor confiable para revendedores, tiendas y distribuidores digitales
-    </p>
+.subtitle {
+  color: #475569;
+  margin-bottom: 6px;
+}
 
-    <div class="badges">
-      <span>✅ Proveedor verificado</span>
-      <span>🔒 Garantía real</span>
-      <span>📦 Stock actualizado</span>
-      <span>⚡ Entrega inmediata</span>
-      <span>🤝 Atención directa</span>
-    </div>
+.headline {
+  font-weight: 600;
+  margin-bottom: 18px;
+}
 
-    <a class="cta" href="https://wa.me/12494792518" target="_blank">
-      📲 Pedir ahora por WhatsApp
-    </a>
+/* BADGES */
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 22px;
+}
 
-    <button id="btnEditor" class="editor-btn">🔐 Editar catálogo</button>
-  </header>
+.badges span {
+  background: #f1f5f9;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: .85rem;
+  animation: floatMini 4s infinite;
+}
 
-  <!-- INFO -->
-  <section class="info">
-    <h2>📋 ¿Cómo comprar?</h2>
-    <ol>
-      <li>📦 Revisa el catálogo y disponibilidad</li>
-      <li>💬 Escríbenos por WhatsApp indicando el producto</li>
-      <li>⚡ Activamos de inmediato tras confirmar el pago</li>
-    </ol>
+/* BOTONES */
+.cta {
+  display: inline-block;
+  background: linear-gradient(135deg,#22c55e,#16a34a);
+  color: #fff;
+  padding: 15px 30px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 700;
+  box-shadow: 0 18px 40px rgba(34,197,94,.4);
+  transition: transform .25s, box-shadow .25s;
+}
 
-    <h2>📌 Condiciones importantes</h2>
-    <ul>
-      <li>📦 Precios mayoristas desde <strong>5 cuentas</strong></li>
-      <li>🛡️ Productos con garantía incluyen reposición</li>
-      <li>🚫 Productos sin garantía son entrega única</li>
-      <li>💳 Activación tras confirmación de pago</li>
-    </ul>
-  </section>
+.cta:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 26px 60px rgba(34,197,94,.55);
+}
 
-  <!-- CATÁLOGO -->
-  <section id="catalogo" class="catalogo"></section>
+.editor-btn {
+  margin-left: 14px;
+  padding: 10px 18px;
+  border-radius: 999px;
+  border: none;
+  background: #020617;
+  color: #fff;
+  cursor: pointer;
+}
 
-  <!-- FOOTER -->
-  <footer>
-    <p>
-      Streaming Pro Center · Distribución digital · Atención directa<br>
-      © 2026 Todos los derechos reservados
-    </p>
-  </footer>
+/* INFO */
+.info {
+  margin-bottom: 40px;
+}
 
-</div>
+.info h2 {
+  margin-bottom: 10px;
+}
 
-<script src="public.js"></script>
-</body>
-</html>
+.info li {
+  margin-left: 18px;
+  margin-bottom: 6px;
+}
+
+/* CATÁLOGO */
+.catalogo {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+  gap: 28px;
+}
+
+/* CARDS */
+.card {
+  background: #fff;
+  border-radius: 22px;
+  padding: 22px;
+  box-shadow: 0 22px 45px rgba(15,23,42,.1);
+  transition: transform .35s, box-shadow .35s;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 40px 70px rgba(15,23,42,.18);
+}
+
+/* FOOTER */
+footer {
+  margin-top: 70px;
+  text-align: center;
+  font-size: .85rem;
+  color: #64748b;
+}
+
+/* ANIMACIONES */
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes floatMini {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+@keyframes pulse {
+  0%,100% { opacity: .5; }
+  50% { opacity: 1; }
+}
+
+/* MOBILE */
+@media (max-width:768px) {
+  .svg-streaming,
+  .svg-netflix {
+    display: none;
+  }
+
+  .cta,
+  .editor-btn {
+    width: 100%;
+    margin-top: 10px;
+    text-align: center;
+  }
+}
