@@ -1,68 +1,50 @@
 {
   "categorias": [
     {
-      "nombre": "Netflix al por Mayor",
-      "descripcion": "Cuentas y accesos Netflix estables, ideales para reventa continua.",
+      "nombre": "Prime Video",
       "productos": [
         {
-          "nombre": "Hits Netflix 4K USA",
-          "descripcion": "Correo + contraseña · Sin acceso al correo · Uso estable",
-          "precio": "$2.5 USD",
+          "nombre": "Pantallas",
+          "precio": "$3 | Mayor (5+): $2",
+          "stock": 100,
+          "garantia": true
+        },
+        {
+          "nombre": "Cuenta Completa 1 Mes",
+          "precio": "$5 | Mayor (5+): $1",
+          "stock": 100,
+          "garantia": true
+        }
+      ]
+    },
+    {
+      "nombre": "Vpn's",
+      "productos": [
+        {
+          "nombre": "Express VPN 6 Meses",
+          "precio": "$5 | Mayor (5+): $5",
+          "stock": 3,
+          "garantia": true
+        },
+        {
+          "nombre": "Surfshark",
+          "precio": "$5 | Mayor (5+): $5",
+          "stock": 10,
+          "garantia": true
+        }
+      ]
+    },
+    {
+      "nombre": "NETFLIX CUENTAS HITS 4K USA",
+      "descripcion": "historial de pago más de 5 meses, full estables dándole el uso adecuado",
+      "productos": [
+        {
+          "nombre": "Cuenta Hits Al Mayor ",
+          "descripcion": "✅Tipo de cuenta: Correo:Contraseña  (sin acceso a correo) ✅ Garantía de 2 Semanas ✅ Funciona en teléfonos móviles, PC, tabletas, portátiles, Smart TV ✅ La cuenta puede funcionar durante meses si sigue las Reglas ✅ Reemplazo gratuito si la cuenta deja de funcionar  ⚠️ Leer la regla de la cuenta: 📌 No cambie nada en (Nombre de perfil, Contraseña, Sección de pago, Idioma en el perfil, Plan de su cuenta). 📌 Se puede cambiar el idioma mientras se ve el video, está prohibido cambiar el idioma en el perfil 📌 La violación de las reglas puede perder la garantía",
+          "precio": "$2.5",
           "stock": 300,
           "garantia": true,
-          "etiquetas": ["🔥 Oferta", "⚡ Entrega inmediata"]
-        },
-        {
-          "nombre": "Netflix Email Access",
-          "descripcion": "Acceso completo al correo · Sin geo · Historial confiable",
-          "precio": "$10 USD",
-          "stock": 10,
-          "garantia": true,
-          "etiquetas": ["⭐ Recomendado", "💎 Premium"]
-        }
-      ]
-    },
-    {
-      "nombre": "Pantallas de Streaming",
-      "descripcion": "Perfiles individuales listos para usar en cualquier dispositivo.",
-      "productos": [
-        {
-          "nombre": "Pantalla Netflix",
-          "descripcion": "Perfil individual · Activación inmediata",
-          "precio": "$3 USD",
-          "stock": 100,
-          "garantia": true,
-          "etiquetas": ["⚡ Rápido"]
-        },
-        {
-          "nombre": "Pantalla Prime Video",
-          "descripcion": "Compatible con Smart TV · Perfil dedicado · Sin anuncios",
-          "precio": "$3.5 USD",
-          "stock": 50,
-          "garantia": true,
-          "etiquetas": ["🔥 Popular"]
-        }
-      ]
-    },
-    {
-      "nombre": "VPN y Seguridad Digital",
-      "descripcion": "Protege tu conexión y accede a contenido sin restricciones.",
-      "productos": [
-        {
-          "nombre": "Express VPN · 6 Meses",
-          "descripcion": "Alta velocidad · Ideal para streaming",
-          "precio": "$5 USD",
-          "stock": 3,
-          "garantia": false,
-          "etiquetas": ["⚠️ Últimas unidades"]
-        },
-        {
-          "nombre": "Surfshark VPN · 1 Mes",
-          "descripcion": "Multidispositivo · Conexión segura",
-          "precio": "$5 USD",
-          "stock": 10,
-          "garantia": false,
-          "etiquetas": ["🔒 Seguro"]
+          "etiqueta": "oferta"
         }
       ]
     }
