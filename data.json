@@ -25,14 +25,14 @@
       "productos": [
         {
           "nombre": "Express VPN 6 Meses",
-          "precio": "5",
+          "precio": "$5",
           "stock": 5,
           "garantia": true,
           "descripcion": "Correo y Clave"
         },
         {
           "nombre": "Surfshark ",
-          "precio": "5",
+          "precio": "$5",
           "stock": 10,
           "garantia": true,
           "descripcion": "Activacion por codigo"
@@ -42,7 +42,7 @@
     },
     {
       "nombre": "CUENTAS NETFLIX AL MAYOR",
-      "descripcion": "historial de pago más de 5 meses, full estables dándole el uso adecuado",
+      "descripcion": "Historial de pago más de 5 meses, full estables dándole el uso adecuado",
       "productos": [
         {
           "nombre": "Cuentas Hits 4k Usa",
@@ -58,7 +58,7 @@
         {
           "nombre": "Pantalla x1 Mes",
           "descripcion": "Activacion por codigo\nGarantia \n",
-          "precio": "2.5",
+          "precio": "$2.5",
           "stock": 10,
           "garantia": true,
           "etiquetas": [
@@ -69,3 +69,4 @@
     }
   ]
 }
+
