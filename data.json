@@ -66,8 +66,130 @@
           ]
         }
       ]
+    },
+    {
+      "nombre": "MUBI GO",
+      "descripcion": "",
+      "productos": [
+        {
+          "nombre": "Mubi Go 2 Meses",
+          "descripcion": "A dominio o acceso\n2 meses full estable",
+          "precio": "$3 | Mayor (5+): $1",
+          "stock": 50,
+          "garantia": true,
+          "etiquetas": []
+        },
+        {
+          "nombre": "Mubi Go 2 Meses",
+          "descripcion": "Pantalla en alquiler",
+          "precio": "$1",
+          "stock": 50,
+          "garantia": true,
+          "etiquetas": []
+        }
+      ]
+    },
+    {
+      "nombre": "ADOBE",
+      "descripcion": "Adobe ofrece una amplia gama de aplicaciones creativas y de productividad, incluyendo Photoshop, Illustrator, Premiere Pro y muchas más, todas disponibles a través de Adobe Creative Cloud.",
+      "productos": [
+        {
+          "nombre": "Adobe Full Apps",
+          "descripcion": "A dominio o acceso\nx4 meses la activacion\n",
+          "precio": "$5",
+          "stock": 50,
+          "garantia": true,
+          "etiquetas": []
+        }
+      ]
+    },
+    {
+      "nombre": "CHAT GPT ",
+      "descripcion": "",
+      "productos": [
+        {
+          "nombre": "Chat Gpt Plus",
+          "descripcion": "Plan mensual\n5 miembros \nSe entrega cuenta completa",
+          "precio": "$3.5",
+          "stock": 50,
+          "garantia": true,
+          "etiquetas": []
+        },
+        {
+          "nombre": "Chat Gpt Plus",
+          "descripcion": "Plan mensual\nSe activa miembro\nA dominio",
+          "precio": "$2.5",
+          "stock": 30,
+          "garantia": true,
+          "etiquetas": []
+        },
+        {
+          "nombre": "Chat Gp GO",
+          "descripcion": "Plan Anual\nA dominio o acceso\n",
+          "precio": "$5",
+          "stock": 35,
+          "garantia": false,
+          "etiquetas": []
+        }
+      ]
+    },
+    {
+      "nombre": "AMC",
+      "descripcion": "Cuentas completas ",
+      "productos": [
+        {
+          "nombre": "AMC Mensual",
+          "descripcion": "Plan mensual a dominio o acceso full",
+          "precio": "$2",
+          "stock": 50,
+          "garantia": true,
+          "etiquetas": []
+        }
+      ]
+    },
+    {
+      "nombre": "YOUTUBE",
+      "descripcion": "",
+      "productos": [
+        {
+          "nombre": "Youtube Mensual",
+          "descripcion": "A dominio",
+          "precio": "$3",
+          "stock": 33,
+          "garantia": true,
+          "etiquetas": []
+        },
+        {
+          "nombre": "Youtube Mensual MAYORITSTA",
+          "descripcion": "",
+          "precio": "$1",
+          "stock": 33,
+          "garantia": true,
+          "etiquetas": []
+        }
+      ]
+    },
+    {
+      "nombre": "HBO MAX",
+      "descripcion": "",
+      "productos": [
+        {
+          "nombre": "Hbo Max",
+          "descripcion": "cuenta completa a dominio o acceso facturacion prime channels",
+          "precio": "$5",
+          "stock": 30,
+          "garantia": true,
+          "etiquetas": []
+        },
+        {
+          "nombre": "Hbo Max",
+          "descripcion": "Pantallas, activacion por codigo estables",
+          "precio": "$2",
+          "stock": 50,
+          "garantia": false,
+          "etiquetas": []
+        }
+      ]
     }
   ]
 }
-
-
