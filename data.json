@@ -1,27 +1,35 @@
 {
   "categorias": [
     {
-      "nombre": "Prime Video",
+      "nombre": "STREAMING",
       "productos": [
         {
-          "nombre": "Pantallas",
+          "nombre": "Prime VIdeo",
           "precio": "$3 | Mayor (5+): $1",
           "stock": 100,
           "garantia": true,
           "descripcion": "✅ Acceso: Cuenta privada completa (3 pantallas simultáneas).\n\n✅ Calidad: Máxima resolución disponible (4K/HDR).\n\n✅ Garantía: Mes completo (soporte activo).\n\n⚠️ Regla: Prohibido cambiar el correo o plan de suscripción.\n\n📌 Uso: Puedes crear tus propios perfiles y compartirlos."
         },
         {
-          "nombre": "Cuenta Completa 1 Mes",
+          "nombre": "Hbo Max",
           "precio": "$5 | Mayor (5+): $1.2",
           "stock": 100,
           "garantia": true,
           "descripcion": "Esta es ideal para usuarios individuales.\n\n✅ Acceso: 1 Perfil privado en cuenta compartida.\n\n✅ Calidad: Ultra HD (4K).\n\n✅ Garantía: 2 semanas con reemplazo.\n\n⚠️ Regla: Usar solo el perfil asignado. Prohibido cambiar clave o datos.\n\n📌 Nota: Cambiar idioma solo dentro de la reproducción."
+        },
+        {
+          "nombre": "MubiGo",
+          "descripcion": "",
+          "precio": "$3.5",
+          "stock": 35,
+          "garantia": false,
+          "etiquetas": []
         }
       ],
       "descripcion": "Todo en cuentas Streaming y Métodos Disponibles "
     },
     {
-      "nombre": "VPN`S",
+      "nombre": "Herramientas",
       "productos": [
         {
           "nombre": "Express VPN 6 Meses",
