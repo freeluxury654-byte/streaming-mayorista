@@ -204,6 +204,22 @@
           "etiquetas": []
         }
       ]
+    },
+    {
+      "nombre": "Tutoriales Videos",
+      "descripcion": "Solo grasa",
+      "productos": [
+        {
+          "nombre": "McDonals ",
+          "descripcion": "Videotutiajl con bins y todo los paso full ",
+          "precio": "20",
+          "stock": 2,
+          "garantia": false,
+          "etiquetas": [
+            "Solo a 2 vendo"
+          ]
+        }
+      ]
     }
   ]
-}
+    }
