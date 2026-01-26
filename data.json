@@ -1,7 +1,7 @@
 {
   "categorias": [
     {
-      "nombre": "STREAMING 📽️",
+      "nombre": "Prime Video",
       "productos": [
         {
           "nombre": "Pantallas",
@@ -222,4 +222,4 @@
       ]
     }
   ]
-    }
+}
