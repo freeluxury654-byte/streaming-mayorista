@@ -11,52 +11,51 @@
 <div id="app">
 
   <!-- HEADER -->
-  <header class="header">
+  <header class="header animate-enter">
     <div class="header-content">
       <h1>💎 Streaming Pro Center</h1>
       <p class="subtitle">Distribución mayorista · Activación inmediata · Soporte activo</p>
-      <p class="trust">Proveedor confiable para revendedores y distribuidores</p>
+      <p class="trust">Proveedor confiable para revendedores</p>
 
       <div class="badges">
         <span>✅ Verificado</span>
-        <span>🔒 Garantía</span>
-        <span>📦 Stock real</span>
         <span>⚡ Instantáneo</span>
+        <span>📦 Stock real</span>
       </div>
 
       <div class="header-actions">
-        <a class="cta glow" href="https://wa.me/12494792518" target="_blank">
+        <a class="cta glow pulse" href="https://wa.me/12494792518" target="_blank">
           💬 Pedir por WhatsApp
         </a>
         <button id="btnEditor" class="editor-btn">🔐 Editar</button>
-        <button id="btnDarkMode" class="editor-btn">🌙 Modo nocturno</button>
+        <button id="btnDarkMode" class="editor-btn">🌙 Modo</button>
       </div>
     </div>
   </header>
 
   <!-- ANUNCIOS -->
-  <section class="anuncios">
+  <section class="anuncios animate-delay-1">
     <a href="https://t.me/TU_LINK_TELEGRAM" target="_blank" class="anuncio telegram">
       🚀 Canal de Telegram
-      <span>Promos · Stock · Avisos en tiempo real</span>
+      <span>Promos y stock en tiempo real</span>
     </a>
     <a href="https://chat.whatsapp.com/TU_LINK_WHATSAPP" target="_blank" class="anuncio whatsapp">
       💬 Grupo VIP WhatsApp
-      <span>Mayoristas · Soporte directo</span>
+      <span>Mayoristas y soporte directo</span>
     </a>
   </section>
 
   <!-- INFO -->
-  <section class="info">
-    <div class="info-box">📋 Compra rápida y segura</div>
-    <div class="info-box">🛡️ Garantía en productos seleccionados</div>
+  <section class="info animate-delay-2">
+    <div class="info-box">📋 Compra rápida</div>
+    <div class="info-box">🛡️ Garantía real</div>
   </section>
 
   <!-- CATÁLOGO -->
-  <section id="catalogo" class="catalogo skeleton"></section>
+  <section id="catalogo" class="catalogo animate-delay-3"></section>
 
   <!-- FOOTER -->
-  <footer>
+  <footer class="animate-delay-4">
     Streaming Pro Center · © 2026
   </footer>
 
@@ -70,14 +69,14 @@
 
   if (localStorage.getItem("theme") === "dark") {
     body.classList.add("dark-mode");
-    btn.textContent = "☀️ Modo claro";
   }
 
   btn.onclick = () => {
     body.classList.toggle("dark-mode");
-    const dark = body.classList.contains("dark-mode");
-    btn.textContent = dark ? "☀️ Modo claro" : "🌙 Modo nocturno";
-    localStorage.setItem("theme", dark ? "dark" : "light");
+    localStorage.setItem(
+      "theme",
+      body.classList.contains("dark-mode") ? "dark" : "light"
+    );
   };
 </script>
 
