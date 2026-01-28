@@ -1,14 +1,74 @@
-/* RESET */
+/* =========================
+   🎯 VARIABLES GLOBALES
+   ========================= */
+
+:root {
+  /* Fondos */
+  --bg-body: linear-gradient(135deg, #f6fbff, #fff1f5);
+  --bg-card: #ffffff;
+  --bg-soft: #f1f5f9;
+  --bg-tag: #e0f2fe;
+
+  /* Textos */
+  --text-main: #0f172a;
+  --text-muted: #475569;
+  --text-footer: #64748b;
+
+  /* Colores UI */
+  --green-main: #22c55e;
+  --green-dark: #16a34a;
+  --blue-tag: #0369a1;
+  --blue-admin: #0ea5e9;
+  --red-danger: #dc2626;
+
+  /* Sombras */
+  --shadow-lg: 0 20px 60px rgba(0,0,0,0.08);
+  --shadow-md: 0 12px 30px rgba(0,0,0,0.06);
+  --shadow-card: 0 12px 30px rgba(0,0,0,.08);
+}
+
+/* =========================
+   🌙 VARIABLES MODO OSCURO
+   ========================= */
+
+body.dark-mode {
+  --bg-body: linear-gradient(135deg, #020617, #0b1220);
+  --bg-card: #0f172a;
+  --bg-soft: #020617;
+  --bg-tag: #020617;
+
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --text-footer: #94a3b8;
+
+  --blue-tag: #7dd3fc;
+
+  --shadow-lg: 0 25px 60px rgba(0,0,0,.7);
+  --shadow-md: 0 18px 40px rgba(0,0,0,.6);
+  --shadow-card: 0 20px 50px rgba(0,0,0,.7);
+}
+
+/* =========================
+   🔄 RESET + TRANSICIONES
+   ========================= */
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  transition: background-color .35s ease,
+              color .35s ease,
+              box-shadow .35s ease;
 }
 
+/* =========================
+   🌐 BASE
+   ========================= */
+
 body {
-  background: linear-gradient(135deg, #f6fbff, #fff1f5);
-  color: #0f172a;
+  background: var(--bg-body);
+  color: var(--text-main);
 }
 
 #app {
@@ -17,12 +77,15 @@ body {
   padding: 24px;
 }
 
-/* HEADER */
+/* =========================
+   🧱 HEADER
+   ========================= */
+
 .header {
-  background: white;
+  background: var(--bg-card);
   border-radius: 24px;
   padding: 32px;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+  box-shadow: var(--shadow-lg);
   margin-bottom: 40px;
 }
 
@@ -36,7 +99,7 @@ body {
 }
 
 .subtitle {
-  color: #475569;
+  color: var(--text-muted);
   margin-bottom: 8px;
 }
 
@@ -44,6 +107,10 @@ body {
   font-weight: 600;
   margin-bottom: 16px;
 }
+
+/* =========================
+   🏷️ BADGES
+   ========================= */
 
 .badges {
   display: flex;
@@ -53,11 +120,15 @@ body {
 }
 
 .badges span {
-  background: #f1f5f9;
+  background: var(--bg-soft);
   padding: 6px 12px;
   border-radius: 999px;
   font-size: 0.85rem;
 }
+
+/* =========================
+   🎯 ACCIONES
+   ========================= */
 
 .header-actions {
   display: flex;
@@ -66,22 +137,16 @@ body {
 }
 
 .cta {
-  background: linear-gradient(135deg, #22c55e, #16a34a);
+  background: linear-gradient(135deg, var(--green-main), var(--green-dark));
   color: white;
   padding: 14px 22px;
   border-radius: 999px;
   font-weight: 700;
   text-decoration: none;
-  transition: transform .2s, box-shadow .2s;
-}
-
-.cta:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 30px rgba(34,197,94,.4);
 }
 
 .editor-btn {
-  background: #0f172a;
+  background: var(--text-main);
   color: white;
   border: none;
   padding: 14px 22px;
@@ -89,7 +154,10 @@ body {
   cursor: pointer;
 }
 
-/* INFO */
+/* =========================
+   ℹ️ INFO
+   ========================= */
+
 .info {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
@@ -98,34 +166,32 @@ body {
 }
 
 .info-box {
-  background: white;
+  background: var(--bg-card);
   padding: 24px;
   border-radius: 20px;
-  box-shadow: 0 12px 30px rgba(0,0,0,0.06);
+  box-shadow: var(--shadow-md);
 }
 
 .info-box h2 {
   margin-bottom: 12px;
 }
 
-/* CATÁLOGO */
+/* =========================
+   📦 CATÁLOGO
+   ========================= */
+
 .catalogo {
   display: flex;
   flex-direction: column;
   gap: 48px;
 }
 
-.categoria {
-  animation: fadeUp .5s ease both;
-}
-
 .categoria-titulo {
   font-size: 1.8rem;
-  margin-bottom: 6px;
 }
 
 .categoria-desc {
-  color: #475569;
+  color: var(--text-muted);
   margin-bottom: 20px;
 }
 
@@ -136,16 +202,10 @@ body {
 }
 
 .producto-card {
-  background: white;
+  background: var(--bg-card);
   border-radius: 20px;
   padding: 20px;
-  box-shadow: 0 12px 30px rgba(0,0,0,.08);
-  transition: transform .25s, box-shadow .25s;
-}
-
-.producto-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 24px 50px rgba(0,0,0,.12);
+  box-shadow: var(--shadow-card);
 }
 
 .producto-nombre {
@@ -154,7 +214,7 @@ body {
 }
 
 .producto-desc {
-  color: #475569;
+  color: var(--text-muted);
   font-size: .9rem;
   margin-bottom: 12px;
 }
@@ -167,13 +227,17 @@ body {
 }
 
 .garantia {
-  color: #16a34a;
+  color: var(--green-dark);
   font-weight: 600;
 }
 
 .sin-garantia {
-  color: #dc2626;
+  color: var(--red-danger);
 }
+
+/* =========================
+   🏷️ TAGS
+   ========================= */
 
 .producto-tags {
   display: flex;
@@ -183,17 +247,21 @@ body {
 }
 
 .tag {
-  background: #e0f2fe;
-  color: #0369a1;
+  background: var(--bg-tag);
+  color: var(--blue-tag);
   padding: 4px 8px;
   border-radius: 999px;
   font-size: .75rem;
 }
 
+/* =========================
+   💬 WHATSAPP
+   ========================= */
+
 .btn-whatsapp {
   display: block;
   text-align: center;
-  background: #22c55e;
+  background: var(--green-main);
   color: white;
   padding: 10px;
   border-radius: 999px;
@@ -201,20 +269,29 @@ body {
   text-decoration: none;
 }
 
-/* FOOTER */
+/* =========================
+   🦶 FOOTER
+   ========================= */
+
 footer {
   text-align: center;
-  color: #64748b;
+  color: var(--text-footer);
   margin: 60px 0 20px;
   font-size: .85rem;
 }
 
-/* ADMIN MODE */
+/* =========================
+   🔐 ADMIN
+   ========================= */
+
 .modo-admin .producto-card {
-  outline: 2px dashed #0ea5e9;
+  outline: 2px dashed var(--blue-admin);
 }
 
-/* ANIMACIONES */
+/* =========================
+   🎞️ ANIMACIÓN
+   ========================= */
+
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
