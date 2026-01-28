@@ -14,62 +14,50 @@
   <header class="header">
     <div class="header-content">
       <h1>💎 Streaming Pro Center</h1>
-      <p class="subtitle">
-        Distribución mayorista de streaming · ⚡ Activación inmediata · Soporte activo
-      </p>
-      <p class="trust">
-        Proveedor confiable para revendedores, tiendas y distribuidores digitales
-      </p>
+      <p class="subtitle">Distribución mayorista · Activación inmediata · Soporte activo</p>
+      <p class="trust">Proveedor confiable para revendedores y distribuidores</p>
 
       <div class="badges">
-        <span>✅ Proveedor verificado</span>
-        <span>🔒 Garantía real</span>
-        <span>📦 Stock actualizado</span>
-        <span>⚡ Entrega inmediata</span>
-        <span>🤝 Atención directa</span>
+        <span>✅ Verificado</span>
+        <span>🔒 Garantía</span>
+        <span>📦 Stock real</span>
+        <span>⚡ Instantáneo</span>
       </div>
 
       <div class="header-actions">
-        <a class="cta" href="https://wa.me/12494792518" target="_blank">
-          💬 Pedir ahora por WhatsApp
+        <a class="cta glow" href="https://wa.me/12494792518" target="_blank">
+          💬 Pedir por WhatsApp
         </a>
-        <button id="btnEditor" class="editor-btn">🔐 Editar catálogo</button>
+        <button id="btnEditor" class="editor-btn">🔐 Editar</button>
         <button id="btnDarkMode" class="editor-btn">🌙 Modo nocturno</button>
       </div>
     </div>
   </header>
 
+  <!-- ANUNCIOS -->
+  <section class="anuncios">
+    <a href="https://t.me/TU_LINK_TELEGRAM" target="_blank" class="anuncio telegram">
+      🚀 Canal de Telegram
+      <span>Promos · Stock · Avisos en tiempo real</span>
+    </a>
+    <a href="https://chat.whatsapp.com/TU_LINK_WHATSAPP" target="_blank" class="anuncio whatsapp">
+      💬 Grupo VIP WhatsApp
+      <span>Mayoristas · Soporte directo</span>
+    </a>
+  </section>
+
   <!-- INFO -->
   <section class="info">
-    <div class="info-box">
-      <h2>📋 ¿Cómo comprar?</h2>
-      <ol>
-        <li>📦 Revisa el catálogo y disponibilidad</li>
-        <li>💬 Escríbenos por WhatsApp indicando el producto</li>
-        <li>⚡ Activamos de inmediato tras confirmar el pago</li>
-      </ol>
-    </div>
-
-    <div class="info-box">
-      <h2>📌 Términos y Condiciones</h2>
-      <ul>
-        <li>📦 Precios mayoristas desde <b>5 cuentas</b></li>
-        <li>🛡️ Productos con garantía incluyen reposición</li>
-        <li>🚫 Sin garantía = entrega única</li>
-        <li>💳 Activación tras confirmación de pago</li>
-      </ul>
-    </div>
+    <div class="info-box">📋 Compra rápida y segura</div>
+    <div class="info-box">🛡️ Garantía en productos seleccionados</div>
   </section>
 
   <!-- CATÁLOGO -->
-  <section id="catalogo" class="catalogo"></section>
+  <section id="catalogo" class="catalogo skeleton"></section>
 
   <!-- FOOTER -->
   <footer>
-    <p>
-      Streaming Pro Center · Distribución digital · Atención directa<br>
-      © 2026 Todos los derechos reservados
-    </p>
+    Streaming Pro Center · © 2026
   </footer>
 
 </div>
@@ -77,20 +65,20 @@
 <script src="public.js"></script>
 
 <script>
-  const btnDarkMode = document.getElementById("btnDarkMode");
+  const btn = document.getElementById("btnDarkMode");
   const body = document.body;
 
   if (localStorage.getItem("theme") === "dark") {
     body.classList.add("dark-mode");
-    btnDarkMode.textContent = "☀️ Modo claro";
+    btn.textContent = "☀️ Modo claro";
   }
 
-  btnDarkMode.addEventListener("click", () => {
+  btn.onclick = () => {
     body.classList.toggle("dark-mode");
-    const isDark = body.classList.contains("dark-mode");
-    btnDarkMode.textContent = isDark ? "☀️ Modo claro" : "🌙 Modo nocturno";
-    localStorage.setItem("theme", isDark ? "dark" : "light");
-  });
+    const dark = body.classList.contains("dark-mode");
+    btn.textContent = dark ? "☀️ Modo claro" : "🌙 Modo nocturno";
+    localStorage.setItem("theme", dark ? "dark" : "light");
+  };
 </script>
 
 </body>
