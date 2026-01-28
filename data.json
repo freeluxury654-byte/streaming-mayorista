@@ -86,8 +86,8 @@
         {
           "nombre": "TidalMusic",
           "descripcion": "acceso o dominio mensual cuenta completa",
-          "precio": "$",
-          "stock": 0,
+          "precio": "$2",
+          "stock": 30,
           "garantia": true,
           "etiquetas": []
         },
@@ -96,7 +96,7 @@
           "descripcion": "",
           "precio": "$",
           "stock": 0,
-          "garantia": true,
+          "garantia": false,
           "etiquetas": []
         },
         {
@@ -104,7 +104,7 @@
           "descripcion": "",
           "precio": "$",
           "stock": 0,
-          "garantia": true,
+          "garantia": false,
           "etiquetas": []
         },
         {
@@ -120,6 +120,14 @@
           "descripcion": "",
           "precio": "$",
           "stock": 0,
+          "garantia": false,
+          "etiquetas": []
+        },
+        {
+          "nombre": "Youtube Premum",
+          "descripcion": "Mensual a dominio o acceso",
+          "precio": "2.5$",
+          "stock": 60,
           "garantia": true,
           "etiquetas": []
         }
@@ -148,7 +156,7 @@
           "descripcion": "Correo & Clave",
           "precio": "$5",
           "stock": 0,
-          "garantia": false,
+          "garantia": true,
           "etiquetas": []
         }
       ],
@@ -214,7 +222,7 @@
           "descripcion": "Plan Anual\nA dominio o acceso\n",
           "precio": "10$",
           "stock": 35,
-          "garantia": false,
+          "garantia": true,
           "etiquetas": []
         },
         {
