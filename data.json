@@ -5,28 +5,126 @@
       "productos": [
         {
           "nombre": "Prime VIdeo",
-          "precio": "$3 | Mayor (5+): $1",
+          "precio": "1.8$ ",
           "stock": 100,
           "garantia": true,
-          "descripcion": "✅ Acceso: Cuenta privada completa (3 pantallas simultáneas).\n\n✅ Calidad: Máxima resolución disponible (4K/HDR).\n\n✅ Garantía: Mes completo (soporte activo).\n\n⚠️ Regla: Prohibido cambiar el correo o plan de suscripción.\n\n📌 Uso: Puedes crear tus propios perfiles y compartirlos."
+          "descripcion": "acceso o dominio mensual cuenta completa",
+          "etiquetas": [
+            "1 Mes"
+          ]
         },
         {
           "nombre": "Hbo Max",
-          "precio": "$5 | Mayor (5+): $1.7",
+          "precio": "3.5$",
           "stock": 50,
           "garantia": true,
-          "descripcion": "cuenta completa a dominio o acceso facturacion prime channels"
+          "descripcion": "cuenta completa a dominio o acceso facturacion prime channels",
+          "etiquetas": [
+            "7 Dias"
+          ]
+        },
+        {
+          "nombre": "Netflix 4K USA SIN GEO",
+          "descripcion": "Garantía: 14 días (Soporte activo)\n\nDispositivos: Todos (TV, Celular, PC)\n\nCondición: Uso exclusivo del perfil asignado. No editar datos de la cuenta\n\nImportante: Incumplir las reglas anula la garantía de reemplazo",
+          "precio": "2.5",
+          "stock": 2000,
+          "garantia": true,
+          "etiquetas": [
+            "7 Dias x Activacion"
+          ]
+        },
+        {
+          "nombre": "Hbo Standar",
+          "descripcion": "cuenta completa a dominio o acceso ",
+          "precio": "3$",
+          "stock": 40,
+          "garantia": true,
+          "etiquetas": [
+            "7 Dias"
+          ]
+        },
+        {
+          "nombre": "Amc+",
+          "descripcion": "acceso o dominio mensual cuenta completa",
+          "precio": "2.2$",
+          "stock": 40,
+          "garantia": true,
+          "etiquetas": []
+        },
+        {
+          "nombre": "Crunchyroll",
+          "descripcion": "",
+          "precio": "$",
+          "stock": 0,
+          "garantia": false,
+          "etiquetas": []
+        },
+        {
+          "nombre": "Shadowz Terror ",
+          "descripcion": "acceso o dominio mensual cuenta completa",
+          "precio": "1.5$",
+          "stock": 30,
+          "garantia": true,
+          "etiquetas": []
+        },
+        {
+          "nombre": "Apple Tv",
+          "descripcion": "",
+          "precio": "$",
+          "stock": 0,
+          "garantia": false,
+          "etiquetas": []
+        },
+        {
+          "nombre": "Adobe Creative Cloud",
+          "descripcion": "acceso o dominio x4 meses con todas las app",
+          "precio": "5$",
+          "stock": 50,
+          "garantia": true,
+          "etiquetas": []
+        },
+        {
+          "nombre": "TidalMusic",
+          "descripcion": "acceso o dominio mensual cuenta completa",
+          "precio": "$",
+          "stock": 0,
+          "garantia": true,
+          "etiquetas": []
+        },
+        {
+          "nombre": "Disney Premium",
+          "descripcion": "",
+          "precio": "$",
+          "stock": 0,
+          "garantia": true,
+          "etiquetas": []
+        },
+        {
+          "nombre": "Spotify ",
+          "descripcion": "",
+          "precio": "$",
+          "stock": 0,
+          "garantia": true,
+          "etiquetas": []
         },
         {
           "nombre": "MubiGo",
-          "descripcion": "A dominio o acceso\n2 meses full estable",
-          "precio": "$3.5",
-          "stock": 35,
-          "garantia": false,
+          "descripcion": "a dominio o acceso\n2 meses full estable",
+          "precio": "2$",
+          "stock": 50,
+          "garantia": true,
+          "etiquetas": []
+        },
+        {
+          "nombre": "Paramount",
+          "descripcion": "",
+          "precio": "$",
+          "stock": 0,
+          "garantia": true,
           "etiquetas": []
         }
       ],
-      "descripcion": "Todo en cuentas Streaming y Métodos Disponibles "
+      "descripcion": "Todo en cuentas Streaming "
     },
     {
       "nombre": "VPN",
@@ -36,7 +134,7 @@
           "precio": "$5",
           "stock": 5,
           "garantia": true,
-          "descripcion": "Correo y Clave"
+          "descripcion": "Correo & Clave"
         },
         {
           "nombre": "Surfshark ",
@@ -44,45 +142,61 @@
           "stock": 10,
           "garantia": true,
           "descripcion": "Activacion por codigo"
+        },
+        {
+          "nombre": "Hostpod 5 Meses",
+          "descripcion": "Correo & Clave",
+          "precio": "$5",
+          "stock": 0,
+          "garantia": false,
+          "etiquetas": []
         }
       ],
       "descripcion": "Suscripciones premium garantizadas para asegurar tu anonimato al costo más bajo"
     },
     {
-      "nombre": "CUENTAS NETFLIX AL MAYOR",
-      "descripcion": "Historial de pago más de 5 meses, full estables dándole el uso adecuado",
+      "nombre": "COMBO LIST MIXTOS",
+      "descripcion": "Para que te diviertas escarvando fresco",
       "productos": [
         {
-          "nombre": "Cuentas Hits 4k Usa",
-          "descripcion": "Garantía: 14 días (Soporte activo)\n\nDispositivos: Todos (TV, Celular, PC)\n\nCondición: Uso exclusivo del perfil asignado. No editar datos de la cuenta\n\nImportante: Incumplir las reglas anula la garantía de reemplazo",
-          "precio": "$8 | Mayor (5+): $2.5",
-          "stock": 300,
-          "garantia": true,
+          "nombre": "1k en Lineas",
+          "descripcion": "CORREOS HOTMAIL MICROSOFT OUTLOOK",
+          "precio": "10$",
+          "stock": 50,
+          "garantia": false,
           "etiqueta": "oferta",
           "etiquetas": [
-            "Oferta Aplica Desde 10+"
+            ""
           ]
         },
         {
-          "nombre": "Pantalla x1 Mes",
-          "descripcion": "Activacion por codigo\nGarantia \n",
-          "precio": "$2.5",
-          "stock": 10,
-          "garantia": true,
+          "nombre": "5k en Lieeas",
+          "descripcion": "CORREOS HOTMAIL MICROSOFT OUTLOOK\n",
+          "precio": "15$",
+          "stock": 50,
+          "garantia": false,
           "etiquetas": [
-            "Unidad"
+            ""
           ]
+        },
+        {
+          "nombre": "Pack de 5 txt Full",
+          "descripcion": "CORREOS HOTMAIL MICROSOFT ",
+          "precio": "25$",
+          "stock": 50,
+          "garantia": false,
+          "etiquetas": []
         }
       ]
     },
     {
-      "nombre": "CHAT GPT ",
-      "descripcion": "",
+      "nombre": "INTELIGENCIA ARTIFICIAL",
+      "descripcion": "Las mejores ia para tus proyectos",
       "productos": [
         {
           "nombre": "Chat Gpt Plus",
           "descripcion": "Plan mensual\n5 miembros \nSe entrega cuenta completa",
-          "precio": "$3.5",
+          "precio": "5$",
           "stock": 50,
           "garantia": true,
           "etiquetas": []
@@ -90,7 +204,7 @@
         {
           "nombre": "Chat Gpt Plus",
           "descripcion": "Plan mensual\nSe activa miembro\nA dominio",
-          "precio": "$2.5",
+          "precio": "2.5$",
           "stock": 30,
           "garantia": true,
           "etiquetas": []
@@ -98,9 +212,41 @@
         {
           "nombre": "Chat Gp GO",
           "descripcion": "Plan Anual\nA dominio o acceso\n",
-          "precio": "$5",
+          "precio": "10$",
           "stock": 35,
           "garantia": false,
+          "etiquetas": []
+        },
+        {
+          "nombre": "Perplexity",
+          "descripcion": "Mensual a dominio",
+          "precio": "3$",
+          "stock": 100,
+          "garantia": true,
+          "etiquetas": []
+        },
+        {
+          "nombre": "Geminis Ia",
+          "descripcion": "Mensual activacion a correo",
+          "precio": "2$",
+          "stock": 100,
+          "garantia": true,
+          "etiquetas": []
+        },
+        {
+          "nombre": "IA SIN RESTRICCIONES",
+          "descripcion": "Permanentemente, aplican terminos y condiciones ",
+          "precio": "15$",
+          "stock": 100,
+          "garantia": true,
+          "etiquetas": []
+        },
+        {
+          "nombre": "Geminis Ia",
+          "descripcion": "Anual a correo o acceso",
+          "precio": "10$",
+          "stock": 0,
+          "garantia": true,
           "etiquetas": []
         }
       ]
@@ -112,10 +258,22 @@
         {
           "nombre": "SilverBullet 1.1.1",
           "descripcion": "Trae consigo config para hits y una de buscador-psis-nombre-fecha etc ",
-          "precio": "50",
-          "stock": 2,
+          "precio": "80$",
+          "stock": 10,
           "garantia": true,
-          "etiquetas": []
+          "etiquetas": [
+            "Tutorial Incluido en vivo"
+          ]
+        },
+        {
+          "nombre": "Canales Pro ComboList ",
+          "descripcion": "Canales y paginas full info de combolist config accesos metodos (DarkWeb)",
+          "precio": "$",
+          "stock": 100,
+          "garantia": true,
+          "etiquetas": [
+            "Privado mas Info"
+          ]
         }
       ]
     },
@@ -126,11 +284,39 @@
         {
           "nombre": "McDonals ",
           "descripcion": "Videotutiajl con bins y todo los paso full ",
-          "precio": "20",
+          "precio": "20$",
           "stock": 2,
-          "garantia": false,
+          "garantia": true,
           "etiquetas": [
-            "Solo a 2 vendo"
+            "Bin+Meto2"
+          ]
+        },
+        {
+          "nombre": "Pack de Streaming",
+          "descripcion": "Metodos con video tutoriales para aprender a sacar tus propias cuentas streaming (metodos-Bins) spotify,disney,prime,entre muchos mas",
+          "precio": "50$",
+          "stock": 10,
+          "garantia": true,
+          "etiquetas": []
+        },
+        {
+          "nombre": "Acceso a CanalVIP",
+          "descripcion": "Full Info Relevante al Carding Bins Check Tutoriales Paginas Hack",
+          "precio": "80$",
+          "stock": 5,
+          "garantia": true,
+          "etiquetas": [
+            "Acceso x6 Meses Actualizo Semanalmente"
+          ]
+        },
+        {
+          "nombre": "Compras Fisicas",
+          "descripcion": "Meto2 + Bins y trucos",
+          "precio": "$",
+          "stock": 10,
+          "garantia": true,
+          "etiquetas": [
+            "Mas info al priv"
           ]
         }
       ]
