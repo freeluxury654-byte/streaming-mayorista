@@ -1,63 +1,69 @@
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
   <title>Streaming Pro Center · Mayorista</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- CSS -->
   <link rel="stylesheet" href="style.css" />
+
+  <!-- AOS Animaciones -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
 </head>
 
 <body>
 <div id="app">
 
   <!-- HEADER -->
-  <header class="header">
+  <header class="header" data-aos="fade-down">
     <div class="header-content">
       <h1>💎 Streaming Pro Center</h1>
       <p class="subtitle">
-        Distribución mayorista de streaming · ⚡ Activación inmediata · Soporte activo
-      </p>
-      <p class="trust">
-        Proveedor confiable para revendedores, tiendas y distribuidores digitales
+        Distribución mayorista · ⚡ Activación inmediata · 💸 Negocio escalable
       </p>
 
       <div class="badges">
-        <span>✅ Proveedor verificado</span>
-        <span>🔒 Garantía real</span>
-        <span>📦 Stock actualizado</span>
-        <span>⚡ Entrega inmediata</span>
-        <span>🤝 Atención directa</span>
+        <span>✅ Verificado</span>
+        <span>🔒 Garantía</span>
+        <span>📦 Stock real</span>
+        <span>⚡ Entrega instantánea</span>
       </div>
 
       <div class="header-actions">
-        <a class="cta" href="https://wa.me/12494792518" target="_blank">
-          💬 Pedir ahora por WhatsApp
+        <a class="cta pulse" href="https://wa.me/12494792518" target="_blank">
+          💬 Comprar ahora
         </a>
-        <button id="btnEditor" class="editor-btn">🔐 Editar catálogo</button>
-        <button id="btnDarkMode" class="editor-btn">🌙 Modo nocturno</button>
+        <button id="btnDarkMode" class="editor-btn">🌙</button>
       </div>
     </div>
   </header>
 
   <!-- INFO -->
   <section class="info">
-    <div class="info-box">
+    <div class="info-box" data-aos="fade-right">
       <h2>📋 ¿Cómo comprar?</h2>
       <ol>
-        <li>📦 Revisa el catálogo y disponibilidad</li>
-        <li>💬 Escríbenos por WhatsApp indicando el producto</li>
-        <li>⚡ Activamos de inmediato tras confirmar el pago</li>
+        <li>📦 Elige producto</li>
+        <li>💬 Escríbenos</li>
+        <li>⚡ Recibe acceso inmediato</li>
       </ol>
     </div>
 
-    <div class="info-box">
-      <h2>📌 Términos y Condiciones</h2>
+    <div class="info-box" data-aos="fade-left">
+      <h2>📌 Beneficios</h2>
       <ul>
-        <li>📦 Precios mayoristas desde <b>5 cuentas</b></li>
-        <li>🛡️ Productos con garantía incluyen reposición</li>
-        <li>🚫 Sin garantía = entrega única</li>
-        <li>💳 Activación tras confirmación de pago</li>
+        <li>💸 Precios mayoristas reales</li>
+        <li>📦 Stock actualizado</li>
+        <li>🛡️ Garantía disponible</li>
+        <li>⚡ Entrega inmediata</li>
       </ul>
     </div>
+  </section>
+
+  <!-- URGENCIA -->
+  <section class="urgencia" data-aos="zoom-in">
+    ⏳ Alta demanda hoy — Stock limitado disponible
   </section>
 
   <!-- CATÁLOGO -->
@@ -65,31 +71,72 @@
 
   <!-- FOOTER -->
   <footer>
-    <p>
-      Streaming Pro Center · Distribución digital · Atención directa<br>
-      © 2026 Todos los derechos reservados
-    </p>
+    <p>⚡ Plataforma automatizada de distribución digital</p>
   </footer>
 
 </div>
 
+<!-- 🔔 NOTIFICACIONES FALSAS -->
+<div id="noti-container"></div>
+
+<!-- 📲 BOTÓN FLOTANTE -->
+<a href="https://wa.me/12494792518" class="whatsapp-float" target="_blank">
+  💬
+</a>
+
+<!-- JS -->
 <script src="public.js"></script>
 
+<!-- AOS -->
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
 <script>
+  AOS.init({
+    duration: 800,
+    once: true
+  });
+
+  // 🌙 DARK MODE
   const btnDarkMode = document.getElementById("btnDarkMode");
   const body = document.body;
 
   if (localStorage.getItem("theme") === "dark") {
     body.classList.add("dark-mode");
-    btnDarkMode.textContent = "☀️ Modo claro";
   }
 
   btnDarkMode.addEventListener("click", () => {
     body.classList.toggle("dark-mode");
-    const isDark = body.classList.contains("dark-mode");
-    btnDarkMode.textContent = isDark ? "☀️ Modo claro" : "🌙 Modo nocturno";
-    localStorage.setItem("theme", isDark ? "dark" : "light");
+    localStorage.setItem("theme",
+      body.classList.contains("dark-mode") ? "dark" : "light"
+    );
   });
+
+  // 🔥 NOTIFICACIONES FALSAS
+  const nombres = ["Juan", "Carlos", "Luis", "Ana", "Sofía", "Miguel"];
+  const productos = ["Netflix", "Spotify", "Disney+", "HBO Max"];
+
+  function crearNotificacion() {
+    const container = document.getElementById("noti-container");
+
+    const div = document.createElement("div");
+    div.className = "noti";
+
+    const nombre = nombres[Math.floor(Math.random() * nombres.length)];
+    const producto = productos[Math.floor(Math.random() * productos.length)];
+    const tiempo = Math.floor(Math.random() * 5) + 1;
+
+    div.innerHTML = `
+      💸 <b>${nombre}</b> compró ${producto} hace ${tiempo} min
+    `;
+
+    container.appendChild(div);
+
+    setTimeout(() => {
+      div.remove();
+    }, 4000);
+  }
+
+  setInterval(crearNotificacion, 5000);
 </script>
 
 </body>
