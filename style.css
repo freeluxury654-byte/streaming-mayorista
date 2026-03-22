@@ -1,65 +1,28 @@
 /* =========================
-   🎯 VARIABLES GLOBALES
+   🔥 VARIABLES PRO (NEÓN)
    ========================= */
 
 :root {
-  /* Fondos */
-  --bg-body: linear-gradient(135deg, #f6fbff, #fff1f5);
-  --bg-card: #ffffff;
-  --bg-soft: #f1f5f9;
-  --bg-tag: #e0f2fe;
-
-  /* Textos */
-  --text-main: #0f172a;
-  --text-muted: #475569;
-  --text-footer: #64748b;
-
-  /* Colores UI */
-  --green-main: #22c55e;
-  --green-dark: #16a34a;
-  --blue-tag: #0369a1;
-  --blue-admin: #0ea5e9;
-  --red-danger: #dc2626;
-
-  /* Sombras */
-  --shadow-lg: 0 20px 60px rgba(0,0,0,0.08);
-  --shadow-md: 0 12px 30px rgba(0,0,0,0.06);
-  --shadow-card: 0 12px 30px rgba(0,0,0,.08);
-}
-
-/* =========================
-   🌙 VARIABLES MODO OSCURO
-   ========================= */
-
-body.dark-mode {
   --bg-body: linear-gradient(135deg, #020617, #0b1220);
-  --bg-card: #0f172a;
-  --bg-soft: #020617;
-  --bg-tag: #020617;
+  --bg-card: rgba(15, 23, 42, 0.7);
+  --bg-soft: rgba(30, 41, 59, 0.5);
+  --bg-tag: rgba(0,255,204,0.1);
 
   --text-main: #f8fafc;
   --text-muted: #94a3b8;
-  --text-footer: #94a3b8;
+  --text-footer: #64748b;
 
-  --blue-tag: #7dd3fc;
+  --primary: #00ffcc;
+  --secondary: #8a2be2;
+  --accent: #00bfff;
 
-  --shadow-lg: 0 25px 60px rgba(0,0,0,.7);
-  --shadow-md: 0 18px 40px rgba(0,0,0,.6);
-  --shadow-card: 0 20px 50px rgba(0,0,0,.7);
-}
+  --green-main: #00ffcc;
+  --green-dark: #00c9a7;
+  --red-danger: #ff4d4d;
 
-/* =========================
-   🔄 RESET + TRANSICIONES
-   ========================= */
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  transition: background-color .35s ease,
-              color .35s ease,
-              box-shadow .35s ease;
+  --shadow-lg: 0 0 60px rgba(0,255,204,0.08);
+  --shadow-md: 0 0 30px rgba(0,255,204,0.05);
+  --shadow-card: 0 0 25px rgba(0,255,204,0.06);
 }
 
 /* =========================
@@ -67,8 +30,16 @@ body.dark-mode {
    ========================= */
 
 body {
-  background: var(--bg-body);
+  background: linear-gradient(-45deg, #020617, #0b1220, #020617);
+  background-size: 400% 400%;
+  animation: bgMove 12s ease infinite;
   color: var(--text-main);
+}
+
+@keyframes bgMove {
+  0% {background-position: 0%}
+  50% {background-position: 100%}
+  100% {background-position: 0%}
 }
 
 #app {
@@ -78,195 +49,177 @@ body {
 }
 
 /* =========================
-   🧱 HEADER
+   🧱 HEADER PRO
    ========================= */
 
 .header {
   background: var(--bg-card);
+  backdrop-filter: blur(12px);
   border-radius: 24px;
   padding: 32px;
   box-shadow: var(--shadow-lg);
   margin-bottom: 40px;
-}
-
-.header-content {
-  max-width: 900px;
+  border: 1px solid rgba(255,255,255,0.05);
 }
 
 .header h1 {
   font-size: 2.2rem;
-  margin-bottom: 8px;
-}
-
-.subtitle {
-  color: var(--text-muted);
-  margin-bottom: 8px;
-}
-
-.trust {
-  font-weight: 600;
-  margin-bottom: 16px;
+  color: var(--primary);
 }
 
 /* =========================
    🏷️ BADGES
    ========================= */
 
-.badges {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-bottom: 20px;
-}
-
 .badges span {
   background: var(--bg-soft);
-  padding: 6px 12px;
-  border-radius: 999px;
-  font-size: 0.85rem;
+  border: 1px solid rgba(255,255,255,0.05);
 }
 
 /* =========================
-   🎯 ACCIONES
+   🎯 BOTONES PRO
    ========================= */
 
-.header-actions {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-
 .cta {
-  background: linear-gradient(135deg, var(--green-main), var(--green-dark));
-  color: white;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  color: #000;
   padding: 14px 22px;
   border-radius: 999px;
   font-weight: 700;
   text-decoration: none;
+  box-shadow: 0 0 10px var(--primary);
+}
+
+.cta:hover {
+  box-shadow: 0 0 25px var(--secondary);
+}
+
+/* 🔥 EFECTO PULSE */
+.pulse {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {box-shadow: 0 0 5px var(--primary);}
+  50% {box-shadow: 0 0 25px var(--primary);}
+  100% {box-shadow: 0 0 5px var(--primary);}
 }
 
 .editor-btn {
-  background: var(--text-main);
-  color: white;
-  border: none;
-  padding: 14px 22px;
-  border-radius: 999px;
-  cursor: pointer;
+  background: rgba(255,255,255,0.05);
+  color: var(--text-main);
 }
 
 /* =========================
    ℹ️ INFO
    ========================= */
 
-.info {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
-  gap: 24px;
-  margin-bottom: 48px;
-}
-
 .info-box {
   background: var(--bg-card);
-  padding: 24px;
-  border-radius: 20px;
-  box-shadow: var(--shadow-md);
-}
-
-.info-box h2 {
-  margin-bottom: 12px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.05);
 }
 
 /* =========================
-   📦 CATÁLOGO
+   ⏳ URGENCIA
    ========================= */
 
-.catalogo {
-  display: flex;
-  flex-direction: column;
-  gap: 48px;
+.urgencia {
+  text-align: center;
+  margin: 20px 0;
+  padding: 12px;
+  background: linear-gradient(90deg, #ff004c, #ff7a00);
+  border-radius: 10px;
+  font-weight: bold;
+  animation: pulseUrgente 1.5s infinite;
 }
 
-.categoria-titulo {
-  font-size: 1.8rem;
+@keyframes pulseUrgente {
+  0% {opacity: 0.8;}
+  50% {opacity: 1;}
+  100% {opacity: 0.8;}
 }
 
-.categoria-desc {
-  color: var(--text-muted);
-  margin-bottom: 20px;
-}
-
-.productos-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
-  gap: 20px;
-}
+/* =========================
+   📦 PRODUCTOS PRO
+   ========================= */
 
 .producto-card {
   background: var(--bg-card);
+  backdrop-filter: blur(12px);
   border-radius: 20px;
   padding: 20px;
-  box-shadow: var(--shadow-card);
+  transition: 0.3s;
+  border: 1px solid rgba(255,255,255,0.05);
 }
 
-.producto-nombre {
-  font-size: 1.1rem;
-  margin-bottom: 6px;
-}
-
-.producto-desc {
-  color: var(--text-muted);
-  font-size: .9rem;
-  margin-bottom: 12px;
-}
-
-.producto-info {
-  display: flex;
-  justify-content: space-between;
-  font-weight: 700;
-  margin-bottom: 8px;
-}
-
-.garantia {
-  color: var(--green-dark);
-  font-weight: 600;
-}
-
-.sin-garantia {
-  color: var(--red-danger);
+.producto-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px var(--primary);
 }
 
 /* =========================
    🏷️ TAGS
    ========================= */
 
-.producto-tags {
-  display: flex;
-  gap: 6px;
-  flex-wrap: wrap;
-  margin-bottom: 12px;
-}
-
 .tag {
   background: var(--bg-tag);
-  color: var(--blue-tag);
-  padding: 4px 8px;
-  border-radius: 999px;
-  font-size: .75rem;
+  color: var(--primary);
 }
 
 /* =========================
-   💬 WHATSAPP
+   💬 BOTÓN WHATSAPP CARD
    ========================= */
 
 .btn-whatsapp {
-  display: block;
-  text-align: center;
-  background: var(--green-main);
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  color: #000;
+}
+
+/* =========================
+   📲 BOTÓN FLOTANTE
+   ========================= */
+
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #25D366;
   color: white;
-  padding: 10px;
-  border-radius: 999px;
-  font-weight: 700;
+  font-size: 22px;
+  padding: 15px;
+  border-radius: 50%;
   text-decoration: none;
+  box-shadow: 0 0 20px #25D366;
+  animation: pulse 2s infinite;
+}
+
+/* =========================
+   🔔 NOTIFICACIONES
+   ========================= */
+
+#noti-container {
+  position: fixed;
+  bottom: 80px;
+  left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.noti {
+  background: rgba(0,0,0,0.8);
+  padding: 10px 14px;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 0.85rem;
+  box-shadow: 0 0 15px var(--primary);
+  animation: fadeInUp 0.5s ease;
+}
+
+@keyframes fadeInUp {
+  from {opacity:0; transform: translateY(20px);}
+  to {opacity:1; transform: translateY(0);}
 }
 
 /* =========================
@@ -278,21 +231,4 @@ footer {
   color: var(--text-footer);
   margin: 60px 0 20px;
   font-size: .85rem;
-}
-
-/* =========================
-   🔐 ADMIN
-   ========================= */
-
-.modo-admin .producto-card {
-  outline: 2px dashed var(--blue-admin);
-}
-
-/* =========================
-   🎞️ ANIMACIÓN
-   ========================= */
-
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
 }
