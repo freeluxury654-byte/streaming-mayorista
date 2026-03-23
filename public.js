@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded",init);
 
 async function init(){
   const local=localStorage.getItem("catalogo");
+
   if(local){
     data=JSON.parse(local);
   }else{
@@ -16,7 +17,7 @@ async function init(){
   setupAdmin();
 }
 
-/* ================= MENU ================= */
+/* ================= RENDER ================= */
 
 function render(){
   const c=document.getElementById("catalogo");
@@ -57,6 +58,7 @@ function mostrar(i){
   const grid=content.querySelector(".productos-grid");
 
   cat.productos.forEach((p,pi)=>{
+
     const stock=p.stock||0;
 
     let stockTxt=
@@ -75,26 +77,51 @@ function mostrar(i){
 
       <p>💰 ${admin?`<input value="${p.precio}" onchange="data.categorias[${i}].productos[${pi}].precio=this.value">`:p.precio}</p>
 
-      <p>${stockTxt}</p>
+      <p>${admin?`<input type="number" value="${p.stock||0}" onchange="data.categorias[${i}].productos[${pi}].stock=Number(this.value)">`:stockTxt}</p>
 
-      ${admin?
-      `<button onclick="eliminarProd(${i},${pi})">❌</button>`
-      :
-      `<a class="btn-whatsapp" href="https://wa.me/12494792518?text=Quiero ${p.nombre}">💸 Comprar ahora</a>`}
+      ${
+        admin
+        ? `<button onclick="eliminarProd(${i},${pi})">❌ Eliminar</button>`
+        : `<a class="btn-whatsapp" href="https://wa.me/12494792518?text=Quiero ${p.nombre}">💸 Comprar ahora</a>`
+      }
     `;
 
     grid.appendChild(card);
   });
 
   if(admin){
+
+    const acciones=document.createElement("div");
+    acciones.className="admin-actions";
+
     const add=document.createElement("button");
     add.textContent="➕ Agregar producto";
     add.onclick=()=>{
-      data.categorias[i].productos.push({nombre:"Nuevo",precio:"",stock:1});
+      data.categorias[i].productos.push({
+        nombre:"Nuevo producto",
+        descripcion:"",
+        precio:"",
+        stock:1
+      });
       render();
     };
 
-    content.appendChild(add);
+    const guardar=document.createElement("button");
+    guardar.textContent="💾 Guardar";
+    guardar.onclick=()=>{
+      localStorage.setItem("catalogo",JSON.stringify(data));
+      alert("Guardado local");
+    };
+
+    const exportar=document.createElement("button");
+    exportar.textContent="📤 Exportar JSON";
+    exportar.onclick=exportarJSON;
+
+    acciones.appendChild(add);
+    acciones.appendChild(guardar);
+    acciones.appendChild(exportar);
+
+    content.appendChild(acciones);
   }
 }
 
@@ -102,33 +129,27 @@ function mostrar(i){
 
 function setupAdmin(){
   document.getElementById("btnAdmin").onclick=()=>{
-    const clave=prompt("Clave:");
+    const clave=prompt("Clave admin:");
     if(clave==="7777"){
       admin=true;
       alert("Modo admin activado");
       render();
+    }else{
+      alert("Clave incorrecta");
     }
   };
 }
 
-/* ================= ACCIONES ================= */
+/* ================= FUNCIONES ================= */
 
 function eliminarProd(i,pi){
   data.categorias[i].productos.splice(pi,1);
   render();
 }
 
-/* ================= GUARDAR ================= */
-
-function guardar(){
-  localStorage.setItem("catalogo",JSON.stringify(data));
-  alert("Guardado local");
-}
-
-/* ================= EXPORT ================= */
-
-function exportar(){
-  const blob=new Blob([JSON.stringify(data,null,2)]);
+function exportarJSON(){
+  const dataStr=JSON.stringify(data,null,2);
+  const blob=new Blob([dataStr],{type:"application/json"});
   const a=document.createElement("a");
   a.href=URL.createObjectURL(blob);
   a.download="data.json";
