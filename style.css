@@ -8,9 +8,9 @@ body {
 
 /* 🔥 CONTENEDOR GENERAL */
 #app {
-  max-width: 1100px;
+  max-width: 1400px; /* 🔥 MÁS ANCHO */
   margin: auto;
-  padding: 20px;
+  padding: 20px 40px; /* 🔥 MENOS VACÍO LATERAL */
 }
 
 /* ================= HEADER PRO ================= */
@@ -25,7 +25,7 @@ body {
 /* 🔥 CORRECCIÓN REAL DEL CENTRADO */
 .header > * {
   width: 100%;
-  max-width: 750px;
+  max-width: 1000px; /* 🔥 MÁS ANCHO */
   margin: auto;
 
   display: flex;
@@ -36,11 +36,10 @@ body {
   text-align: center;
   gap: 12px;
 
-  /* 💎 GLASS EFFECT */
   background: rgba(15,23,42,0.6);
   backdrop-filter: blur(12px);
   border-radius: 20px;
-  padding: 25px;
+  padding: 30px;
 
   border: 1px solid rgba(255,255,255,0.05);
   box-shadow: 0 0 30px rgba(0,255,204,0.08);
@@ -69,11 +68,8 @@ body {
 /* ================= TITULO ================= */
 
 .glow-title {
-  font-size: 2.3rem;
-  margin-bottom: 5px;
-  color:#00ffcc;
-  text-shadow:0 0 10px #00ffcc;
-  animation: glowPulse 2s infinite;
+  font-size: 2.6rem; /* 🔥 MÁS PROTAGONISMO */
+  text-align: center;
 }
 
 @keyframes glowPulse {
@@ -193,9 +189,7 @@ body {
 /* ================= GRID ================= */
 
 .productos-grid {
-  display:grid;
   grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:20px;
 }
 
 /* ================= CARD ================= */
