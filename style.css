@@ -245,3 +245,67 @@ h2 {
   from {opacity:0; transform:translateY(-10px);}
   to {opacity:1; transform:translateY(0);}
 }
+
+/* 🔥 ELIMINAR EFECTO DE CUADROS SEPARADOS */
+.header {
+  display: block;
+}
+
+/* 🔥 UNIFICAR TODO EN UNA SOLA CARD */
+.header > * {
+  max-width: 1000px;
+  margin: auto;
+
+  background: linear-gradient(145deg,#020617,#0f172a);
+  border-radius: 20px;
+
+  padding: 35px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 12px;
+
+  box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+}
+
+/* 🔥 ELIMINA LOS BLOQUES INTERNOS (LOS CUADRITOS) */
+.header > * > * {
+  background: none !important;
+  box-shadow: none !important;
+  border: none !important;
+  padding: 0 !important;
+}
+
+/* 🔥 TÍTULO MÁS PROTAGONISTA */
+.glow-title {
+  font-size: 2.8rem;
+  text-align: center;
+}
+
+/* 🔥 TEXTO MÁS LIMPIO */
+.subtitle {
+  font-size: 15px;
+  opacity: 0.9;
+}
+
+/* 🔥 STATUS MÁS VISUAL */
+.live-status {
+  background: rgba(0,255,204,0.1);
+  padding: 8px 14px;
+  border-radius: 999px;
+}
+
+/* 🔥 BOTONES MÁS ALINEADOS */
+.header-actions {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+/* 🔥 HOVER BOTONES MÁS PRO */
+.cta:hover {
+  transform: scale(1.08);
+}
