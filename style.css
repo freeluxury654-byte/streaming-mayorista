@@ -1,291 +1,247 @@
+/* ================= BASE ================= */
+
 body {
-  background:#020617;
-  color:white;
-  font-family:sans-serif;
   margin:0;
-  padding:0;
+  font-family: 'Segoe UI', sans-serif;
+  background: radial-gradient(circle at top, #0f172a, #020617);
+  color:#e2e8f0;
 }
 
-/* 🔥 CONTENEDOR GENERAL */
+/* CONTENEDOR */
 #app {
-  max-width: 1200px; /* 🔥 MÁS EQUILIBRADO */
-  margin: auto;
-  padding: 20px;
+  max-width: 1200px;
+  margin:auto;
+  padding:30px 20px;
 }
 
-/* ================= HEADER PRO ================= */
+/* ================= HEADER ================= */
 
 .header {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 30px;
-  animation: fadeDown 0.8s ease;
-}
-
-/* 🔥 HEADER CENTRADO REAL */
-.header > * {
-  width: 100%;
-  max-width: 800px;
-  margin: auto;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
-  text-align: center;
-  gap: 10px;
-
-  background: rgba(15,23,42,0.6);
-  backdrop-filter: blur(12px);
-  border-radius: 20px;
-  padding: 25px;
-
-  border: 1px solid rgba(255,255,255,0.05);
-  box-shadow: 0 0 30px rgba(0,255,204,0.08);
-}
-
-/* ✨ ANIMACIÓN */
-@keyframes fadeDown {
-  from {
-    opacity:0;
-    transform: translateY(-20px);
-  }
-  to {
-    opacity:1;
-    transform: translateY(0);
-  }
-}
-
-/* ================= TITULO ================= */
-
-.glow-title {
-  font-size: 2.4rem;
-  text-align: center;
-  color:#00ffcc;
-  text-shadow:0 0 10px #00ffcc;
-  animation: glowPulse 2s infinite;
-}
-
-@keyframes glowPulse {
-  0%{text-shadow:0 0 5px #00ffcc;}
-  50%{text-shadow:0 0 20px #00ffcc;}
-  100%{text-shadow:0 0 5px #00ffcc;}
-}
-
-/* ================= SUBTITULO ================= */
-
-.subtitle {
-  line-height: 1.6;
-  font-size: 14px;
-  color: #cbd5f5;
-  text-align: center;
-}
-
-/* ================= STATUS ================= */
-
-.live-status {
-  font-size: 14px;
-  color:#00ffcc;
-  animation: blink 1.5s infinite;
-  text-align: center;
-}
-
-@keyframes blink {
-  0%{opacity:1;}
-  50%{opacity:0.4;}
-  100%{opacity:1;}
-}
-
-/* ================= BOTONES ================= */
-
-.header-actions {
   display:flex;
   justify-content:center;
+  margin-bottom:40px;
+}
+
+.header > * {
+  width:100%;
+  max-width:900px;
+
+  padding:30px;
+
+  border-radius:20px;
+
+  background: linear-gradient(145deg,#0f172a,#020617);
+  border:1px solid rgba(255,255,255,0.05);
+
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.6),
+    inset 0 0 10px rgba(0,255,204,0.05);
+
+  display:flex;
+  flex-direction:column;
   align-items:center;
   gap:12px;
-  margin-top:10px;
-  flex-wrap:wrap;
+
+  animation:fadeIn 0.8s ease;
+}
+
+/* TITULO */
+.glow-title {
+  font-size:2.6rem;
+  font-weight:bold;
+  color:#22f3d6;
+}
+
+/* TEXTO */
+.subtitle {
+  font-size:14px;
+  color:#94a3b8;
+}
+
+.live-status {
+  color:#22f3d6;
+  font-size:13px;
+}
+
+/* BOTONES */
+.header-actions {
+  display:flex;
+  gap:10px;
 }
 
 .cta {
-  background:linear-gradient(90deg,#00ffcc,#8a2be2);
+  background:linear-gradient(90deg,#22f3d6,#8b5cf6);
   padding:12px 20px;
   border-radius:999px;
-  color:black;
-  text-decoration:none;
+  color:#000;
   font-weight:bold;
-  animation:pulseBtn 2s infinite;
+  text-decoration:none;
+  transition:0.3s;
 }
 
-@keyframes pulseBtn {
-  0%{transform:scale(1);}
-  50%{transform:scale(1.07);}
-  100%{transform:scale(1);}
+.cta:hover {
+  transform:scale(1.05);
+  box-shadow:0 0 20px #22f3d6;
 }
 
 #btnAdmin {
-  background:#111;
-  color:white;
+  background:#111827;
+  color:#fff;
+  border:none;
   padding:10px 14px;
   border-radius:10px;
-  border:none;
 }
 
 /* ================= URGENCIA ================= */
 
 .urgencia {
-  margin:20px 0;
-  padding:12px;
-  background:#ff004c;
-  border-radius:10px;
   text-align:center;
+  padding:12px;
+  border-radius:10px;
+  margin-bottom:30px;
+
+  background: linear-gradient(90deg,#ff004c,#ff6a00);
   font-weight:bold;
-  animation: flash 1.5s infinite;
+
+  animation:pulse 2s infinite;
 }
 
-@keyframes flash {
-  0%{opacity:0.7;}
+@keyframes pulse {
+  0%{opacity:0.8;}
   50%{opacity:1;}
-  100%{opacity:0.7;}
+  100%{opacity:0.8;}
 }
 
-/* ================= MENÚ ================= */
+/* ================= CATEGORÍAS ================= */
 
 .menu-categorias {
   display:flex;
   justify-content:center;
-  flex-wrap:wrap;
   gap:10px;
-  margin:25px 0;
+  flex-wrap:wrap;
+  margin-bottom:30px;
 }
 
 .menu-categorias button {
-  background:#111;
-  color:white;
-  border:none;
+  background:#020617;
+  border:1px solid rgba(255,255,255,0.1);
+  color:#94a3b8;
   padding:10px 14px;
   border-radius:999px;
   transition:0.3s;
 }
 
 .menu-categorias button:hover {
-  transform:scale(1.1);
-  box-shadow:0 0 15px #00ffcc;
+  color:#22f3d6;
+  border-color:#22f3d6;
 }
 
 .menu-categorias .activo {
-  background:linear-gradient(90deg,#00ffcc,#8a2be2);
+  background:linear-gradient(90deg,#22f3d6,#8b5cf6);
   color:black;
 }
 
-/* ================= TITULO CATEGORIA ================= */
+/* ================= TITULO ================= */
 
 h2 {
   text-align:center;
-  margin-bottom:15px;
+  margin-bottom:20px;
+  color:#e2e8f0;
 }
 
 /* ================= GRID ================= */
 
 .productos-grid {
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-  gap:20px;
-  justify-content:center;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:25px;
 }
 
-/* ================= CARD ================= */
+/* ================= CARDS ================= */
 
 .producto-card {
-  background: rgba(15,23,42,0.6);
-  backdrop-filter: blur(10px);
-  padding:15px;
+  padding:18px;
   border-radius:15px;
+
+  background: linear-gradient(145deg,#020617,#0f172a);
+
   border:1px solid rgba(255,255,255,0.05);
+
   transition:0.3s;
+  position:relative;
+  overflow:hidden;
+}
+
+/* EFECTO LUZ */
+.producto-card::before {
+  content:"";
+  position:absolute;
+  top:0;
+  left:-100%;
+  width:100%;
+  height:100%;
+  background:linear-gradient(120deg,transparent,rgba(0,255,204,0.2),transparent);
+  transition:0.5s;
+}
+
+.producto-card:hover::before {
+  left:100%;
 }
 
 .producto-card:hover {
-  transform:translateY(-8px) scale(1.03);
-  box-shadow:0 0 25px #00ffcc;
+  transform:translateY(-5px);
+  box-shadow:0 10px 25px rgba(0,0,0,0.6);
 }
 
-/* ================= BOTÓN ================= */
-
+/* BOTON */
 .btn-whatsapp {
   display:block;
-  margin-top:10px;
-  background:linear-gradient(90deg,#00ffcc,#8a2be2);
+  margin-top:12px;
+  background:linear-gradient(90deg,#22f3d6,#8b5cf6);
   padding:10px;
   border-radius:999px;
-  color:black;
   text-align:center;
+  color:#000;
   text-decoration:none;
+  font-weight:bold;
 }
 
-/* ================= ADMIN ================= */
-
-.admin-actions {
-  margin-top:20px;
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-  justify-content:center;
-}
-
-/* ================= NOTIFICACIONES ================= */
+/* ================= NOTI ================= */
 
 .noti {
   position:fixed;
   bottom:20px;
   left:20px;
-  background:black;
+  background:#020617;
+  border:1px solid #22f3d6;
   padding:10px;
   border-radius:10px;
-  box-shadow:0 0 10px #00ffcc;
-  animation:slideUp 0.5s ease;
+  font-size:13px;
 }
 
-@keyframes slideUp {
-  from{
-    transform:translateY(50px);
-    opacity:0;
-  }
-  to{
-    transform:translateY(0);
-    opacity:1;
-  }
-}
+/* ================= MOBILE ================= */
 
-/* ================= 📱 MOBILE ================= */
-
-@media (max-width: 768px) {
-
-  #app {
-    padding: 12px;
-  }
-
-  .glow-title {
-    font-size: 1.7rem;
-  }
+@media (max-width:768px){
 
   .header-actions {
-    flex-direction: column;
+    flex-direction:column;
+    width:100%;
   }
 
   .cta,
   #btnAdmin {
-    width: 100%;
+    width:100%;
+    text-align:center;
   }
 
   .productos-grid {
     grid-template-columns:1fr;
   }
+}
 
-  .noti {
-    left:10px;
-    right:10px;
-    font-size:12px;
-  }
+/* ================= ANIM ================= */
+
+@keyframes fadeIn {
+  from {opacity:0; transform:translateY(-10px);}
+  to {opacity:1; transform:translateY(0);}
 }
