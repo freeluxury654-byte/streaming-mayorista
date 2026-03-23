@@ -4,6 +4,7 @@ body {
   font-family:sans-serif;
 }
 
+/* HEADER */
 .header {
   background:#0f172a;
   padding:20px;
@@ -11,23 +12,69 @@ body {
   margin-bottom:20px;
 }
 
+/* TITULO GLOW */
+.glow-title {
+  color:#00ffcc;
+  text-shadow:0 0 10px #00ffcc;
+  animation:glowPulse 2s infinite;
+}
+
+@keyframes glowPulse {
+  0%{text-shadow:0 0 5px #00ffcc;}
+  50%{text-shadow:0 0 20px #00ffcc;}
+  100%{text-shadow:0 0 5px #00ffcc;}
+}
+
+/* BOTON */
 .cta {
   background:linear-gradient(90deg,#00ffcc,#8a2be2);
   padding:10px;
   border-radius:999px;
   color:black;
   text-decoration:none;
+  animation:pulseBtn 2s infinite;
 }
 
-button {
-  cursor:pointer;
+@keyframes pulseBtn {
+  0%{transform:scale(1);}
+  50%{transform:scale(1.07);}
+  100%{transform:scale(1);}
 }
 
+/* STATUS */
+.live-status {
+  color:#00ffcc;
+  animation:blink 1.5s infinite;
+}
+
+@keyframes blink {
+  0%{opacity:1;}
+  50%{opacity:0.4;}
+  100%{opacity:1;}
+}
+
+/* URGENCIA */
+.urgencia {
+  margin:15px 0;
+  padding:10px;
+  background:#ff004c;
+  border-radius:10px;
+  text-align:center;
+  animation:flash 1.5s infinite;
+}
+
+@keyframes flash {
+  0%{opacity:0.7;}
+  50%{opacity:1;}
+  100%{opacity:0.7;}
+}
+
+/* MENU */
 .menu-categorias {
   display:flex;
   gap:10px;
-  margin:20px 0;
   flex-wrap:wrap;
+  margin:20px 0;
 }
 
 .menu-categorias button {
@@ -36,31 +83,40 @@ button {
   border:none;
   padding:10px;
   border-radius:999px;
+  transition:0.3s;
+}
+
+.menu-categorias button:hover {
+  transform:scale(1.1);
+  box-shadow:0 0 15px #00ffcc;
 }
 
 .menu-categorias .activo {
   background:linear-gradient(90deg,#00ffcc,#8a2be2);
   color:black;
-  box-shadow:0 0 10px #00ffcc;
 }
 
+/* GRID */
 .productos-grid {
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
   gap:15px;
 }
 
+/* CARD */
 .producto-card {
   background:#0f172a;
   padding:15px;
   border-radius:15px;
+  transition:0.3s;
 }
 
-.producto-card input {
-  width:100%;
-  margin-bottom:5px;
+.producto-card:hover {
+  transform:translateY(-8px) scale(1.03);
+  box-shadow:0 0 25px #00ffcc;
 }
 
+/* BOTON WHATSAPP */
 .btn-whatsapp {
   display:block;
   margin-top:10px;
@@ -72,13 +128,14 @@ button {
   text-decoration:none;
 }
 
+/* ADMIN */
 .admin-actions {
   margin-top:20px;
   display:flex;
   gap:10px;
-  flex-wrap:wrap;
 }
 
+/* NOTIFICACIONES */
 .noti {
   position:fixed;
   bottom:20px;
@@ -87,4 +144,10 @@ button {
   padding:10px;
   border-radius:10px;
   box-shadow:0 0 10px #00ffcc;
+  animation:slideUp 0.5s ease;
+}
+
+@keyframes slideUp {
+  from{transform:translateY(50px);opacity:0;}
+  to{transform:translateY(0);opacity:1;}
 }
