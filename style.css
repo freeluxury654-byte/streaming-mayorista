@@ -266,3 +266,92 @@ body {
     opacity:1;
   }
 }
+
+/* ================= 📱 RESPONSIVE MOBILE ================= */
+
+@media (max-width: 768px) {
+
+  /* CONTENEDOR */
+  #app {
+    padding: 12px;
+  }
+
+  /* HEADER */
+  .header > * {
+    padding: 18px;
+  }
+
+  .glow-title {
+    font-size: 1.6rem;
+  }
+
+  .subtitle {
+    font-size: 13px;
+  }
+
+  .live-status {
+    font-size: 12px;
+  }
+
+  /* BOTONES */
+  .header-actions {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .cta {
+    width: 100%;
+    text-align: center;
+  }
+
+  #btnAdmin {
+    width: 100%;
+  }
+
+  /* URGENCIA */
+  .urgencia {
+    font-size: 13px;
+    padding: 10px;
+  }
+
+  /* MENÚ */
+  .menu-categorias {
+    justify-content: center;
+  }
+
+  .menu-categorias button {
+    font-size: 12px;
+    padding: 8px 10px;
+  }
+
+  /* PRODUCTOS */
+  .productos-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .producto-card {
+    padding: 12px;
+  }
+
+  .producto-card h3 {
+    font-size: 16px;
+  }
+
+  .producto-card p {
+    font-size: 13px;
+  }
+
+  /* BOTÓN WHATSAPP */
+  .btn-whatsapp {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  /* NOTIFICACIONES */
+  .noti {
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    font-size: 12px;
+  }
+}
