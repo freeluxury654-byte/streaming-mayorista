@@ -1,135 +1,70 @@
-:root {
-  --bg-body: #020617;
-  --bg-card: rgba(15,23,42,0.7);
-  --text-main: #fff;
-  --primary: #00ffcc;
-  --secondary: #8a2be2;
-}
-
-/* Fondo animado */
 body {
-  background: linear-gradient(-45deg,#020617,#0b1220,#020617);
-  background-size: 400% 400%;
-  animation: bgMove 10s infinite;
-  color: white;
+  background:#020617;
+  color:white;
+  font-family:sans-serif;
 }
 
-@keyframes bgMove {
-  0%{background-position:0%}
-  50%{background-position:100%}
-  100%{background-position:0%}
-}
-
-#app {
-  max-width: 1200px;
-  margin: auto;
-  padding: 20px;
-}
-
-/* Header */
 .header {
-  background: var(--bg-card);
-  padding: 25px;
-  border-radius: 20px;
-  margin-bottom: 20px;
+  background:#0f172a;
+  padding:20px;
+  border-radius:15px;
 }
 
-.header h1 {
-  color: var(--primary);
-}
-
-/* Botones */
 .cta {
-  background: linear-gradient(90deg,var(--primary),var(--secondary));
-  padding: 12px 20px;
-  border-radius: 999px;
-  text-decoration: none;
-  color: black;
+  background:linear-gradient(90deg,#00ffcc,#8a2be2);
+  padding:10px;
+  border-radius:999px;
+  color:black;
+  text-decoration:none;
 }
 
-.editor-btn {
-  padding: 10px;
-  border-radius: 999px;
-  background: #111;
-  color: white;
-  border: none;
-}
-
-/* Menú categorías */
 .menu-categorias {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 20px;
-  flex-wrap: wrap;
+  display:flex;
+  gap:10px;
+  margin:20px 0;
 }
 
 .menu-categorias button {
-  padding: 10px 15px;
-  border-radius: 999px;
-  border: none;
-  background: #111;
-  color: white;
+  background:#111;
+  color:white;
+  border:none;
+  padding:10px;
+  border-radius:999px;
 }
 
 .menu-categorias .activo {
-  background: linear-gradient(90deg,#00ffcc,#8a2be2);
-  color: black;
+  background:linear-gradient(90deg,#00ffcc,#8a2be2);
+  color:black;
+  box-shadow:0 0 10px #00ffcc;
 }
 
-/* Cards */
-.producto-card {
-  background: var(--bg-card);
-  padding: 15px;
-  border-radius: 15px;
-  transition: 0.3s;
-}
-
-.producto-card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 20px var(--primary);
-}
-
-/* Grid */
 .productos-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
-  gap: 15px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:15px;
 }
 
-/* Botón WhatsApp */
+.producto-card {
+  background:#0f172a;
+  padding:15px;
+  border-radius:15px;
+}
+
 .btn-whatsapp {
-  display: block;
-  margin-top: 10px;
-  background: linear-gradient(90deg,#00ffcc,#8a2be2);
-  color: black;
-  text-align: center;
-  padding: 10px;
-  border-radius: 999px;
-  text-decoration: none;
-}
-
-/* Notificaciones */
-#noti-container {
-  position: fixed;
-  bottom: 80px;
-  left: 20px;
+  display:block;
+  background:linear-gradient(90deg,#00ffcc,#8a2be2);
+  padding:10px;
+  border-radius:999px;
+  color:black;
+  text-align:center;
+  text-decoration:none;
 }
 
 .noti {
-  background: black;
-  padding: 10px;
-  margin-top: 10px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px #00ffcc;
-}
-
-/* WhatsApp flotante */
-.whatsapp-float {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: #25D366;
-  padding: 15px;
-  border-radius: 50%;
-  color: white;
+  position:fixed;
+  bottom:20px;
+  left:20px;
+  background:black;
+  padding:10px;
+  border-radius:10px;
 }
