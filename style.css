@@ -8,6 +8,7 @@ body {
   background:#0f172a;
   padding:20px;
   border-radius:15px;
+  margin-bottom:20px;
 }
 
 .cta {
@@ -18,10 +19,15 @@ body {
   text-decoration:none;
 }
 
+button {
+  cursor:pointer;
+}
+
 .menu-categorias {
   display:flex;
   gap:10px;
   margin:20px 0;
+  flex-wrap:wrap;
 }
 
 .menu-categorias button {
@@ -50,14 +56,27 @@ body {
   border-radius:15px;
 }
 
+.producto-card input {
+  width:100%;
+  margin-bottom:5px;
+}
+
 .btn-whatsapp {
   display:block;
+  margin-top:10px;
   background:linear-gradient(90deg,#00ffcc,#8a2be2);
   padding:10px;
   border-radius:999px;
   color:black;
   text-align:center;
   text-decoration:none;
+}
+
+.admin-actions {
+  margin-top:20px;
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
 }
 
 .noti {
@@ -67,4 +86,5 @@ body {
   background:black;
   padding:10px;
   border-radius:10px;
+  box-shadow:0 0 10px #00ffcc;
 }
