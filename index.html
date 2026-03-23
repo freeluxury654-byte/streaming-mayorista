@@ -5,10 +5,9 @@
   <title>Streaming Pro Center · Mayorista</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- CSS -->
   <link rel="stylesheet" href="style.css" />
 
-  <!-- AOS Animaciones -->
+  <!-- Animaciones -->
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
 </head>
 
@@ -27,47 +26,26 @@
         <span>✅ Verificado</span>
         <span>🔒 Garantía</span>
         <span>📦 Stock real</span>
-        <span>⚡ Entrega instantánea</span>
+        <span>⚡ Entrega inmediata</span>
       </div>
 
       <div class="header-actions">
         <a class="cta pulse" href="https://wa.me/12494792518" target="_blank">
           💬 Comprar ahora
         </a>
+        <button id="btnEditor" class="editor-btn">🔐 Admin</button>
         <button id="btnDarkMode" class="editor-btn">🌙</button>
       </div>
     </div>
   </header>
 
-  <!-- INFO -->
-  <section class="info">
-    <div class="info-box" data-aos="fade-right">
-      <h2>📋 ¿Cómo comprar?</h2>
-      <ol>
-        <li>📦 Elige producto</li>
-        <li>💬 Escríbenos</li>
-        <li>⚡ Recibe acceso inmediato</li>
-      </ol>
-    </div>
-
-    <div class="info-box" data-aos="fade-left">
-      <h2>📌 Beneficios</h2>
-      <ul>
-        <li>💸 Precios mayoristas reales</li>
-        <li>📦 Stock actualizado</li>
-        <li>🛡️ Garantía disponible</li>
-        <li>⚡ Entrega inmediata</li>
-      </ul>
-    </div>
-  </section>
-
   <!-- URGENCIA -->
-  <section class="urgencia" data-aos="zoom-in">
+  <section class="urgencia">
     ⏳ Alta demanda hoy — Stock limitado disponible
   </section>
 
   <!-- CATÁLOGO -->
-  <section id="catalogo" class="catalogo"></section>
+  <section id="catalogo"></section>
 
   <!-- FOOTER -->
   <footer>
@@ -76,67 +54,53 @@
 
 </div>
 
-<!-- 🔔 NOTIFICACIONES FALSAS -->
+<!-- 🔔 NOTIFICACIONES -->
 <div id="noti-container"></div>
 
-<!-- 📲 BOTÓN FLOTANTE -->
+<!-- 📲 BOTÓN WHATSAPP -->
 <a href="https://wa.me/12494792518" class="whatsapp-float" target="_blank">
   💬
 </a>
 
-<!-- JS -->
 <script src="public.js"></script>
 
-<!-- AOS -->
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 
 <script>
-  AOS.init({
-    duration: 800,
-    once: true
-  });
+AOS.init({ duration: 800, once: true });
 
-  // 🌙 DARK MODE
-  const btnDarkMode = document.getElementById("btnDarkMode");
-  const body = document.body;
+// 🌙 Dark mode
+const btnDarkMode = document.getElementById("btnDarkMode");
+if (localStorage.getItem("theme") === "dark") {
+  document.body.classList.add("dark-mode");
+}
 
-  if (localStorage.getItem("theme") === "dark") {
-    body.classList.add("dark-mode");
-  }
+btnDarkMode.onclick = () => {
+  document.body.classList.toggle("dark-mode");
+  localStorage.setItem("theme",
+    document.body.classList.contains("dark-mode") ? "dark" : "light"
+  );
+};
 
-  btnDarkMode.addEventListener("click", () => {
-    body.classList.toggle("dark-mode");
-    localStorage.setItem("theme",
-      body.classList.contains("dark-mode") ? "dark" : "light"
-    );
-  });
+// 🔥 Notificaciones falsas
+const nombres = ["Juan","Carlos","Luis","Ana","Sofía","Miguel"];
+const productos = ["Netflix","Spotify","Disney+","HBO"];
 
-  // 🔥 NOTIFICACIONES FALSAS
-  const nombres = ["Juan", "Carlos", "Luis", "Ana", "Sofía", "Miguel"];
-  const productos = ["Netflix", "Spotify", "Disney+", "HBO Max"];
+function crearNoti() {
+  const div = document.createElement("div");
+  div.className = "noti";
 
-  function crearNotificacion() {
-    const container = document.getElementById("noti-container");
+  const n = nombres[Math.floor(Math.random()*nombres.length)];
+  const p = productos[Math.floor(Math.random()*productos.length)];
 
-    const div = document.createElement("div");
-    div.className = "noti";
+  div.innerHTML = `💸 <b>${n}</b> compró ${p}`;
 
-    const nombre = nombres[Math.floor(Math.random() * nombres.length)];
-    const producto = productos[Math.floor(Math.random() * productos.length)];
-    const tiempo = Math.floor(Math.random() * 5) + 1;
+  document.getElementById("noti-container").appendChild(div);
 
-    div.innerHTML = `
-      💸 <b>${nombre}</b> compró ${producto} hace ${tiempo} min
-    `;
+  setTimeout(()=>div.remove(),4000);
+}
 
-    container.appendChild(div);
-
-    setTimeout(() => {
-      div.remove();
-    }, 4000);
-  }
-
-  setInterval(crearNotificacion, 5000);
+setInterval(crearNoti,5000);
 </script>
 
 </body>
