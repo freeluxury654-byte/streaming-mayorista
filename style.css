@@ -1,234 +1,135 @@
-/* =========================
-   🔥 VARIABLES PRO (NEÓN)
-   ========================= */
-
 :root {
-  --bg-body: linear-gradient(135deg, #020617, #0b1220);
-  --bg-card: rgba(15, 23, 42, 0.7);
-  --bg-soft: rgba(30, 41, 59, 0.5);
-  --bg-tag: rgba(0,255,204,0.1);
-
-  --text-main: #f8fafc;
-  --text-muted: #94a3b8;
-  --text-footer: #64748b;
-
+  --bg-body: #020617;
+  --bg-card: rgba(15,23,42,0.7);
+  --text-main: #fff;
   --primary: #00ffcc;
   --secondary: #8a2be2;
-  --accent: #00bfff;
-
-  --green-main: #00ffcc;
-  --green-dark: #00c9a7;
-  --red-danger: #ff4d4d;
-
-  --shadow-lg: 0 0 60px rgba(0,255,204,0.08);
-  --shadow-md: 0 0 30px rgba(0,255,204,0.05);
-  --shadow-card: 0 0 25px rgba(0,255,204,0.06);
 }
 
-/* =========================
-   🌐 BASE
-   ========================= */
-
+/* Fondo animado */
 body {
-  background: linear-gradient(-45deg, #020617, #0b1220, #020617);
+  background: linear-gradient(-45deg,#020617,#0b1220,#020617);
   background-size: 400% 400%;
-  animation: bgMove 12s ease infinite;
-  color: var(--text-main);
+  animation: bgMove 10s infinite;
+  color: white;
 }
 
 @keyframes bgMove {
-  0% {background-position: 0%}
-  50% {background-position: 100%}
-  100% {background-position: 0%}
+  0%{background-position:0%}
+  50%{background-position:100%}
+  100%{background-position:0%}
 }
 
 #app {
   max-width: 1200px;
   margin: auto;
-  padding: 24px;
+  padding: 20px;
 }
 
-/* =========================
-   🧱 HEADER PRO
-   ========================= */
-
+/* Header */
 .header {
   background: var(--bg-card);
-  backdrop-filter: blur(12px);
-  border-radius: 24px;
-  padding: 32px;
-  box-shadow: var(--shadow-lg);
-  margin-bottom: 40px;
-  border: 1px solid rgba(255,255,255,0.05);
+  padding: 25px;
+  border-radius: 20px;
+  margin-bottom: 20px;
 }
 
 .header h1 {
-  font-size: 2.2rem;
   color: var(--primary);
 }
 
-/* =========================
-   🏷️ BADGES
-   ========================= */
-
-.badges span {
-  background: var(--bg-soft);
-  border: 1px solid rgba(255,255,255,0.05);
-}
-
-/* =========================
-   🎯 BOTONES PRO
-   ========================= */
-
+/* Botones */
 .cta {
-  background: linear-gradient(90deg, var(--primary), var(--secondary));
-  color: #000;
-  padding: 14px 22px;
+  background: linear-gradient(90deg,var(--primary),var(--secondary));
+  padding: 12px 20px;
   border-radius: 999px;
-  font-weight: 700;
   text-decoration: none;
-  box-shadow: 0 0 10px var(--primary);
-}
-
-.cta:hover {
-  box-shadow: 0 0 25px var(--secondary);
-}
-
-/* 🔥 EFECTO PULSE */
-.pulse {
-  animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-  0% {box-shadow: 0 0 5px var(--primary);}
-  50% {box-shadow: 0 0 25px var(--primary);}
-  100% {box-shadow: 0 0 5px var(--primary);}
+  color: black;
 }
 
 .editor-btn {
-  background: rgba(255,255,255,0.05);
-  color: var(--text-main);
+  padding: 10px;
+  border-radius: 999px;
+  background: #111;
+  color: white;
+  border: none;
 }
 
-/* =========================
-   ℹ️ INFO
-   ========================= */
-
-.info-box {
-  background: var(--bg-card);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255,255,255,0.05);
+/* Menú categorías */
+.menu-categorias {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
 }
 
-/* =========================
-   ⏳ URGENCIA
-   ========================= */
-
-.urgencia {
-  text-align: center;
-  margin: 20px 0;
-  padding: 12px;
-  background: linear-gradient(90deg, #ff004c, #ff7a00);
-  border-radius: 10px;
-  font-weight: bold;
-  animation: pulseUrgente 1.5s infinite;
+.menu-categorias button {
+  padding: 10px 15px;
+  border-radius: 999px;
+  border: none;
+  background: #111;
+  color: white;
 }
 
-@keyframes pulseUrgente {
-  0% {opacity: 0.8;}
-  50% {opacity: 1;}
-  100% {opacity: 0.8;}
+.menu-categorias .activo {
+  background: linear-gradient(90deg,#00ffcc,#8a2be2);
+  color: black;
 }
 
-/* =========================
-   📦 PRODUCTOS PRO
-   ========================= */
-
+/* Cards */
 .producto-card {
   background: var(--bg-card);
-  backdrop-filter: blur(12px);
-  border-radius: 20px;
-  padding: 20px;
+  padding: 15px;
+  border-radius: 15px;
   transition: 0.3s;
-  border: 1px solid rgba(255,255,255,0.05);
 }
 
 .producto-card:hover {
   transform: scale(1.05);
-  box-shadow: 0 0 25px var(--primary);
+  box-shadow: 0 0 20px var(--primary);
 }
 
-/* =========================
-   🏷️ TAGS
-   ========================= */
-
-.tag {
-  background: var(--bg-tag);
-  color: var(--primary);
+/* Grid */
+.productos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+  gap: 15px;
 }
 
-/* =========================
-   💬 BOTÓN WHATSAPP CARD
-   ========================= */
-
+/* Botón WhatsApp */
 .btn-whatsapp {
-  background: linear-gradient(90deg, var(--primary), var(--secondary));
-  color: #000;
+  display: block;
+  margin-top: 10px;
+  background: linear-gradient(90deg,#00ffcc,#8a2be2);
+  color: black;
+  text-align: center;
+  padding: 10px;
+  border-radius: 999px;
+  text-decoration: none;
 }
 
-/* =========================
-   📲 BOTÓN FLOTANTE
-   ========================= */
+/* Notificaciones */
+#noti-container {
+  position: fixed;
+  bottom: 80px;
+  left: 20px;
+}
 
+.noti {
+  background: black;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #00ffcc;
+}
+
+/* WhatsApp flotante */
 .whatsapp-float {
   position: fixed;
   bottom: 20px;
   right: 20px;
   background: #25D366;
-  color: white;
-  font-size: 22px;
   padding: 15px;
   border-radius: 50%;
-  text-decoration: none;
-  box-shadow: 0 0 20px #25D366;
-  animation: pulse 2s infinite;
-}
-
-/* =========================
-   🔔 NOTIFICACIONES
-   ========================= */
-
-#noti-container {
-  position: fixed;
-  bottom: 80px;
-  left: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.noti {
-  background: rgba(0,0,0,0.8);
-  padding: 10px 14px;
-  border-radius: 10px;
-  color: #fff;
-  font-size: 0.85rem;
-  box-shadow: 0 0 15px var(--primary);
-  animation: fadeInUp 0.5s ease;
-}
-
-@keyframes fadeInUp {
-  from {opacity:0; transform: translateY(20px);}
-  to {opacity:1; transform: translateY(0);}
-}
-
-/* =========================
-   🦶 FOOTER
-   ========================= */
-
-footer {
-  text-align: center;
-  color: var(--text-footer);
-  margin: 60px 0 20px;
-  font-size: .85rem;
+  color: white;
 }
