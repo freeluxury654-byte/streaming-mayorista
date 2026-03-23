@@ -2,21 +2,61 @@ body {
   background:#020617;
   color:white;
   font-family:sans-serif;
+  margin:0;
+  padding:0;
 }
 
-/* HEADER */
+/* 🔥 CONTENEDOR GENERAL */
+#app {
+  max-width: 1100px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* ================= HEADER PRO ================= */
+
 .header {
-  background:#0f172a;
-  padding:20px;
-  border-radius:15px;
-  margin-bottom:20px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+  animation: fadeDown 0.8s ease;
 }
 
-/* TITULO GLOW */
+.header > * {
+  width: 100%;
+  max-width: 750px;
+  text-align: center;
+
+  /* 💎 GLASS EFFECT */
+  background: rgba(15,23,42,0.6);
+  backdrop-filter: blur(12px);
+  border-radius: 20px;
+  padding: 25px;
+
+  border: 1px solid rgba(255,255,255,0.05);
+  box-shadow: 0 0 30px rgba(0,255,204,0.08);
+}
+
+/* ✨ ANIMACIÓN ENTRADA */
+@keyframes fadeDown {
+  from {
+    opacity:0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity:1;
+    transform: translateY(0);
+  }
+}
+
+/* ================= TITULO ================= */
+
 .glow-title {
+  font-size: 2.3rem;
+  margin-bottom: 10px;
   color:#00ffcc;
   text-shadow:0 0 10px #00ffcc;
-  animation:glowPulse 2s infinite;
+  animation: glowPulse 2s infinite;
 }
 
 @keyframes glowPulse {
@@ -25,13 +65,49 @@ body {
   100%{text-shadow:0 0 5px #00ffcc;}
 }
 
-/* BOTON */
+/* ================= SUBTITULO ================= */
+
+.subtitle {
+  margin-bottom: 12px;
+  line-height: 1.6;
+  font-size: 14px;
+  color: #cbd5f5;
+}
+
+/* ================= STATUS ================= */
+
+.live-status {
+  margin-bottom: 15px;
+  font-size: 14px;
+  color:#00ffcc;
+  animation: blink 1.5s infinite;
+}
+
+@keyframes blink {
+  0%{opacity:1;}
+  50%{opacity:0.4;}
+  100%{opacity:1;}
+}
+
+/* ================= BOTONES ================= */
+
+.header-actions {
+  display:flex;
+  justify-content:center;
+  gap:12px;
+  margin-top:10px;
+  flex-wrap:wrap;
+}
+
+/* CTA PRINCIPAL */
 .cta {
   background:linear-gradient(90deg,#00ffcc,#8a2be2);
-  padding:10px;
+  padding:12px 20px;
   border-radius:999px;
   color:black;
   text-decoration:none;
+  font-weight:bold;
+
   animation:pulseBtn 2s infinite;
 }
 
@@ -41,26 +117,26 @@ body {
   100%{transform:scale(1);}
 }
 
-/* STATUS */
-.live-status {
-  color:#00ffcc;
-  animation:blink 1.5s infinite;
+/* BOTON ADMIN */
+#btnAdmin {
+  background:#111;
+  color:white;
+  padding:10px 14px;
+  border-radius:10px;
+  border:none;
 }
 
-@keyframes blink {
-  0%{opacity:1;}
-  50%{opacity:0.4;}
-  100%{opacity:1;}
-}
+/* ================= URGENCIA ================= */
 
-/* URGENCIA */
 .urgencia {
-  margin:15px 0;
-  padding:10px;
+  margin:20px 0;
+  padding:12px;
   background:#ff004c;
   border-radius:10px;
   text-align:center;
-  animation:flash 1.5s infinite;
+  font-weight:bold;
+
+  animation: flash 1.5s infinite;
 }
 
 @keyframes flash {
@@ -69,19 +145,21 @@ body {
   100%{opacity:0.7;}
 }
 
-/* MENU */
+/* ================= MENU ================= */
+
 .menu-categorias {
   display:flex;
   gap:10px;
   flex-wrap:wrap;
-  margin:20px 0;
+  justify-content:center;
+  margin:25px 0;
 }
 
 .menu-categorias button {
   background:#111;
   color:white;
   border:none;
-  padding:10px;
+  padding:10px 14px;
   border-radius:999px;
   transition:0.3s;
 }
@@ -96,18 +174,25 @@ body {
   color:black;
 }
 
-/* GRID */
+/* ================= GRID ================= */
+
 .productos-grid {
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:15px;
+  gap:20px;
 }
 
-/* CARD */
+/* ================= CARD ================= */
+
 .producto-card {
-  background:#0f172a;
+  background: rgba(15,23,42,0.6);
+  backdrop-filter: blur(10px);
+
   padding:15px;
   border-radius:15px;
+
+  border:1px solid rgba(255,255,255,0.05);
+
   transition:0.3s;
 }
 
@@ -116,7 +201,8 @@ body {
   box-shadow:0 0 25px #00ffcc;
 }
 
-/* BOTON WHATSAPP */
+/* ================= BOTON WHATSAPP ================= */
+
 .btn-whatsapp {
   display:block;
   margin-top:10px;
@@ -128,26 +214,39 @@ body {
   text-decoration:none;
 }
 
-/* ADMIN */
+/* ================= ADMIN ================= */
+
 .admin-actions {
   margin-top:20px;
   display:flex;
   gap:10px;
+  flex-wrap:wrap;
+  justify-content:center;
 }
 
-/* NOTIFICACIONES */
+/* ================= NOTIFICACIONES ================= */
+
 .noti {
   position:fixed;
   bottom:20px;
   left:20px;
+
   background:black;
   padding:10px;
   border-radius:10px;
+
   box-shadow:0 0 10px #00ffcc;
+
   animation:slideUp 0.5s ease;
 }
 
 @keyframes slideUp {
-  from{transform:translateY(50px);opacity:0;}
-  to{transform:translateY(0);opacity:1;}
+  from{
+    transform:translateY(50px);
+    opacity:0;
+  }
+  to{
+    transform:translateY(0);
+    opacity:1;
+  }
 }
