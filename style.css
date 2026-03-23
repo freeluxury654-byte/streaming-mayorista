@@ -8,9 +8,9 @@ body {
 
 /* 🔥 CONTENEDOR GENERAL */
 #app {
-  max-width: 1400px; /* 🔥 MÁS ANCHO */
+  max-width: 1200px; /* 🔥 MÁS EQUILIBRADO */
   margin: auto;
-  padding: 20px 40px; /* 🔥 MENOS VACÍO LATERAL */
+  padding: 20px;
 }
 
 /* ================= HEADER PRO ================= */
