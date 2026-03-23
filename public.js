@@ -1,16 +1,16 @@
-let data=null;
-let admin=false;
+let data = null;
+let admin = false;
 
-document.addEventListener("DOMContentLoaded",init);
+document.addEventListener("DOMContentLoaded", init);
 
-async function init(){
-  const local=localStorage.getItem("catalogo");
+async function init() {
+  const local = localStorage.getItem("catalogo");
 
-  if(local){
-    data=JSON.parse(local);
-  }else{
-    const res=await fetch("data.json");
-    data=await res.json();
+  if (local) {
+    data = JSON.parse(local);
+  } else {
+    const res = await fetch("data.json");
+    data = await res.json();
   }
 
   render();
@@ -19,22 +19,62 @@ async function init(){
 
 /* ================= RENDER ================= */
 
-function render(){
-  const c=document.getElementById("catalogo");
-  c.innerHTML="";
+function render() {
+  const c = document.getElementById("catalogo");
+  c.innerHTML = "";
 
-  const menu=document.createElement("div");
-  menu.className="menu-categorias";
+  // 🔥 TOP BAR ADMIN (SIEMPRE VISIBLE EN ADMIN)
+  const topBar = document.createElement("div");
+  topBar.style.display = "flex";
+  topBar.style.gap = "10px";
+  topBar.style.marginBottom = "15px";
+  topBar.style.flexWrap = "wrap";
 
-  const content=document.createElement("div");
+  if (admin) {
+    const guardar = document.createElement("button");
+    guardar.textContent = "💾 Guardar";
+    guardar.onclick = () => {
+      localStorage.setItem("catalogo", JSON.stringify(data));
+      alert("Guardado local");
+    };
 
-  data.categorias.forEach((cat,i)=>{
-    const btn=document.createElement("button");
-    btn.textContent=cat.nombre;
+    const exportar = document.createElement("button");
+    exportar.textContent = "📤 Exportar JSON";
+    exportar.onclick = exportarJSON;
 
-    btn.onclick=()=>{
+    const addCat = document.createElement("button");
+    addCat.textContent = "📂 Nueva categoría";
+    addCat.onclick = () => {
+      data.categorias.push({
+        nombre: "Nueva categoría",
+        productos: []
+      });
+      render();
+    };
+
+    topBar.appendChild(guardar);
+    topBar.appendChild(exportar);
+    topBar.appendChild(addCat);
+  }
+
+  c.appendChild(topBar);
+
+  // 🔥 MENU DE CATEGORIAS
+  const menu = document.createElement("div");
+  menu.className = "menu-categorias";
+
+  const content = document.createElement("div");
+
+  data.categorias.forEach((cat, i) => {
+    const btn = document.createElement("button");
+    btn.textContent = cat.nombre;
+
+    btn.onclick = () => {
       mostrar(i);
-      document.querySelectorAll(".menu-categorias button").forEach(b=>b.classList.remove("activo"));
+
+      document.querySelectorAll(".menu-categorias button")
+        .forEach(b => b.classList.remove("activo"));
+
       btn.classList.add("activo");
     };
 
@@ -49,92 +89,100 @@ function render(){
 
 /* ================= MOSTRAR ================= */
 
-function mostrar(i){
-  const cat=data.categorias[i];
-  const content=document.querySelector("#catalogo div:last-child");
+function mostrar(i) {
+  const cat = data.categorias[i];
+  const content = document.querySelector("#catalogo div:last-child");
 
-  content.innerHTML=`<h2>${cat.nombre}</h2><div class="productos-grid"></div>`;
+  content.innerHTML = `
+    <h2>${cat.nombre}</h2>
+    <div class="productos-grid"></div>
+  `;
 
-  const grid=content.querySelector(".productos-grid");
+  const grid = content.querySelector(".productos-grid");
 
-  cat.productos.forEach((p,pi)=>{
+  cat.productos.forEach((p, pi) => {
 
-    const stock=p.stock||0;
+    const stock = p.stock || 0;
 
-    let stockTxt=
-      stock===0?"❌ Agotado":
-      stock<=3?`🔥 Últimas ${stock}`:
-      stock<=10?`⚡ ${stock} disponibles`:
+    let stockTxt =
+      stock === 0 ? "❌ Agotado" :
+      stock <= 3 ? `🔥 Últimas ${stock}` :
+      stock <= 10 ? `⚡ ${stock} disponibles` :
       `📦 ${stock} disponibles`;
 
-    const card=document.createElement("div");
-    card.className="producto-card";
+    const card = document.createElement("div");
+    card.className = "producto-card";
 
-    card.innerHTML=`
-      <h3>${admin?`<input value="${p.nombre}" onchange="data.categorias[${i}].productos[${pi}].nombre=this.value">`:p.nombre}</h3>
+    card.innerHTML = `
+      <h3>
+        ${admin
+          ? `<input value="${p.nombre}" onchange="data.categorias[${i}].productos[${pi}].nombre=this.value">`
+          : p.nombre}
+      </h3>
 
-      <p>${admin?`<input value="${p.descripcion||""}" onchange="data.categorias[${i}].productos[${pi}].descripcion=this.value">`:p.descripcion||"Cuenta premium ⚡"}</p>
+      <p>
+        ${admin
+          ? `<input value="${p.descripcion || ""}" onchange="data.categorias[${i}].productos[${pi}].descripcion=this.value">`
+          : (p.descripcion || "Cuenta premium ⚡")}
+      </p>
 
-      <p>💰 ${admin?`<input value="${p.precio}" onchange="data.categorias[${i}].productos[${pi}].precio=this.value">`:p.precio}</p>
+      <p>
+        💰 ${admin
+          ? `<input value="${p.precio}" onchange="data.categorias[${i}].productos[${pi}].precio=this.value">`
+          : p.precio}
+      </p>
 
-      <p>${admin?`<input type="number" value="${p.stock||0}" onchange="data.categorias[${i}].productos[${pi}].stock=Number(this.value)">`:stockTxt}</p>
+      <p>
+        ${admin
+          ? `<input type="number" value="${p.stock || 0}" onchange="data.categorias[${i}].productos[${pi}].stock=Number(this.value)">`
+          : stockTxt}
+      </p>
 
       ${
         admin
-        ? `<button onclick="eliminarProd(${i},${pi})">❌ Eliminar</button>`
-        : `<a class="btn-whatsapp" href="https://wa.me/12494792518?text=Quiero ${p.nombre}">💸 Comprar ahora</a>`
+          ? `<button onclick="eliminarProd(${i},${pi})">❌ Eliminar</button>`
+          : `<a class="btn-whatsapp"
+               href="https://wa.me/12494792518?text=Quiero ${p.nombre}"
+               target="_blank">
+               💸 Comprar ahora
+             </a>`
       }
     `;
 
     grid.appendChild(card);
   });
 
-  if(admin){
+  // 🔥 BOTÓN AGREGAR PRODUCTO
+  if (admin) {
+    const add = document.createElement("button");
+    add.textContent = "➕ Agregar producto";
+    add.style.marginTop = "15px";
 
-    const acciones=document.createElement("div");
-    acciones.className="admin-actions";
-
-    const add=document.createElement("button");
-    add.textContent="➕ Agregar producto";
-    add.onclick=()=>{
+    add.onclick = () => {
       data.categorias[i].productos.push({
-        nombre:"Nuevo producto",
-        descripcion:"",
-        precio:"",
-        stock:1
+        nombre: "Nuevo producto",
+        descripcion: "",
+        precio: "",
+        stock: 1
       });
       render();
     };
 
-    const guardar=document.createElement("button");
-    guardar.textContent="💾 Guardar";
-    guardar.onclick=()=>{
-      localStorage.setItem("catalogo",JSON.stringify(data));
-      alert("Guardado local");
-    };
-
-    const exportar=document.createElement("button");
-    exportar.textContent="📤 Exportar JSON";
-    exportar.onclick=exportarJSON;
-
-    acciones.appendChild(add);
-    acciones.appendChild(guardar);
-    acciones.appendChild(exportar);
-
-    content.appendChild(acciones);
+    content.appendChild(add);
   }
 }
 
 /* ================= ADMIN ================= */
 
-function setupAdmin(){
-  document.getElementById("btnAdmin").onclick=()=>{
-    const clave=prompt("Clave admin:");
-    if(clave==="7777"){
-      admin=true;
+function setupAdmin() {
+  document.getElementById("btnAdmin").onclick = () => {
+    const clave = prompt("Clave admin:");
+
+    if (clave === "7777") {
+      admin = true;
       alert("Modo admin activado");
       render();
-    }else{
+    } else {
       alert("Clave incorrecta");
     }
   };
@@ -142,16 +190,17 @@ function setupAdmin(){
 
 /* ================= FUNCIONES ================= */
 
-function eliminarProd(i,pi){
-  data.categorias[i].productos.splice(pi,1);
+function eliminarProd(i, pi) {
+  data.categorias[i].productos.splice(pi, 1);
   render();
 }
 
-function exportarJSON(){
-  const dataStr=JSON.stringify(data,null,2);
-  const blob=new Blob([dataStr],{type:"application/json"});
-  const a=document.createElement("a");
-  a.href=URL.createObjectURL(blob);
-  a.download="data.json";
+function exportarJSON() {
+  const dataStr = JSON.stringify(data, null, 2);
+  const blob = new Blob([dataStr], { type: "application/json" });
+
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = "data.json";
   a.click();
 }
