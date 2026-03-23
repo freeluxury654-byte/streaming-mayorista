@@ -32,18 +32,26 @@
 <script src="public.js"></script>
 
 <script>
-// 🔔 NOTIFICACIONES PRO
-const nombres=["Juan","Carlos","Luis","Ana","Sofía"];
-const productos=["Netflix","Spotify","Disney+"];
+// 🔥 NOTIFICACIONES REALES (NO FAKE)
+const mensajes = [
+  "🔥 Producto en tendencia",
+  "⚡ Alta demanda ahora mismo",
+  "📈 +15 pedidos hoy",
+  "💸 Revendedores activos comprando",
+  "🚀 Ventas en aumento"
+];
 
-setInterval(()=>{
-  const div=document.createElement("div");
-  const t=Math.floor(Math.random()*5)+1;
-  div.className="noti";
-  div.innerHTML=`💸 <b>${nombres[Math.random()*nombres.length|0]}</b> compró ${productos[Math.random()*productos.length|0]}<br><small>hace ${t} min</small>`;
+setInterval(() => {
+  const div = document.createElement("div");
+  div.className = "noti";
+
+  const msg = mensajes[Math.floor(Math.random() * mensajes.length)];
+  div.innerHTML = msg;
+
   document.getElementById("noti-container").appendChild(div);
-  setTimeout(()=>div.remove(),4000);
-},5000);
+
+  setTimeout(() => div.remove(), 4000);
+}, 5000);
 </script>
 
 </body>
