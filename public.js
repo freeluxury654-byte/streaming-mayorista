@@ -1,170 +1,124 @@
-let data = null;
-let admin = false;
+let data=null;
+let admin=false;
 
-document.addEventListener("DOMContentLoaded", init);
+const iconos={
+  "STREAMING":"🎬",
+  "VPN":"🌐",
+  "INTELIGENCIA ARTIFICIAL":"🤖",
+  "Herramientas":"🛠️"
+};
 
-async function init() {
-  const local = localStorage.getItem("catalogo");
+document.addEventListener("DOMContentLoaded",init);
 
-  if (local) {
-    data = JSON.parse(local);
-  } else {
-    const res = await fetch("data.json");
-    data = await res.json();
+async function init(){
+  const local=localStorage.getItem("catalogo");
+
+  if(local){
+    data=JSON.parse(local);
+  }else{
+    const res=await fetch("data.json");
+    data=await res.json();
   }
 
   render();
   setupAdmin();
 }
 
-/* ================= RENDER ================= */
+/* RENDER */
+function render(){
+  const c=document.getElementById("catalogo");
+  c.innerHTML="";
 
-function render() {
-  const c = document.getElementById("catalogo");
-  c.innerHTML = "";
+  const top=document.createElement("div");
 
-  // 🔥 TOP BAR ADMIN (SIEMPRE VISIBLE EN ADMIN)
-  const topBar = document.createElement("div");
-  topBar.style.display = "flex";
-  topBar.style.gap = "10px";
-  topBar.style.marginBottom = "15px";
-  topBar.style.flexWrap = "wrap";
+  if(admin){
+    const guardar=document.createElement("button");
+    guardar.textContent="💾 Guardar";
+    guardar.onclick=()=>localStorage.setItem("catalogo",JSON.stringify(data));
 
-  if (admin) {
-    const guardar = document.createElement("button");
-    guardar.textContent = "💾 Guardar";
-    guardar.onclick = () => {
-      localStorage.setItem("catalogo", JSON.stringify(data));
-      alert("Guardado local");
-    };
+    const exportar=document.createElement("button");
+    exportar.textContent="📤 Exportar JSON";
+    exportar.onclick=exportarJSON;
 
-    const exportar = document.createElement("button");
-    exportar.textContent = "📤 Exportar JSON";
-    exportar.onclick = exportarJSON;
-
-    const addCat = document.createElement("button");
-    addCat.textContent = "📂 Nueva categoría";
-    addCat.onclick = () => {
-      data.categorias.push({
-        nombre: "Nueva categoría",
-        productos: []
-      });
+    const addCat=document.createElement("button");
+    addCat.textContent="📂 Nueva categoría";
+    addCat.onclick=()=>{
+      data.categorias.push({nombre:"Nueva",productos:[]});
       render();
     };
 
-    topBar.appendChild(guardar);
-    topBar.appendChild(exportar);
-    topBar.appendChild(addCat);
+    top.append(guardar,exportar,addCat);
   }
 
-  c.appendChild(topBar);
+  c.appendChild(top);
 
-  // 🔥 MENU DE CATEGORIAS
-  const menu = document.createElement("div");
-  menu.className = "menu-categorias";
+  const menu=document.createElement("div");
+  menu.className="menu-categorias";
 
-  const content = document.createElement("div");
+  const content=document.createElement("div");
 
-  data.categorias.forEach((cat, i) => {
-    const btn = document.createElement("button");
-    btn.textContent = cat.nombre;
+  data.categorias.forEach((cat,i)=>{
+    const btn=document.createElement("button");
+    btn.textContent=`${iconos[cat.nombre]||"📦"} ${cat.nombre}`;
 
-    btn.onclick = () => {
+    btn.onclick=()=>{
       mostrar(i);
-
-      document.querySelectorAll(".menu-categorias button")
-        .forEach(b => b.classList.remove("activo"));
-
+      document.querySelectorAll(".menu-categorias button").forEach(b=>b.classList.remove("activo"));
       btn.classList.add("activo");
     };
 
     menu.appendChild(btn);
   });
 
-  c.appendChild(menu);
-  c.appendChild(content);
-
+  c.append(menu,content);
   mostrar(0);
 }
 
-/* ================= MOSTRAR ================= */
+/* MOSTRAR */
+function mostrar(i){
+  const cat=data.categorias[i];
+  const content=document.querySelector("#catalogo div:last-child");
 
-function mostrar(i) {
-  const cat = data.categorias[i];
-  const content = document.querySelector("#catalogo div:last-child");
+  content.innerHTML=`<h2>${cat.nombre}</h2><div class="productos-grid"></div>`;
+  const grid=content.querySelector(".productos-grid");
 
-  content.innerHTML = `
-    <h2>${cat.nombre}</h2>
-    <div class="productos-grid"></div>
-  `;
+  cat.productos.forEach((p,pi)=>{
 
-  const grid = content.querySelector(".productos-grid");
+    const stock=p.stock||0;
 
-  cat.productos.forEach((p, pi) => {
-
-    const stock = p.stock || 0;
-
-    let stockTxt =
-      stock === 0 ? "❌ Agotado" :
-      stock <= 3 ? `🔥 Últimas ${stock}` :
-      stock <= 10 ? `⚡ ${stock} disponibles` :
+    let stockTxt=
+      stock===0?"❌ Agotado":
+      stock<=3?`🔥 Últimas ${stock}`:
+      stock<=10?`⚡ ${stock} disponibles`:
       `📦 ${stock} disponibles`;
 
-    const card = document.createElement("div");
-    card.className = "producto-card";
+    const card=document.createElement("div");
+    card.className="producto-card";
 
-    card.innerHTML = `
-      <h3>
-        ${admin
-          ? `<input value="${p.nombre}" onchange="data.categorias[${i}].productos[${pi}].nombre=this.value">`
-          : p.nombre}
-      </h3>
+    card.innerHTML=`
+      <h3>${admin?`<input value="${p.nombre}" onchange="data.categorias[${i}].productos[${pi}].nombre=this.value">`:p.nombre}</h3>
+      <p>${admin?`<input value="${p.descripcion||""}" onchange="data.categorias[${i}].productos[${pi}].descripcion=this.value">`:p.descripcion||"Cuenta premium ⚡"}</p>
+      <p>💰 ${admin?`<input value="${p.precio}" onchange="data.categorias[${i}].productos[${pi}].precio=this.value">`:p.precio}</p>
+      <p>${admin?`<input type="number" value="${p.stock||0}" onchange="data.categorias[${i}].productos[${pi}].stock=Number(this.value)">`:stockTxt}</p>
 
-      <p>
-        ${admin
-          ? `<input value="${p.descripcion || ""}" onchange="data.categorias[${i}].productos[${pi}].descripcion=this.value">`
-          : (p.descripcion || "Cuenta premium ⚡")}
-      </p>
-
-      <p>
-        💰 ${admin
-          ? `<input value="${p.precio}" onchange="data.categorias[${i}].productos[${pi}].precio=this.value">`
-          : p.precio}
-      </p>
-
-      <p>
-        ${admin
-          ? `<input type="number" value="${p.stock || 0}" onchange="data.categorias[${i}].productos[${pi}].stock=Number(this.value)">`
-          : stockTxt}
-      </p>
+      <p style="font-size:12px;color:#00ffcc;">⚡ Activación inmediata</p>
+      <p style="font-size:12px;color:#ffcc00;">🔥 Alta demanda</p>
 
       ${
         admin
-          ? `<button onclick="eliminarProd(${i},${pi})">❌ Eliminar</button>`
-          : `<a class="btn-whatsapp"
-               href="https://wa.me/12494792518?text=Quiero ${p.nombre}"
-               target="_blank">
-               💸 Comprar ahora
-             </a>`
+        ? `<button onclick="eliminarProd(${i},${pi})">❌</button>`
+        : `<a class="btn-whatsapp" href="https://wa.me/12494792518?text=Quiero ${p.nombre}">💸 Obtener acceso</a>`
       }
     `;
 
     grid.appendChild(card);
   });
 
-  // 🔥 BOTÓN AGREGAR PRODUCTO
-  if (admin) {
-    const add = document.createElement("button");
-    add.textContent = "➕ Agregar producto";
-    add.style.marginTop = "15px";
-
-    add.onclick = () => {
-      data.categorias[i].productos.push({
-        nombre: "Nuevo producto",
-        descripcion: "",
-        precio: "",
-        stock: 1
-      });
+  if(admin){
+    const add=document.createElement("button");
+    add.textContent="➕ Agregar producto";
+    add.onclick=()=>{
+      data.categorias[i].productos.push({nombre:"Nuevo",precio:"",stock:1});
       render();
     };
 
@@ -172,35 +126,26 @@ function mostrar(i) {
   }
 }
 
-/* ================= ADMIN ================= */
-
-function setupAdmin() {
-  document.getElementById("btnAdmin").onclick = () => {
-    const clave = prompt("Clave admin:");
-
-    if (clave === "7777") {
-      admin = true;
-      alert("Modo admin activado");
+/* ADMIN */
+function setupAdmin(){
+  document.getElementById("btnAdmin").onclick=()=>{
+    if(prompt("Clave admin:")==="7777"){
+      admin=true;
       render();
-    } else {
-      alert("Clave incorrecta");
     }
   };
 }
 
-/* ================= FUNCIONES ================= */
-
-function eliminarProd(i, pi) {
-  data.categorias[i].productos.splice(pi, 1);
+/* FUNCIONES */
+function eliminarProd(i,pi){
+  data.categorias[i].productos.splice(pi,1);
   render();
 }
 
-function exportarJSON() {
-  const dataStr = JSON.stringify(data, null, 2);
-  const blob = new Blob([dataStr], { type: "application/json" });
-
-  const a = document.createElement("a");
-  a.href = URL.createObjectURL(blob);
-  a.download = "data.json";
+function exportarJSON(){
+  const blob=new Blob([JSON.stringify(data,null,2)]);
+  const a=document.createElement("a");
+  a.href=URL.createObjectURL(blob);
+  a.download="data.json";
   a.click();
 }
