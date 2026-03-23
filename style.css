@@ -22,10 +22,18 @@ body {
   animation: fadeDown 0.8s ease;
 }
 
+/* 🔥 AQUÍ ESTÁ LA CORRECCIÓN REAL */
 .header > * {
   width: 100%;
   max-width: 750px;
+  margin: auto;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* 🔥 CENTRADO REAL */
   text-align: center;
+
+  gap: 10px; /* 🔥 ESPACIADO PRO */
 
   /* 💎 GLASS EFFECT */
   background: rgba(15,23,42,0.6);
@@ -53,7 +61,7 @@ body {
 
 .glow-title {
   font-size: 2.3rem;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   color:#00ffcc;
   text-shadow:0 0 10px #00ffcc;
   animation: glowPulse 2s infinite;
@@ -68,19 +76,19 @@ body {
 /* ================= SUBTITULO ================= */
 
 .subtitle {
-  margin-bottom: 12px;
   line-height: 1.6;
   font-size: 14px;
   color: #cbd5f5;
+  text-align: center;
 }
 
 /* ================= STATUS ================= */
 
 .live-status {
-  margin-bottom: 15px;
   font-size: 14px;
   color:#00ffcc;
   animation: blink 1.5s infinite;
+  text-align: center;
 }
 
 @keyframes blink {
@@ -94,6 +102,7 @@ body {
 .header-actions {
   display:flex;
   justify-content:center;
+  align-items:center;
   gap:12px;
   margin-top:10px;
   flex-wrap:wrap;
