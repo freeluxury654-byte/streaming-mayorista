@@ -69,16 +69,25 @@
 <script src="public.js"></script>
 
 <script>
+let pedidos = Math.floor(Math.random() * 10) + 30; // base realista
+let usuarios = Math.floor(Math.random() * 5) + 5;
+
 function actualizarVentas() {
-  const pedidos = Math.floor(Math.random() * 40) + 10;
-  const usuarios = Math.floor(Math.random() * 15) + 3;
+
+  // pequeños cambios (más real)
+  pedidos += Math.floor(Math.random() * 3); // sube lento
+  usuarios += Math.floor(Math.random() * 2) - 1; // sube/baja
+
+  if (usuarios < 3) usuarios = 3; // mínimo
 
   document.getElementById("ventasLive").innerHTML =
-    pedidos + " pedidos • " + usuarios + " usuarios";
+    pedidos + " pedidos hoy • " + usuarios + " usuarios ahora";
 }
 
-setInterval(actualizarVentas, 4000);
+/* ⏱️ CAMBIO MÁS LENTO */
+setInterval(actualizarVentas, 12000); // cada 12 segundos
 actualizarVentas();
+</script>
 
 const mensajes = [
   "🔥 Producto en tendencia",
