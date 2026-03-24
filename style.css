@@ -203,3 +203,80 @@ body {
     grid-template-columns:1fr;
   }
 }
+
+/* ================= MENU ULTRA PRO ================= */
+
+.menu-categorias {
+  display:flex;
+  justify-content:center;
+  gap:12px;
+  flex-wrap:wrap;
+  margin:30px 0;
+}
+
+/* BOTONES */
+.menu-categorias button {
+  background: rgba(255,255,255,0.05);
+  color:#cbd5f5;
+
+  border:1px solid rgba(255,255,255,0.08);
+
+  padding:10px 16px;
+  border-radius:999px;
+
+  font-size:13px;
+  letter-spacing:0.3px;
+
+  cursor:pointer;
+
+  backdrop-filter: blur(8px);
+
+  transition: all 0.3s ease;
+
+  position:relative;
+  overflow:hidden;
+}
+
+/* ✨ EFECTO LUZ */
+.menu-categorias button::before {
+  content:"";
+  position:absolute;
+  top:0;
+  left:-100%;
+  width:100%;
+  height:100%;
+
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(0,255,204,0.3),
+    transparent
+  );
+
+  transition:0.5s;
+}
+
+/* HOVER */
+.menu-categorias button:hover::before {
+  left:100%;
+}
+
+.menu-categorias button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 15px rgba(0,255,204,0.3);
+  color:#22f3d6;
+}
+
+/* ACTIVO */
+.menu-categorias .activo {
+  background: linear-gradient(90deg,#22f3d6,#8b5cf6);
+  color:#000;
+  font-weight:bold;
+
+  box-shadow: 0 0 20px rgba(0,255,204,0.5);
+}
+
+/* CLICK EFECTO */
+.menu-categorias button:active {
+  transform: scale(0.95);
+}
