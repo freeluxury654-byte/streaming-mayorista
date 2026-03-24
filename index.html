@@ -12,55 +12,38 @@
 <div id="app">
 
 <header class="header">
+  <div class="header-box">
 
-  <h1 class="glow-title">💎 Streaming Pro Center</h1>
+    <h1 class="glow-title">💎 Streaming Pro Center</h1>
 
-  <p class="subtitle">
-    💸 Negocio rentable • ⚡ Activación inmediata • 🚀 Escala sin límites
-  </p>
+    <p class="subtitle">
+      💸 Negocio rentable • ⚡ Activación inmediata • 🚀 Escala sin límites
+    </p>
 
-  <!-- ⭐ PRUEBA SOCIAL MEJORADA -->
-  <div class="social-proof">
-    ⭐ 4.9/5 • +120 revendedores activos • +5000 cuentas vendidas
+    <!-- ⭐ INFO LIMPIA -->
+    <div class="info-line">
+      ⭐ 4.9/5 • +120 revendedores • 💸 <span id="ventasLive"></span>
+    </div>
+
+    <!-- STATUS -->
+    <p class="live-status">
+      🟢 Sistema activo • Usuarios comprando ahora
+    </p>
+
+    <!-- CTA -->
+    <div class="header-actions">
+      <a href="https://wa.me/12494792518" class="cta">🔥 Comprar ahora</a>
+      <button id="btnAdmin">🔐 Admin</button>
+    </div>
+
+    <!-- INFO FINAL -->
+    <p class="mini-info">
+      ✔ Acceso inmediato • 🛡️ Garantía • 💬 Soporte • 🔒 Pago seguro
+    </p>
+
   </div>
-
-  <!-- 💸 CONTADOR DINÁMICO -->
-  <p class="ventas-live" id="ventasLive"></p>
-
-  <!-- 🟢 STATUS -->
-  <p class="live-status">
-    🟢 Sistema activo • Usuarios comprando ahora
-  </p>
-
-  <!-- 🎯 BOTONES -->
-  <div class="header-actions">
-    <a href="https://wa.me/12494792518" class="cta">🔥 Comprar ahora</a>
-    <button id="btnAdmin">🔐 Admin</button>
-  </div>
-
-  <!-- ✔ BENEFICIOS -->
-  <div class="beneficios">
-    ✔ Acceso inmediato • ✔ Garantía incluida • ✔ Soporte directo • ✔ Precios mayoristas
-  </div>
-
-  <!-- 🔒 CONFIANZA -->
-  <div class="trust-bar">
-    🔒 Pago seguro • ⚡ Entrega inmediata • 🛡️ Garantía real • 💬 Soporte activo
-  </div>
-
-  <!-- MICRO COPY -->
-  <p class="micro-copy">
-    ⚡ Sin esperas • 🔒 Compra segura • 💬 Respuesta rápida
-  </p>
-
 </header>
 
-<!-- 🧠 COMO FUNCIONA (MEJOR UBICADO) -->
-<div class="how">
-  1️⃣ Elige producto • 2️⃣ Escríbenos • 3️⃣ Recibe acceso inmediato
-</div>
-
-<!-- 🔥 URGENCIA MEJORADA -->
 <section class="urgencia">
 🔥 Alta demanda hoy — algunos productos se agotan rápido
 </section>
@@ -74,20 +57,17 @@
 <script src="public.js"></script>
 
 <script>
-
-/* 🔥 CONTADOR DINÁMICO REALISTA */
 function actualizarVentas() {
   const pedidos = Math.floor(Math.random() * 40) + 10;
   const usuarios = Math.floor(Math.random() * 15) + 3;
 
   document.getElementById("ventasLive").innerHTML =
-    "💸 " + pedidos + " pedidos hoy • 👥 " + usuarios + " usuarios comprando ahora";
+    pedidos + " pedidos • " + usuarios + " usuarios";
 }
 
 setInterval(actualizarVentas, 4000);
 actualizarVentas();
 
-/* 🔔 NOTIFICACIONES MEJORADAS */
 const mensajes = [
   "🔥 Producto en tendencia",
   "⚡ Alta demanda ahora mismo",
@@ -107,7 +87,6 @@ setInterval(() => {
 
   setTimeout(() => div.remove(), 4000);
 }, 5000);
-
 </script>
 
 </body>
