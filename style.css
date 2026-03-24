@@ -280,3 +280,76 @@ body {
 .menu-categorias button:active {
   transform: scale(0.95);
 }
+
+/* ================= TELEGRAM FLOAT ================= */
+
+.telegram-float {
+  position:fixed;
+  bottom:25px;
+  right:25px;
+  z-index:999;
+}
+
+/* BOTÓN */
+.telegram-btn {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  width:60px;
+  height:60px;
+
+  border-radius:50%;
+
+  background:linear-gradient(135deg,#22f3d6,#8b5cf6);
+  color:#000;
+
+  font-size:26px;
+  text-decoration:none;
+
+  box-shadow:0 10px 25px rgba(0,0,0,0.5);
+
+  transition:0.3s;
+
+  animation:pulseTG 2s infinite;
+}
+
+/* HOVER */
+.telegram-btn:hover {
+  transform:scale(1.1);
+  box-shadow:0 0 25px #22f3d6;
+}
+
+/* TOOLTIP */
+.telegram-tooltip {
+  position:absolute;
+  right:70px;
+  bottom:10px;
+
+  background:#020617;
+  border:1px solid rgba(0,255,204,0.2);
+
+  padding:8px 12px;
+  border-radius:10px;
+
+  font-size:12px;
+  white-space:nowrap;
+
+  opacity:0;
+  transform:translateX(10px);
+
+  transition:0.3s;
+}
+
+/* MOSTRAR TOOLTIP */
+.telegram-float:hover .telegram-tooltip {
+  opacity:1;
+  transform:translateX(0);
+}
+
+/* ANIMACIÓN */
+@keyframes pulseTG {
+  0% { transform:scale(1); }
+  50% { transform:scale(1.08); }
+  100% { transform:scale(1); }
+}
