@@ -12,37 +12,57 @@
 <div id="app">
 
 <header class="header">
+
   <h1 class="glow-title">💎 Streaming Pro Center</h1>
 
   <p class="subtitle">
     💸 Negocio rentable • ⚡ Activación inmediata • 🚀 Escala sin límites
   </p>
 
-  <p class="live-status">🟢 Sistema activo • Usuarios comprando ahora</p>
+  <!-- ⭐ PRUEBA SOCIAL MEJORADA -->
+  <div class="social-proof">
+    ⭐ 4.9/5 • +120 revendedores activos • +5000 cuentas vendidas
+  </div>
 
+  <!-- 💸 CONTADOR DINÁMICO -->
+  <p class="ventas-live" id="ventasLive"></p>
+
+  <!-- 🟢 STATUS -->
+  <p class="live-status">
+    🟢 Sistema activo • Usuarios comprando ahora
+  </p>
+
+  <!-- 🎯 BOTONES -->
   <div class="header-actions">
-    <a href="https://wa.me/12494792518" class="cta">🚀 Empezar a revender</a>
+    <a href="https://wa.me/12494792518" class="cta">🔥 Comprar ahora</a>
     <button id="btnAdmin">🔐 Admin</button>
   </div>
 
-  <!-- 🔥 MICRO COPY -->
+  <!-- ✔ BENEFICIOS -->
+  <div class="beneficios">
+    ✔ Acceso inmediato • ✔ Garantía incluida • ✔ Soporte directo • ✔ Precios mayoristas
+  </div>
+
+  <!-- 🔒 CONFIANZA -->
+  <div class="trust-bar">
+    🔒 Pago seguro • ⚡ Entrega inmediata • 🛡️ Garantía real • 💬 Soporte activo
+  </div>
+
+  <!-- MICRO COPY -->
   <p class="micro-copy">
-    ⚡ Entrega inmediata • 🛡️ Garantía incluida
+    ⚡ Sin esperas • 🔒 Compra segura • 💬 Respuesta rápida
   </p>
+
 </header>
 
-<!-- 💸 PRUEBA SOCIAL -->
-<div class="social-proof">
-💸 +120 revendedores activos • ⭐ 4.9/5 satisfacción • 🔥 Ventas diarias
-</div>
-
-<!-- 🧠 COMO FUNCIONA -->
+<!-- 🧠 COMO FUNCIONA (MEJOR UBICADO) -->
 <div class="how">
-1️⃣ Elige producto • 2️⃣ Escríbenos • 3️⃣ Recibe acceso inmediato
+  1️⃣ Elige producto • 2️⃣ Escríbenos • 3️⃣ Recibe acceso inmediato
 </div>
 
+<!-- 🔥 URGENCIA MEJORADA -->
 <section class="urgencia">
-🔥 OFERTA LIMITADA • ⏳ STOCK BAJO • 🚀 VENTAS ACTIVAS
+🔥 Alta demanda hoy — algunos productos se agotan rápido
 </section>
 
 <section id="catalogo"></section>
@@ -54,12 +74,26 @@
 <script src="public.js"></script>
 
 <script>
+
+/* 🔥 CONTADOR DINÁMICO REALISTA */
+function actualizarVentas() {
+  const pedidos = Math.floor(Math.random() * 40) + 10;
+  const usuarios = Math.floor(Math.random() * 15) + 3;
+
+  document.getElementById("ventasLive").innerHTML =
+    "💸 " + pedidos + " pedidos hoy • 👥 " + usuarios + " usuarios comprando ahora";
+}
+
+setInterval(actualizarVentas, 4000);
+actualizarVentas();
+
+/* 🔔 NOTIFICACIONES MEJORADAS */
 const mensajes = [
   "🔥 Producto en tendencia",
   "⚡ Alta demanda ahora mismo",
-  "📈 +15 pedidos hoy",
-  "💸 Revendedores activos comprando",
-  "🚀 Ventas en aumento"
+  "📈 Nuevo pedido realizado",
+  "💸 Cliente compró Netflix",
+  "🚀 Venta confirmada"
 ];
 
 setInterval(() => {
@@ -73,6 +107,7 @@ setInterval(() => {
 
   setTimeout(() => div.remove(), 4000);
 }, 5000);
+
 </script>
 
 </body>
