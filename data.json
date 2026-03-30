@@ -4,29 +4,19 @@
       "nombre": "STREAMING",
       "productos": [
         {
-          "nombre": "Prime VIdeo",
-          "precio": "1.8$ ",
-          "stock": 100,
-          "garantia": true,
-          "descripcion": "acceso o dominio mensual cuenta completa",
-          "etiquetas": [
-            "1 Mes"
-          ]
-        },
-        {
-          "nombre": "Hbo Max",
-          "precio": "3.5$",
+          "nombre": "Hbo Max Estándar ",
+          "precio": "2.5$",
           "stock": 50,
           "garantia": true,
-          "descripcion": "cuenta completa a dominio o acceso facturacion prime channels",
+          "descripcion": "Cuenta a dominio o alquiler - Unitario 5$ - Cuentas mensuales o % autopay",
           "etiquetas": [
             "7 Dias"
           ]
         },
         {
-          "nombre": "Netflix 4K USA SIN GEO",
-          "descripcion": "Garantía: 14 días (Soporte activo)\n\nDispositivos: Todos (TV, Celular, PC)\n\nCondición: Uso exclusivo del perfil asignado. No editar datos de la cuenta\n\nImportante: Incumplir las reglas anula la garantía de reemplazo",
-          "precio": "2.5",
+          "nombre": "Netflix 4K Premium ",
+          "descripcion": "Cuenta en alquiler o venta de acceso (no correo) - Unitario 5$ - Cuentas mensuales o % autopay",
+          "precio": "1.8$",
           "stock": 2000,
           "garantia": true,
           "etiquetas": [
@@ -34,66 +24,48 @@
           ]
         },
         {
-          "nombre": "Hbo Standar",
-          "descripcion": "cuenta completa a dominio o acceso ",
-          "precio": "3$",
-          "stock": 40,
-          "garantia": true,
-          "etiquetas": [
-            "7 Dias"
-          ]
-        },
-        {
-          "nombre": "Amc+",
-          "descripcion": "acceso o dominio mensual cuenta completa",
+          "nombre": "Apple Tv ",
+          "descripcion": "Cuenta a dominio o alquiler - Unitario 5$ - Cuentas mensuales o % autopay",
           "precio": "2.2$",
-          "stock": 40,
+          "stock": 1000,
           "garantia": true,
           "etiquetas": []
         },
         {
           "nombre": "Crunchyroll",
-          "descripcion": "",
-          "precio": "$",
-          "stock": 0,
+          "descripcion": "Cuenta en alquiler o venta de acceso (no correo) - Unitario 4$ - Cuentas mensuales o % autopay",
+          "precio": "2.1$",
+          "stock": 1000,
           "garantia": false,
           "etiquetas": []
         },
         {
-          "nombre": "Shadowz Terror ",
-          "descripcion": "acceso o dominio mensual cuenta completa",
-          "precio": "1.5$",
-          "stock": 30,
+          "nombre": "Deezer Premium",
+          "descripcion": "Cuenta a dominio o alquiler - Unitario 4$ - Cuentas mensuales o % autopay",
+          "precio": "1$",
+          "stock": 1000,
           "garantia": true,
           "etiquetas": []
         },
         {
-          "nombre": "Apple Tv",
-          "descripcion": "",
-          "precio": "$",
-          "stock": 0,
+          "nombre": "Prime Video",
+          "descripcion": "Cuenta a dominio o alquiler - Unitario 4$ - Cuentas mensuales o % autopay",
+          "precio": "2.2$",
+          "stock": 100,
           "garantia": false,
           "etiquetas": []
         },
         {
           "nombre": "Adobe Creative Cloud",
-          "descripcion": "acceso o dominio x4 meses con todas las app",
+          "descripcion": "Cuenta a dominio con todas las app activadas x3 meses",
           "precio": "5$",
           "stock": 50,
           "garantia": true,
           "etiquetas": []
         },
         {
-          "nombre": "TidalMusic",
-          "descripcion": "acceso o dominio mensual cuenta completa",
-          "precio": "$2",
-          "stock": 30,
-          "garantia": true,
-          "etiquetas": []
-        },
-        {
           "nombre": "Disney Premium",
-          "descripcion": "",
+          "descripcion": "Cuenta a dominio o alquiler - Unitario 4$ - Cuentas mensuales o % autopay",
           "precio": "$",
           "stock": 0,
           "garantia": false,
@@ -101,7 +73,7 @@
         },
         {
           "nombre": "Spotify ",
-          "descripcion": "",
+          "descripcion": "Cuenta en alquiler o venta de acceso (no correo) - Unitario 5$ - Cuentas mensuales o % autopay",
           "precio": "$",
           "stock": 0,
           "garantia": false,
@@ -109,27 +81,39 @@
         },
         {
           "nombre": "MubiGo",
-          "descripcion": "a dominio o acceso\n2 meses full estable",
+          "descripcion": "Cuenta a dominio o alquiler - Unitario 4$ - Cuentas mensuales o % autopay",
           "precio": "2$",
           "stock": 50,
           "garantia": true,
           "etiquetas": []
         },
         {
-          "nombre": "Paramount",
-          "descripcion": "",
-          "precio": "$",
-          "stock": 0,
+          "nombre": "Paramount+",
+          "descripcion": "Cuenta en alquiler - Unitario 4$ - Cuentas mensuales o % autopay",
+          "precio": "4$",
+          "stock": 20,
           "garantia": false,
           "etiquetas": []
         },
         {
           "nombre": "Youtube Premum",
-          "descripcion": "Mensual a dominio o acceso",
-          "precio": "2.5$",
+          "descripcion": "Cuenta a dominio - Unitario 4$ - Cuentas mensuales o % autopay",
+          "precio": "2$",
           "stock": 60,
           "garantia": true,
           "etiquetas": []
+        },
+        {
+          "nombre": "Shadowz Terror ",
+          "precio": "1.5$",
+          "stock": 20,
+          "descripcion": "5 Meses"
+        },
+        {
+          "nombre": "Amc+",
+          "precio": "2$",
+          "stock": 80,
+          "descripcion": "Cuenta a dominio o alquiler - Unitario 5$ - Cuentas mensuales o % autopay"
         }
       ],
       "descripcion": "Todo en cuentas Streaming "
@@ -138,26 +122,25 @@
       "nombre": "VPN",
       "productos": [
         {
-          "nombre": "Express VPN 6 Meses",
-          "precio": "$5",
+          "nombre": "Surfshark ",
+          "precio": "8$",
           "stock": 5,
           "garantia": true,
-          "descripcion": "Correo & Clave"
+          "descripcion": "Activacion por codigo - 5 Meses"
         },
         {
-          "nombre": "Surfshark ",
-          "precio": "$5",
-          "stock": 10,
-          "garantia": true,
-          "descripcion": "Activacion por codigo"
-        },
-        {
-          "nombre": "Hostpod 5 Meses",
-          "descripcion": "Correo & Clave",
-          "precio": "$5",
-          "stock": 0,
+          "nombre": "Hostpod ",
+          "descripcion": "Correo & Clave - 5 Meses",
+          "precio": "5$",
+          "stock": 5,
           "garantia": true,
           "etiquetas": []
+        },
+        {
+          "nombre": "Proton Vpn",
+          "precio": "4$",
+          "stock": 10,
+          "descripcion": "Correo y Clave"
         }
       ],
       "descripcion": "Suscripciones premium garantizadas para asegurar tu anonimato al costo más bajo"
@@ -167,9 +150,9 @@
       "descripcion": "Para que te diviertas escarvando fresco",
       "productos": [
         {
-          "nombre": "1k en Lineas",
-          "descripcion": "CORREOS HOTMAIL MICROSOFT OUTLOOK",
-          "precio": "10$",
+          "nombre": "Correos Mixtos (Combolist)",
+          "descripcion": "Hotmail/Outlook - Correo:Clave - Para sacar Hits - Txt con mas de 5k en lineas",
+          "precio": "15$",
           "stock": 50,
           "garantia": false,
           "etiqueta": "oferta",
@@ -178,9 +161,9 @@
           ]
         },
         {
-          "nombre": "5k en Lieeas",
-          "descripcion": "CORREOS HOTMAIL MICROSOFT OUTLOOK\n",
-          "precio": "15$",
+          "nombre": "Correos Pais Especifico (HITS)",
+          "descripcion": "Correos con acceso garantizado en txt grandes chequeados, entrar con vpn del pais especifico",
+          "precio": "20$",
           "stock": 50,
           "garantia": false,
           "etiquetas": [
@@ -188,12 +171,24 @@
           ]
         },
         {
-          "nombre": "Pack de 5 txt Full",
-          "descripcion": "CORREOS HOTMAIL MICROSOFT ",
-          "precio": "25$",
+          "nombre": "ULP ",
+          "descripcion": "Accesos con links para extraer full en cantidades GB",
+          "precio": "30",
           "stock": 50,
           "garantia": false,
           "etiquetas": []
+        },
+        {
+          "nombre": "Pagina ULP PRIVADA",
+          "precio": "30$",
+          "stock": 2,
+          "descripcion": "se vende el acceso tu pagas la suscripcion, extrae en 4k"
+        },
+        {
+          "nombre": "Meto2 ComboList Hits + Tools",
+          "precio": "120$",
+          "stock": 5,
+          "descripcion": "Aprende a sacar tus propios combolist, tus propios hits, como extraerlos y sacar privado"
         }
       ]
     },
@@ -264,24 +259,99 @@
       "descripcion": "Todo en Hacking no tan ético ",
       "productos": [
         {
-          "nombre": "SilverBullet 1.1.1",
-          "descripcion": "Trae consigo config para hits y una de buscador-psis-nombre-fecha etc ",
-          "precio": "80$",
+          "nombre": "Checker Hotmail ",
+          "precio": "50$",
           "stock": 10,
-          "garantia": true,
-          "etiquetas": [
-            "Tutorial Incluido en vivo"
-          ]
+          "descripcion": "Proxyless Masivo Para Sacar Tus Hits de Hotmail Outlook Microsoft"
         },
         {
-          "nombre": "Canales Pro ComboList ",
-          "descripcion": "Canales y paginas full info de combolist config accesos metodos (DarkWeb)",
-          "precio": "$",
+          "nombre": "ComboTools Extractor",
+          "precio": "100$",
+          "stock": 10,
+          "descripcion": "Herramienta para extraer tus correos privados de tus ULP & LOGS "
+        },
+        {
+          "nombre": "Checker Hotmail Masivo Proxyless (SEARCH) ",
+          "precio": "100$",
+          "stock": 10
+        },
+        {
+          "nombre": " Página Dashboard Ventas STREAMING",
+          "precio": "180$",
+          "stock": 2,
+          "descripcion": "Llevar tu venta de streaming o productos digitales a otro nivel con una página que tiene catálago, venta automática, control de stock y editor, personalizado todo a tu gusto"
+        },
+        {
+          "nombre": "Número virtual fijo",
+          "precio": "25$",
+          "stock": 20,
+          "descripcion": "Recibe códigos en el mismo número celular muchas veces"
+        },
+        {
+          "nombre": "Base de Datos ULP LOGS",
+          "precio": "50$",
+          "stock": 20,
+          "descripcion": "Base de datos Ulp Logs Accesos Config"
+        },
+        {
+          "nombre": "Checker Generadores",
+          "precio": "80$",
+          "stock": 10,
+          "descripcion": "Generadores de Deezer AppleTv Crunchyroll Vix+  Sin necesidad de ningun correo, salen como links de activacion guardables y son autopay"
+        },
+        {
+          "nombre": "Proxy Checker Elite",
+          "precio": "30",
+          "stock": 10,
+          "descripcion": "Mira masivamente que proxys http stock 4 stock 5 entre otros, te dice que velocidad que países son y ping"
+        },
+        {
+          "nombre": "Bot De Millas Vuelos & Hoteles",
+          "precio": "60$",
+          "stock": 10,
+          "descripcion": "Compra cuentas de millas con acceso full para sacar tus vuelos y hoteles full estables evitando las caidas"
+        },
+        {
+          "nombre": " Números Virtuales 1 solo codigo  ",
+          "precio": "15$",
           "stock": 100,
-          "garantia": true,
-          "etiquetas": [
-            "Privado mas Info"
-          ]
+          "descripcion": "Adquiere números baratos para diversas aplicaciones y países"
+        },
+        {
+          "nombre": "Cookies Automáticas Priv",
+          "precio": "30$",
+          "stock": 20,
+          "descripcion": "Obten tus cookies por medio del bot de telegram o web por un muy bajo costo, cookies de amazon usa excelente para el testeo de tus cheker "
+        },
+        {
+          "nombre": "Accesos E-mail",
+          "precio": "50$",
+          "stock": 10,
+          "descripcion": "Distintos canales y paginas donde suben a diario distintos tipos de combolist y configuraciones para silverbullet y extraigas tus hits hotmail"
+        },
+        {
+          "nombre": "SilverBullet + Configuraciones 2026",
+          "precio": "120",
+          "stock": 10,
+          "descripcion": "Configuración avanzada para búsqueda, chequeo masivo, extractor de datos y más "
+        },
+        {
+          "nombre": "Configuracion Silver Bullet SVB",
+          "precio": "75$",
+          "stock": 5,
+          "descripcion": "Busca palabra clave, extrae pais, nombre completo, datos de nacimiento, cantidad de mensajes disponibles de palabra clave, iip, CPM alto"
+        },
+        {
+          "nombre": "Aplicacion Gmail Temporales ",
+          "precio": "15$",
+          "stock": 40,
+          "descripcion": "Gmail temporales de manera infinita, no te da acceso, te para recibir codigos, como para crear tus cuentas favoritas"
+        },
+        {
+          "nombre": "Scrappers",
+          "precio": "35$%",
+          "stock": 10,
+          "descripcion": "Privados y Publicos sobre Proxys Ccs Bins "
         }
       ]
     },
@@ -290,9 +360,9 @@
       "descripcion": "Solo grasa",
       "productos": [
         {
-          "nombre": "McDonals ",
-          "descripcion": "Videotutiajl con bins y todo los paso full ",
-          "precio": "20$",
+          "nombre": "McDonals Internacional",
+          "descripcion": "Videotutorial con bins y todo los paso full ",
+          "precio": "30$",
           "stock": 2,
           "garantia": true,
           "etiquetas": [
@@ -308,10 +378,10 @@
           "etiquetas": []
         },
         {
-          "nombre": "Acceso a CanalVIP",
-          "descripcion": "Full Info Relevante al Carding Bins Check Tutoriales Paginas Hack",
-          "precio": "80$",
-          "stock": 5,
+          "nombre": "Acceso a CanalVIP ",
+          "descripcion": "1 Mes, Configuración avanzada para búsqueda, chequeo masivo y más",
+          "precio": "50$",
+          "stock": 20,
           "garantia": true,
           "etiquetas": [
             "Acceso x6 Meses Actualizo Semanalmente"
@@ -321,7 +391,7 @@
           "nombre": "Compras Fisicas",
           "descripcion": "Meto2 + Bins y trucos",
           "precio": "$",
-          "stock": 10,
+          "stock": 0,
           "garantia": true,
           "etiquetas": [
             "Mas info al priv"
@@ -330,10 +400,16 @@
         {
           "nombre": "METODO + BIN GOOGLE PLAY 2026",
           "descripcion": "PAGANDO CON IP PROPIA SE ENTREGA METODO BIEN EXPLICADO ACTUALIZADO 2026 \nEL METODO ASOCIA CUALQUIER TARJETA SIN PROBLEMA",
-          "precio": "$50",
-          "stock": 2,
+          "precio": "$35",
+          "stock": 5,
           "garantia": true,
           "etiquetas": []
+        },
+        {
+          "nombre": "Netflix BULK 4K Premium",
+          "precio": "60$",
+          "stock": 10,
+          "descripcion": "Obten por bajo costo cuentas access (Hits) estables sin geo, 4k premium ip usa o mixtas, perfectas para la ventas mayorista o activar pantallas a precio de loco, educa a tus clientes y veras como obtendras ganancia con cuentas autopay, y no te preocupes por la garantia, no sera problema con stock de 500 o 1000 cuentas disponibles"
         }
       ]
     }
