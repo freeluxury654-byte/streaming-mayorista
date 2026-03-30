@@ -352,6 +352,18 @@
           "precio": "35$%",
           "stock": 10,
           "descripcion": "Privados y Publicos sobre Proxys Ccs Bins "
+        },
+        {
+          "nombre": "OMB 2 PRO + Pack Configuraciones OBMX SVB ",
+          "precio": "45$",
+          "stock": 5,
+          "descripcion": "Configuraciones que genera con proxy y otras con vpn, para sacar tus cuentas streaming directas con combos poderosos"
+        },
+        {
+          "nombre": "Checker VivaCom - Netflix - Crunchyroll - ClaroVideo - XviewPlusGen",
+          "precio": "30$",
+          "stock": 1,
+          "descripcion": "Genera y saca cuentas por links extraido desde combolist"
         }
       ]
     },
