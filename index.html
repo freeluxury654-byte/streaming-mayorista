@@ -4,23 +4,27 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Streaming Pro Center</title>
-  <meta name="description" content="Catálogo mayorista de streaming y productos digitales con activación inmediata, soporte y acceso rápido.">
+  <title>Streaming Pro Center | Catálogo Mayorista</title>
+  <meta name="description" content="Catálogo mayorista de streaming y productos digitales con entregas rápidas, soporte y compras por WhatsApp.">
   <meta name="theme-color" content="#0ea5e9">
   <meta name="robots" content="index,follow">
   <meta name="author" content="Streaming Pro Center">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Streaming Pro Center">
-  <meta property="og:description" content="Catálogo mayorista de servicios digitales con gestión rápida y compras por WhatsApp.">
+  <meta property="og:description" content="Catálogo mayorista premium para distribuidores y revendedores.">
+  <meta property="og:image" content="assets/logo.png">
   <meta property="og:url" content="https://freeluxury654-byte.github.io/streaming-mayorista/">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Streaming Pro Center">
-  <meta name="twitter:description" content="Catálogo mayorista de streaming y productos digitales.">
+  <meta name="twitter:description" content="Servicios digitales y streaming al mayor.">
   <link rel="icon" href='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><text y="52" font-size="52">💎</text></svg>'>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="top-bar" aria-label="Estado de la plataforma">
+  <div class="bg-glow bg-glow-1"></div>
+  <div class="bg-glow bg-glow-2"></div>
+
+  <div class="top-bar">
     <div class="top-left">🟢 Plataforma online</div>
     <div class="top-center" id="ventasLive">Cargando estadísticas...</div>
     <div class="top-right">🔒 Compra segura</div>
@@ -36,18 +40,31 @@
   <a href="https://wa.me/12494792518" target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="WhatsApp">💬</a>
 
   <div id="app">
-    <header class="header">
-      <div class="header-box">
+    <header class="hero">
+      <div class="hero-inner">
         <span class="hero-tag">💼 Catálogo mayorista</span>
-
         <h1 class="glow-title">💎 Streaming Pro Center</h1>
-
         <p class="subtitle">
-          💸 Negocio rentable • ⚡ Activación inmediata • 🚀 Escala sin límites
+          Distribuye cuentas premium, herramientas digitales y servicios de alta demanda con una presentación que inspira confianza desde el primer vistazo.
         </p>
 
+        <div class="hero-metrics" aria-label="Indicadores principales">
+          <div class="metric">
+            <strong>+120</strong>
+            <span>revendedores</span>
+          </div>
+          <div class="metric">
+            <strong>24/7</strong>
+            <span>soporte</span>
+          </div>
+          <div class="metric">
+            <strong>100%</strong>
+            <span>digital</span>
+          </div>
+        </div>
+
         <div class="info-line">
-          ⭐ 4.9/5 • +120 revendedores • 💸 <span class="live-inline" id="ventasLiveInline">cargando...</span>
+          ⭐ 4.9/5 • crecimiento constante • <span class="live-inline" id="ventasLiveInline">cargando...</span>
         </div>
 
         <p class="live-status">
@@ -69,14 +86,61 @@
       🔥 Alta demanda hoy — algunos productos se agotan rápido
     </section>
 
+    <section class="trust-strip" aria-label="Motivos de confianza">
+      <div class="trust-card">
+        <span>⚡</span>
+        <strong>Entrega rápida</strong>
+        <p>Respuesta ágil para pedidos y consultas.</p>
+      </div>
+      <div class="trust-card">
+        <span>🛡️</span>
+        <strong>Garantía</strong>
+        <p>Productos con respaldo según disponibilidad.</p>
+      </div>
+      <div class="trust-card">
+        <span>💬</span>
+        <strong>Atención directa</strong>
+        <p>Contacto inmediato por WhatsApp o Telegram.</p>
+      </div>
+      <div class="trust-card">
+        <span>📦</span>
+        <strong>Mayorista</strong>
+        <p>Precios orientados a distribución y reventa.</p>
+      </div>
+    </section>
+
     <main>
+      <section class="banner-ofertas">🔥 OFERTAS MAYORISTAS • STOCK ACTUALIZADO • PRECIOS PARA REVENDEDORES</section>
+
       <section class="catalog-shell" aria-labelledby="catalog-title">
         <div class="catalog-head">
-          <h2 id="catalog-title">🛒 Catálogo</h2>
-          <p>Explora categorías, revisa stock y compra en WhatsApp sin fricción.</p>
+          <div>
+            <h2 id="catalog-title">🛒 Catálogo</h2>
+            <p>Explora categorías, revisa stock y compra sin fricción.</p>
+          </div>
+          <div class="catalog-pill-group">
+            <span class="catalog-pill">✨ Diseño premium</span>
+            <span class="catalog-pill">📈 Enfoque conversión</span>
+            <span class="catalog-pill">📱 Responsive total</span>
+          </div>
         </div>
 
         <section id="catalogo"></section>
+      </section>
+
+      <section class="promise-grid" aria-label="Promesa de marca">
+        <article class="promise-card">
+          <h3>¿Por qué se ve mejor?</h3>
+          <p>Porque la compra digital necesita confianza visual: jerarquía, contraste, aire, CTA claros y una presentación que parezca una plataforma seria.</p>
+        </article>
+        <article class="promise-card">
+          <h3>¿Qué no tocamos?</h3>
+          <p>No cambiamos tu motor actual. El administrador, el JSON y la exportación siguen funcionando con el mismo flujo.</p>
+        </article>
+        <article class="promise-card">
+          <h3>¿Qué cambia?</h3>
+          <p>La primera impresión: encabezado, tarjetas, espaciado, color y microinteracciones para vender mejor antes del pago.</p>
+        </article>
       </section>
     </main>
   </div>
@@ -119,7 +183,6 @@
       const div = document.createElement("div");
       div.className = "noti";
       div.textContent = mensajes[Math.floor(Math.random() * mensajes.length)];
-
       contenedor.appendChild(div);
 
       requestAnimationFrame(() => div.classList.add("show"));
