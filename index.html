@@ -1,118 +1,136 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<title>Streaming Pro Center</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Streaming Pro Center - Catálogo mayorista de servicios de streaming y productos digitales.">
-<meta name="theme-color" content="#0ea5e9">
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Streaming Pro Center</title>
+  <meta name="description" content="Catálogo mayorista de streaming y productos digitales con activación inmediata, soporte y acceso rápido.">
+  <meta name="theme-color" content="#0ea5e9">
+  <meta name="robots" content="index,follow">
+  <meta name="author" content="Streaming Pro Center">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Streaming Pro Center">
+  <meta property="og:description" content="Catálogo mayorista de servicios digitales con gestión rápida y compras por WhatsApp.">
+  <meta property="og:url" content="https://freeluxury654-byte.github.io/streaming-mayorista/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Streaming Pro Center">
+  <meta name="twitter:description" content="Catálogo mayorista de streaming y productos digitales.">
+  <link rel="icon" href='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><text y="52" font-size="52">💎</text></svg>'>
+  <link rel="stylesheet" href="style.css">
 </head>
-<!-- 🔥 BOTÓN TELEGRAM FLOTANTE -->
-
-  
 <body>
-<div class="telegram-float">
-
-  <div class="telegram-tooltip">
-    🚀 Pruebas reales • 💸 Clientes activos • 📈 Resultados
+  <div class="top-bar" aria-label="Estado de la plataforma">
+    <div class="top-left">🟢 Plataforma online</div>
+    <div class="top-center" id="ventasLive">Cargando estadísticas...</div>
+    <div class="top-right">🔒 Compra segura</div>
   </div>
 
-  <a href="https://t.me/referenciasvip2026" target="_blank" class="telegram-btn">
-    📢
-  </a>
-
-</div>
-
-
-<div id="app">
-
-<header class="header">
-  <div class="header-box">
-
-    <h1 class="glow-title">💎 Streaming Pro Center</h1>
-
-    <p class="subtitle">
-      💸 Negocio rentable • ⚡ Activación inmediata • 🚀 Escala sin límites
-    </p>
-
-    <!-- ⭐ INFO LIMPIA -->
-    <div class="info-line">
-      ⭐ 4.9/5 • +120 revendedores • 💸 <span id="ventasLive"></span>
+  <div class="telegram-float">
+    <div class="telegram-tooltip">
+      🚀 Pruebas reales • 💸 Clientes activos • 📈 Resultados
     </div>
-
-    <!-- STATUS -->
-    <p class="live-status">
-      🟢 Sistema activo • Usuarios comprando ahora
-    </p>
-
-    <!-- CTA -->
-    <div class="header-actions">
-      <a href="https://wa.me/12494792518" class="cta">🔥 Comprar ahora</a>
-      <button id="btnAdmin">🔐 Admin</button>
-    </div>
-
-    <!-- INFO FINAL -->
-    <p class="mini-info">
-      ✔ Acceso inmediato • 🛡️ Garantía • 💬 Soporte • 🔒 Pago seguro
-    </p>
-
+    <a href="https://t.me/referenciasvip2026" target="_blank" rel="noopener noreferrer" class="telegram-btn" aria-label="Telegram">📢</a>
   </div>
-</header>
 
-<section class="urgencia">
-🔥 Alta demanda hoy — algunos productos se agotan rápido
-</section>
+  <a href="https://wa.me/12494792518" target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="WhatsApp">💬</a>
 
-<section id="catalogo"></section>
+  <div id="app">
+    <header class="header">
+      <div class="header-box">
+        <span class="hero-tag">💼 Catálogo mayorista</span>
 
-</div>
+        <h1 class="glow-title">💎 Streaming Pro Center</h1>
 
-<div id="noti-container"></div>
+        <p class="subtitle">
+          💸 Negocio rentable • ⚡ Activación inmediata • 🚀 Escala sin límites
+        </p>
 
-<script src="public.js"></script>
+        <div class="info-line">
+          ⭐ 4.9/5 • +120 revendedores • 💸 <span class="live-inline" id="ventasLiveInline">cargando...</span>
+        </div>
 
-<script>
-let pedidos = Math.floor(Math.random() * 10) + 30; // base realista
-let usuarios = Math.floor(Math.random() * 5) + 5;
+        <p class="live-status">
+          🟢 Sistema activo • Usuarios comprando ahora
+        </p>
 
-function actualizarVentas() {
+        <div class="header-actions">
+          <a href="https://wa.me/12494792518" class="cta" target="_blank" rel="noopener noreferrer">🔥 Comprar ahora</a>
+          <button id="btnAdmin" type="button">🔐 Admin</button>
+        </div>
 
-  // pequeños cambios (más real)
-  pedidos += Math.floor(Math.random() * 3); // sube lento
-  usuarios += Math.floor(Math.random() * 2) - 1; // sube/baja
+        <p class="mini-info">
+          ✔ Acceso inmediato • 🛡️ Garantía • 💬 Soporte • 🔒 Pago seguro
+        </p>
+      </div>
+    </header>
 
-  if (usuarios < 3) usuarios = 3; // mínimo
+    <section class="urgencia" aria-label="Aviso de alta demanda">
+      🔥 Alta demanda hoy — algunos productos se agotan rápido
+    </section>
 
-  document.getElementById("ventasLive").innerHTML =
-    pedidos + " pedidos hoy • " + usuarios + " usuarios ahora";
-}
+    <main>
+      <section class="catalog-shell" aria-labelledby="catalog-title">
+        <div class="catalog-head">
+          <h2 id="catalog-title">🛒 Catálogo</h2>
+          <p>Explora categorías, revisa stock y compra en WhatsApp sin fricción.</p>
+        </div>
 
-/* ⏱️ CAMBIO MÁS LENTO */
-setInterval(actualizarVentas, 12000); // cada 12 segundos
-actualizarVentas();
-</script>
+        <section id="catalogo"></section>
+      </section>
+    </main>
+  </div>
 
-const mensajes = [
-  "🔥 Producto en tendencia",
-  "⚡ Alta demanda ahora mismo",
-  "📈 Nuevo pedido realizado",
-  "💸 Cliente compró Netflix",
-  "🚀 Venta confirmada"
-];
+  <div id="noti-container" aria-live="polite" aria-atomic="true"></div>
 
-setInterval(() => {
-  const div = document.createElement("div");
-  div.className = "noti";
+  <script src="public.js"></script>
+  <script>
+    let pedidos = Math.floor(Math.random() * 10) + 30;
+    let usuarios = Math.floor(Math.random() * 5) + 5;
 
-  const msg = mensajes[Math.floor(Math.random() * mensajes.length)];
-  div.innerHTML = msg;
+    function actualizarVentas() {
+      pedidos += Math.floor(Math.random() * 3);
+      usuarios += Math.floor(Math.random() * 2) - 1;
+      if (usuarios < 3) usuarios = 3;
 
-  document.getElementById("noti-container").appendChild(div);
+      const texto = pedidos + " pedidos hoy • " + usuarios + " usuarios ahora";
+      const live = document.getElementById("ventasLive");
+      const liveInline = document.getElementById("ventasLiveInline");
 
-  setTimeout(() => div.remove(), 4000);
-}, 5000);
-</script>
+      if (live) live.textContent = texto;
+      if (liveInline) liveInline.textContent = texto;
+    }
 
+    actualizarVentas();
+    setInterval(actualizarVentas, 12000);
+
+    const mensajes = [
+      "🔥 Producto en tendencia",
+      "⚡ Alta demanda ahora mismo",
+      "📈 Nuevo pedido realizado",
+      "💸 Cliente compró Netflix",
+      "🚀 Venta confirmada"
+    ];
+
+    function crearNotificacion() {
+      const contenedor = document.getElementById("noti-container");
+      if (!contenedor) return;
+
+      const div = document.createElement("div");
+      div.className = "noti";
+      div.textContent = mensajes[Math.floor(Math.random() * mensajes.length)];
+
+      contenedor.appendChild(div);
+
+      requestAnimationFrame(() => div.classList.add("show"));
+
+      setTimeout(() => {
+        div.classList.remove("show");
+        setTimeout(() => div.remove(), 350);
+      }, 4000);
+    }
+
+    setInterval(crearNotificacion, 5000);
+  </script>
 </body>
 </html>
